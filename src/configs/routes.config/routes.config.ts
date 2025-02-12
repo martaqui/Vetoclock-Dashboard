@@ -21,37 +21,46 @@ export const protectedRoutes: Routes = [
     },
     {
         key: 'collapseMenu.item1',
-        path: '/collapse-menu-item-view-1',
-        component: lazy(() => import('@/views/demo/CollapseMenuItemView1')),
+        path: '/ventas-historico-anual',
+        component: lazy(() => import('@/views/demo/VentasHistoricoAnual')),
         authority: [],
     },
     {
         key: 'collapseMenu.item2',
-        path: '/collapse-menu-item-view-2',
-        component: lazy(() => import('@/views/demo/CollapseMenuItemView2')),
+        path: '/ventas-ultimos-dos-meses',
+        component: lazy(() => import('@/views/demo/VentasUltimosDosMeses')),
         authority: [],
     },
     {
-        key: 'groupMenu.single',
-        path: '/group-single-menu-item-view',
-        component: lazy(() => import('@/views/demo/GroupSingleMenuItemView')),
+        key: 'collapseMenu.item3',
+        path: '/ventas-por-cliente',
+        component: lazy(() => import('@/views/demo/VentasPorCliente')),
         authority: [],
     },
     {
-        key: 'groupMenu.collapse.item1',
-        path: '/group-collapse-menu-item-view-1',
-        component: lazy(
-            () => import('@/views/demo/GroupCollapseMenuItemView1'),
-        ),
+        key: 'collapseMenu.item3',
+        path: '/casos-historico-anual',
+        component: lazy(() => import('@/views/demo/CasosHistoricoAnual')),
         authority: [],
     },
     {
-        key: 'groupMenu.collapse.item2',
-        path: '/group-collapse-menu-item-view-2',
-        component: lazy(
-            () => import('@/views/demo/GroupCollapseMenuItemView2'),
-        ),
+        key: 'collapseMenu.item4',
+        path: '/tipos-de-caso',
+        component: lazy(() => import('@/views/demo/TiposDeCaso')),
         authority: [],
     },
+    {
+        key: 'collapseMenu.item5',
+        path: '/casos-ultimos-dos-meses',
+        component: lazy(() => import('@/views/demo/CasosUltimosDosMeses')),
+        authority: [],
+    },
+    {
+        key: 'collapseMenu.item6', // Puedes poner cualquier clave única
+        path: '/ventas-historicas-mesanio', // Esta es la URL a la que navegarás
+        component: lazy(() => import('@/views/demo/VentasHistoricasMesAnio')), // Importa tu componente
+        authority: [],
+    },
+
     ...othersRoute,
 ]
