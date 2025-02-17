@@ -29,6 +29,7 @@
     "@tiptap/react": "^2.10.4",
     "@tiptap/starter-kit": "^2.10.4",
     "@visx/pattern": "^3.13.0-alpha.0",
+    "apexcharts": "^4.4.0",
     "axios": "^1.7.7",
     "axios-mock-adapter": "^2.0.0",
     "chartjs-adapter-date-fns": "^3.0.0",
