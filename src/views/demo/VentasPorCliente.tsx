@@ -56,6 +56,14 @@ const VentasPorCliente = () => {
                             type: 'pie',
                             width: 'auto', // Ajuste dinámico
                         },
+                        plotOptions: {
+                            pie: {
+                                expandOnClick: true,
+                                donut: {
+                                    size: '0%', // Cutout en 0
+                                },
+                            },
+                        },
                         labels: labels,
                         colors: colors,
                         responsive: [
@@ -84,8 +92,6 @@ const VentasPorCliente = () => {
                         },
                         legend: {
                             position: 'right',
-                            offsetY: 25,
-                            width: 290,
                         },
                     },
 

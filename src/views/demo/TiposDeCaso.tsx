@@ -34,7 +34,6 @@ interface ChartData {
     width?: string | number
     height?: string | number
     options?: ApexOptions
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any
 }
 
@@ -55,9 +54,26 @@ const TiposDeCaso = () => {
                         chart: {
                             type: 'pie',
                         },
+                        plotOptions: {
+                            pie: {
+                                expandOnClick: true,
+                                donut: {
+                                    size: '0%', // Cutout en 0
+                                },
+                            },
+                        },
+                        tooltip: {
+                            theme: 'dark', // Aplica un tema oscuro
+                            style: {
+                                fontSize: '14px',
+                            },
+                            fillSeriesColor: false, // Usa los colores personalizados
+                            marker: {
+                                show: true, // Muestra el indicador de color
+                            },
+                        },
                         labels: labels,
                         colors: colors,
-
                         responsive: [
                             {
                                 breakpoint: 480,
@@ -66,15 +82,15 @@ const TiposDeCaso = () => {
                                         width: 200, // Ajuste de tamaño para pantallas pequeñas
                                     },
                                     legend: {
-                                        position: 'bottom', // Colocación de la leyenda
+                                        position: 'bottom',
                                     },
                                 },
                             },
                         ],
                         title: {
-                            text: 'Tipos de  caso:',
-                            align: 'left', // Mueve el título a la izquierda
-                            offsetX: 10, // Ajusta el desplazamiento si es necesario
+                            text: 'Tipos de caso:',
+                            align: 'left',
+                            offsetX: 10,
                             style: {
                                 fontSize: '25px',
                                 fontWeight: 'bold',
@@ -82,10 +98,10 @@ const TiposDeCaso = () => {
                             },
                         },
                         legend: {
-                            position: 'right', // Posición de la leyenda
+                            position: 'right',
                         },
                     },
-                    series: series, // Los datos del gráfico
+                    series: series,
                 })
             })
             .catch((error) => console.error('Error loading JSON data:', error))
