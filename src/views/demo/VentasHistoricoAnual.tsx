@@ -10,7 +10,6 @@ import {
     Tooltip,
     Legend,
     ChartOptions,
-    TooltipItem,
 } from 'chart.js'
 import { useNavigate } from 'react-router-dom'
 import { COLORS } from '@/constants/chart.constant'
@@ -26,29 +25,48 @@ ChartJS.register(
     Legend,
 )
 
+interface ChartDataItem {
+    x: string // La etiqueta del eje X
+    y: string // El valor en el eje Y
+}
+
+interface ChartData {
+    labels: string[]
+    datasets: {
+        label: string
+        data: number[]
+        borderColor: string
+        backgroundColor: string
+        borderWidth: number
+        tension: number
+    }[]
+}
+
 const VentasHistoricoAnual = () => {
-    const [chartData, setChartData] = useState<any>(null)
+    const [chartData, setChartData] = useState<ChartData | null>(null)
+
     const navigate = useNavigate()
 
     useEffect(() => {
         fetch('/data/ventas_dataset_anual.json')
             .then((response) => response.json())
             .then((data) => {
-                setChartData({
-                    labels: data.data.map((item: { x: string }) => item.x),
+                const chartData: ChartData = {
+                    labels: data.data.map((item: ChartDataItem) => item.x),
                     datasets: [
                         {
                             label: 'Ventas Anuales',
-                            data: data.data.map((item: { y: string }) =>
+                            data: data.data.map((item: ChartDataItem) =>
                                 parseFloat(item.y),
                             ),
-                            borderColor: COLORS[0], // Mantiene el mismo color que en ApexCharts
+                            borderColor: COLORS[0],
                             backgroundColor: 'transparent',
                             borderWidth: 3,
-                            tension: 0.3, // Hace la línea más fluida
+                            tension: 0.3,
                         },
                     ],
-                })
+                }
+                setChartData(chartData)
             })
             .catch((error) => console.error('Error cargando JSON:', error))
     }, [])
@@ -71,23 +89,18 @@ const VentasHistoricoAnual = () => {
                 position: 'top',
                 labels: { usePointStyle: true },
             },
-            tooltip: {
-                callbacks: {
-                    label: (tooltipItem: TooltipItem<'line'>) => {
-                        return `${tooltipItem.label}: ${tooltipItem.raw.toLocaleString(
-                            'es-ES',
-                            {
-                                style: 'currency',
-                                currency: 'EUR',
-                            },
-                        )}`
-                    },
-                },
-            },
         },
         scales: {
-            x: { grid: { drawBorder: false } },
-            y: { grid: { drawBorder: false } },
+            x: {
+                grid: {
+                    color: 'transparent', // Usar color en lugar de borderColor
+                },
+            },
+            y: {
+                grid: {
+                    color: 'transparent', // Usar color en lugar de borderColor
+                },
+            },
         },
     }
 

@@ -1,10 +1,26 @@
 import { useState, useEffect } from 'react'
 import Chart from 'react-apexcharts'
 import { COLORS } from '@/constants/chart.constant'
+import { ApexOptions } from 'apexcharts'
+
+// Define types
+interface DataPoint {
+    x: string
+    y: number
+}
+
+interface Dataset {
+    label: string
+    data: DataPoint[]
+}
+
+interface FetchedData {
+    datasets: Dataset[]
+}
 
 const VentasUltimosDosMeses = () => {
     const [chartData, setChartData] = useState<{
-        series: any[]
+        series: { name: string; data: number[]; color: string }[]
         categories: string[]
     }>({
         series: [],
@@ -14,13 +30,15 @@ const VentasUltimosDosMeses = () => {
     useEffect(() => {
         fetch('/data/ingresos_ultimos_dos_meses.json')
             .then((response) => response.json())
-            .then((data) => {
-                const labels = data.datasets[0].data.map((item: any) => item.x)
+            .then((data: FetchedData) => {
+                const labels = data.datasets[0].data.map(
+                    (item: DataPoint) => item.x,
+                )
                 const series = data.datasets.map(
-                    (dataset: any, index: number) => ({
+                    (dataset: Dataset, index: number) => ({
                         name: dataset.label,
-                        data: dataset.data.map((item: any) => item.y),
-                        color: COLORS[index], // Usa colores predefinidos
+                        data: dataset.data.map((item: DataPoint) => item.y),
+                        color: COLORS[index],
                     }),
                 )
 
@@ -29,17 +47,17 @@ const VentasUltimosDosMeses = () => {
             .catch((error) => console.error('Error loading JSON data:', error))
     }, [])
 
-    const options = {
+    const options: ApexOptions = {
         chart: {
             type: 'line',
             zoom: { enabled: false },
         },
-        colors: [COLORS[0], COLORS[1]], // Solo dos colores
+        colors: [COLORS[0], COLORS[1]],
         dataLabels: { enabled: false },
         stroke: {
-            width: [3, 3], // Mismo grosor para ambas líneas
+            width: [3, 3],
             curve: 'straight',
-            dashArray: [0, 0], // Sin líneas punteadas
+            dashArray: [0, 0],
         },
         markers: { size: 4 },
         legend: { position: 'top' },

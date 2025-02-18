@@ -21,7 +21,7 @@ export default defineConfig({
             },
         },
     },
-    base: '/vetoclock-dashboard/',
+    base: '/',
     build: {
         outDir: 'dist',
     },
