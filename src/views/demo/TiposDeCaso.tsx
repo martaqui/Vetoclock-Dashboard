@@ -72,7 +72,7 @@ const TiposDeCaso = () => {
                             },
                         ],
                         title: {
-                            text: 'Tipos de  caso',
+                            text: 'Tipos de  caso:',
                             align: 'left', // Mueve el título a la izquierda
                             offsetX: 10, // Ajusta el desplazamiento si es necesario
                             style: {

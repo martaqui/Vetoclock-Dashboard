@@ -13,6 +13,7 @@ import {
     TooltipItem,
 } from 'chart.js'
 import { useNavigate } from 'react-router-dom'
+import { COLORS } from '@/constants/chart.constant'
 
 // Registrar los componentes de Chart.js
 ChartJS.register(
@@ -25,20 +26,8 @@ ChartJS.register(
     Legend,
 )
 
-interface ChartData {
-    labels: string[]
-    datasets: {
-        label: string
-        data: number[]
-        backgroundColor: string
-        borderColor: string
-        borderWidth: number
-        fill: boolean
-    }[]
-}
-
 const VentasHistoricoAnual = () => {
-    const [chartData, setChartData] = useState<ChartData | null>(null)
+    const [chartData, setChartData] = useState<any>(null)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -46,20 +35,17 @@ const VentasHistoricoAnual = () => {
             .then((response) => response.json())
             .then((data) => {
                 setChartData({
-                    labels: data.data.map(
-                        (item: { x: string; y: string }) => item.x,
-                    ),
+                    labels: data.data.map((item: { x: string }) => item.x),
                     datasets: [
                         {
                             label: 'Ventas Anuales',
-                            data: data.data.map(
-                                (item: { x: string; y: string }) =>
-                                    parseFloat(item.y),
+                            data: data.data.map((item: { y: string }) =>
+                                parseFloat(item.y),
                             ),
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 2,
-                            fill: false,
+                            borderColor: COLORS[0], // Mantiene el mismo color que en ApexCharts
+                            backgroundColor: 'transparent',
+                            borderWidth: 3,
+                            tension: 0.3, // Hace la línea más fluida
                         },
                     ],
                 })
@@ -68,26 +54,22 @@ const VentasHistoricoAnual = () => {
     }, [])
 
     if (!chartData) {
-        return <div>Cargando...</div>
+        return <div className="text-center py-4">Cargando...</div>
     }
 
-    // Definir opciones del gráfico con tipado correcto
+    // Opciones del gráfico
     const options: ChartOptions<'line'> = {
         responsive: true,
         plugins: {
             title: {
                 display: true,
-                text: 'Ventas Históricas Anuales', // Aquí defines el título
-                font: {
-                    size: 18,
-                },
-                padding: {
-                    top: 10,
-                    bottom: 10,
-                },
+                text: 'Ventas Históricas Anuales',
+                font: { size: 18 },
+                padding: { top: 10, bottom: 10 },
             },
             legend: {
                 position: 'top',
+                labels: { usePointStyle: true },
             },
             tooltip: {
                 callbacks: {
@@ -103,12 +85,20 @@ const VentasHistoricoAnual = () => {
                 },
             },
         },
+        scales: {
+            x: { grid: { drawBorder: false } },
+            y: { grid: { drawBorder: false } },
+        },
     }
-    const handleClick = () => {
-        navigate('/ventas-historicas-mesanio')
-    }
+
     return (
-        <div onClick={handleClick}>
+        <div
+            className="p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-all"
+            onClick={() => navigate('/ventas-historicas-mesanio')}
+        >
+            <h2 className="text-lg font-bold mb-4">
+                Ventas Históricas Anuales
+            </h2>
             <Line data={chartData} options={options} />
         </div>
     )

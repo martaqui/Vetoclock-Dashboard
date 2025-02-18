@@ -54,27 +54,28 @@ const VentasPorCliente = () => {
                     options: {
                         chart: {
                             type: 'pie',
+                            width: 'auto', // Ajuste dinámico
                         },
                         labels: labels,
                         colors: colors,
-
                         responsive: [
                             {
-                                breakpoint: 480,
+                                breakpoint: 1024,
                                 options: {
                                     chart: {
-                                        width: 200, // Ajuste de tamaño para pantallas pequeñas
+                                        width: '90%',
                                     },
                                     legend: {
-                                        position: 'bottom', // Colocación de la leyenda
+                                        position: 'bottom',
                                     },
                                 },
                             },
                         ],
                         title: {
-                            text: 'Ventas por cliente',
-                            align: 'left', // Mueve el título a la izquierda
-                            offsetX: 10, // Ajusta el desplazamiento si es necesario
+                            text: 'Ventas por cliente:',
+                            align: 'left',
+                            offsetX: 10,
+                            offsetY: 10,
                             style: {
                                 fontSize: '25px',
                                 fontWeight: 'bold',
@@ -83,10 +84,11 @@ const VentasPorCliente = () => {
                         },
                         legend: {
                             position: 'right',
-                            width: 180, // Reducir ancho de leyenda para dar más espacio al gráfico
-                            fontSize: '12px',
+                            offsetY: 25,
+                            width: 290,
                         },
                     },
+
                     dataLabels: {
                         enabled: true,
                         formatter: (val: number) => `${val.toFixed(1)}%`, // Siempre muestra al menos un decimal
@@ -119,8 +121,7 @@ const VentasPorCliente = () => {
         <Chart
             options={chartData.options}
             series={chartData.series}
-            height={650}
-            width={1100}
+            height={590}
             type="pie"
         />
     )

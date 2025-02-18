@@ -89,7 +89,7 @@ const SignInForm = (props: SignInFormProps) => {
                     />
                 </FormItem>
                 <FormItem
-                    label="Password"
+                    label="Contraseña"
                     invalid={Boolean(errors.password)}
                     errorMessage={errors.password?.message}
                     className={classNames(
@@ -118,7 +118,7 @@ const SignInForm = (props: SignInFormProps) => {
                     variant="solid"
                     type="submit"
                 >
-                    {isSubmitting ? 'Signing in...' : 'Sign In'}
+                    {isSubmitting ? 'Iniciando sesión...' : 'Inicia Sesión'}
                 </Button>
             </Form>
         </div>
