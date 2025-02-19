@@ -1,29 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Line } from 'react-chartjs-2'
-
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-    ChartOptions,
-    TooltipItem,
-} from 'chart.js'
+import Chart from 'react-apexcharts'
+import { COLORS } from '@/constants/chart.constant'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-)
 
 const monthsTranslations = {
     Enero: 'January',
@@ -40,26 +18,16 @@ const monthsTranslations = {
     Diciembre: 'December',
 }
 
-// Tipos para los datos del JSON y el estado
 interface DataItem {
     x: string // Mes y año (e.g., 'Enero 2016')
     y: string // Valor de la venta en formato string (e.g., "1833.15")
 }
 
-interface ChartData {
-    labels: string[]
-    datasets: {
-        label: string
-        data: number[]
-        backgroundColor: string
-        borderColor: string
-        borderWidth: number
-        fill: boolean
-    }[]
-}
-
 const VentasHistoricasMesAnio = () => {
-    const [chartData, setChartData] = useState<ChartData | null>(null)
+    const [chartData, setChartData] = useState<
+        { name: string; data: number[] }[]
+    >([])
+    const [categories, setCategories] = useState<string[]>([])
     const [startDate, setStartDate] = useState<Date | null>(null)
     const [endDate, setEndDate] = useState<Date | null>(null)
     const [selectedYear, setSelectedYear] = useState<string>('')
@@ -72,12 +40,10 @@ const VentasHistoricasMesAnio = () => {
                     (item) => {
                         const itemMonth = item.x.split(' ')[0]
                         const itemYear = item.x.split(' ')[1]
-
                         const translatedMonth =
                             monthsTranslations[
                                 itemMonth as keyof typeof monthsTranslations
                             ]
-
                         const itemDate = new Date(
                             `${translatedMonth} ${itemYear}`,
                         )
@@ -88,21 +54,13 @@ const VentasHistoricasMesAnio = () => {
                     },
                 )
 
-                setChartData({
-                    labels: filteredData.map((item) => item.x),
-                    datasets: [
-                        {
-                            label: 'Dataset 1',
-                            data: filteredData.map((item) =>
-                                parseFloat(item.y),
-                            ), // Convertir a número
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1,
-                            fill: false,
-                        },
-                    ],
-                })
+                setCategories(filteredData.map((item) => item.x))
+                setChartData([
+                    {
+                        name: 'Ventas',
+                        data: filteredData.map((item) => parseFloat(item.y)),
+                    },
+                ])
             })
             .catch((error) => console.error('Error loading JSON data:', error))
     }, [startDate, endDate])
@@ -111,36 +69,14 @@ const VentasHistoricasMesAnio = () => {
         const year = event.target.value
         if (year !== '--') {
             const newYear = parseInt(year, 10)
-            const newStartDate = new Date(newYear, 0) // Enero
-            const newEndDate = new Date(newYear, 11, 31) // Diciembre 31
             setSelectedYear(newYear.toString())
-            setStartDate(newStartDate)
-            setEndDate(newEndDate)
+            setStartDate(new Date(newYear, 0))
+            setEndDate(new Date(newYear, 11, 31))
         } else {
             setSelectedYear(year)
             setStartDate(null)
             setEndDate(null)
         }
-    }
-
-    if (!chartData) {
-        return <div>Loading...</div>
-    }
-
-    const options: ChartOptions<'line'> = {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            tooltip: {
-                callbacks: {
-                    label: (tooltipItem: TooltipItem<'line'>) => {
-                        return `${tooltipItem.label}: ${tooltipItem.raw}`
-                    },
-                },
-            },
-        },
     }
 
     return (
@@ -153,7 +89,36 @@ const VentasHistoricasMesAnio = () => {
                 setEndDate={setEndDate}
                 handleYearChange={handleYearChange}
             />
-            <Line data={chartData} options={options} />
+            <Chart
+                options={{
+                    chart: {
+                        type: 'line',
+                        zoom: { enabled: false },
+                    },
+
+                    colors: [...COLORS],
+                    dataLabels: { enabled: false },
+                    stroke: {
+                        width: 3,
+                        curve: 'smooth',
+                        dashArray: [0],
+                    },
+                    xaxis: {
+                        categories: categories,
+                    },
+                    tooltip: {
+                        x: {
+                            format: 'MMMM yyyy', // Formato para mostrar Mes y Año
+                        },
+                        y: {
+                            formatter: (val: number) => `$${val.toFixed(2)}`,
+                        },
+                    },
+                    grid: { borderColor: '#f1f1f1' },
+                }}
+                series={chartData}
+                height={300}
+            />
         </div>
     )
 }

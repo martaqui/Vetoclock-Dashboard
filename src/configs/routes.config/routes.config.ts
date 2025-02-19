@@ -61,6 +61,14 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/demo/VentasHistoricasMesAnio')), // Importa tu componente
         authority: [],
     },
+    {
+        key: 'collapseMenu.item6', // Puedes poner cualquier clave única
+        path: '/casos_historico_anual_mes_anio', // Esta es la URL a la que navegarás
+        component: lazy(
+            () => import('@/views/demo/CasosHistoricoAnualMesAnio'),
+        ), // Importa tu componente
+        authority: [],
+    },
 
     ...othersRoute,
 ]

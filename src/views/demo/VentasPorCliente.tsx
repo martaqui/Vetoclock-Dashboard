@@ -64,6 +64,16 @@ const VentasPorCliente = () => {
                                 },
                             },
                         },
+                        tooltip: {
+                            theme: 'dark', // Aplica un tema oscuro
+                            style: {
+                                fontSize: '14px',
+                            },
+                            fillSeriesColor: false, // Usa los colores personalizados
+                            marker: {
+                                show: true, // Muestra el indicador de color
+                            },
+                        },
                         labels: labels,
                         colors: colors,
                         responsive: [
