@@ -19,35 +19,35 @@ type FooterProps = {
 
 const FooterContent = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full items-center px-4 py-4 md:py-6">
             {/* Logo */}
             <div className="flex justify-center md:justify-start">
                 <img
                     src="https://www.vetoclock.com/images/header/mobile_logo.svg"
                     alt="Logo"
-                    width={100}
-                    height={100}
+                    width={80} // Reduje tamaño para móviles
+                    height={80}
                     className="footer-logo"
                 />
             </div>
 
             {/* Contacto */}
-            <div className="flex flex-col items-center md:items-start space-y-0">
-                <div className="flex items-center space-x-2">
+            <div className="flex flex-col items-center md:items-start space-y-2">
+                <div className="flex items-center space-x-2 text-sm md:text-base">
                     <FontAwesomeIcon
                         icon={faPhoneAlt}
                         className="text-gray-600"
                     />
                     <span className="text-gray-700">+34 637 00 13 43</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 text-sm md:text-base">
                     <FontAwesomeIcon
                         icon={faWhatsapp}
                         className="text-gray-600"
                     />
                     <span className="text-gray-700">+34 637 00 13 43</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 text-sm md:text-base">
                     <FontAwesomeIcon
                         icon={faEnvelope}
                         className="text-gray-600"
@@ -57,8 +57,8 @@ const FooterContent = () => {
             </div>
 
             {/* Redes sociales */}
-            <div className="flex flex-col items-center md:items-center space-y-4">
-                <div className="flex space-x-4">
+            <div className="flex flex-col items-center md:items-end space-y-3">
+                <div className="flex space-x-3">
                     <a
                         href="https://www.instagram.com/vetoclock/"
                         target="_blank"
@@ -66,7 +66,7 @@ const FooterContent = () => {
                     >
                         <FontAwesomeIcon
                             icon={faInstagram}
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 hover:text-gray-900 text-lg"
                         />
                     </a>
                     <a
@@ -76,7 +76,7 @@ const FooterContent = () => {
                     >
                         <FontAwesomeIcon
                             icon={faFacebookF}
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 hover:text-gray-900 text-lg"
                         />
                     </a>
                     <a
@@ -86,11 +86,11 @@ const FooterContent = () => {
                     >
                         <FontAwesomeIcon
                             icon={faLinkedinIn}
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 hover:text-gray-900 text-lg"
                         />
                     </a>
                 </div>
-                <div className="flex space-x-2 text-gray-600 text-sm">
+                <div className="flex flex-wrap justify-center md:justify-end space-x-2 text-gray-600 text-xs md:text-sm">
                     <a
                         href="https://www.vetoclock.com/politica-de-privacidad"
                         target="_blank"
@@ -119,7 +119,7 @@ export default function Footer({
     return (
         <footer
             className={classNames(
-                `footer bg-white text-black flex flex-auto items-center h-20 ${PAGE_CONTAINER_GUTTER_X}`,
+                `footer bg-white text-black flex flex-auto items-center ${PAGE_CONTAINER_GUTTER_X} w-full`,
                 className,
             )}
         >
