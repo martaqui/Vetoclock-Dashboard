@@ -34,59 +34,36 @@ interface ChartData {
     width?: string | number
     height?: string | number
     options?: ApexOptions
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any
 }
 
 const TiposDeCaso = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null)
-
     useEffect(() => {
         fetch('/data/tipos_de_casos.json')
             .then((response) => response.json())
             .then((data: TiposDeCasosData) => {
-                const labels = data.data
-                    .map((item) => item.x)
-                    .filter((label) => label !== null) as string[]
-                const series = data.data.map((item) => item.y)
+                // Ordenar los datos de mayor a menor según 'y'
+                const sortedData = data.data
+                    .filter((item) => item.x !== null) // Filtrar nulos
+                    .sort((a, b) => b.y - a.y) // Ordenar de mayor a menor
+
+                const labels = sortedData.map((item) => item.x) as string[]
+                const series = sortedData.map((item) => item.y)
                 const colors = data.colors
+
                 setChartData({
                     options: {
                         chart: {
                             type: 'pie',
+                            width: 'auto',
                         },
-                        plotOptions: {
-                            pie: {
-                                expandOnClick: true,
-                                donut: {
-                                    size: '0%', // Cutout en 0
-                                },
-                            },
-                        },
-                        tooltip: {
-                            theme: 'dark', // Aplica un tema oscuro
-                            style: {
-                                fontSize: '14px',
-                            },
-                            fillSeriesColor: false, // Usa los colores personalizados
-                            marker: {
-                                show: true, // Muestra el indicador de color
-                            },
-                        },
-                        labels: labels,
+                        labels: labels, // Ahora en orden
                         colors: colors,
-                        responsive: [
-                            {
-                                breakpoint: 480,
-                                options: {
-                                    chart: {
-                                        width: 200, // Ajuste de tamaño para pantallas pequeñas
-                                    },
-                                    legend: {
-                                        position: 'bottom',
-                                    },
-                                },
-                            },
-                        ],
+                        legend: {
+                            position: 'right',
+                        },
                         title: {
                             text: 'Tipos de caso:',
                             align: 'left',
@@ -97,11 +74,23 @@ const TiposDeCaso = () => {
                                 color: '#000000',
                             },
                         },
-                        legend: {
-                            position: 'right',
+                        tooltip: {
+                            theme: 'dark',
+                            style: { fontSize: '14px' },
+                            fillSeriesColor: false,
+                            marker: { show: true },
                         },
+                        responsive: [
+                            {
+                                breakpoint: 480,
+                                options: {
+                                    chart: { width: 200 },
+                                    legend: { position: 'bottom' },
+                                },
+                            },
+                        ],
                     },
-                    series: series,
+                    series: series, // Ahora en orden
                 })
             })
             .catch((error) => console.error('Error loading JSON data:', error))

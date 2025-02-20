@@ -3,6 +3,11 @@ import { Card, Segment } from '@/components/ui'
 import Chart from 'react-apexcharts'
 import { COLOR_2, COLOR_5 } from '@/constants/chart.constant'
 
+interface Cliente {
+    x: string
+    y: number
+    porcentaje: number
+}
 const BasicLine = () => {
     const data = [
         {
@@ -10,7 +15,6 @@ const BasicLine = () => {
             data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
         },
     ]
-
     return (
         <Chart
             options={{
@@ -113,16 +117,51 @@ const Home = () => {
     const [topCases, setTopCases] = useState<{ x: string | null; y: number }[]>(
         [],
     )
+    const [topClientes, setTopClientes] = useState<Cliente[]>([])
 
     useEffect(() => {
         fetch('/data/tipos_de_casos.json')
             .then((response) => response.json())
             .then((data: { data: { x: string | null; y: number }[] }) => {
-                // Ordenamos los casos por 'y' en orden descendente
-                const sortedCases = data.data.sort((a, b) => b.y - a.y)
-                // Obtenemos los tres primeros casos más utilizados
-                const top3Cases = sortedCases.slice(0, 3)
-                setTopCases(top3Cases)
+                const sortedCases = data.data
+                    .filter((item) => item.x !== null)
+                    .sort((a, b) => b.y - a.y)
+                setTopCases(sortedCases.slice(0, 3))
+            })
+            .catch((error) => console.error('Error loading JSON data:', error))
+
+        // Cargar datos de clientes
+        fetch('/data/ventasxcliente1.json')
+            .then((response) => response.json())
+            .then((data: { data: { x: string | null; y: number }[] }) => {
+                const clientesFiltrados: Cliente[] = data.data
+                    .filter((item) => item.x !== null)
+                    .map((item) => ({
+                        x: item.x || 'Cliente Desconocido',
+                        y: item.y,
+                        porcentaje: 0, // Inicializamos con 0
+                    }))
+
+                // Ordenamos de mayor a menor
+                const sortedClientes = clientesFiltrados.sort(
+                    (a, b) => b.y - a.y,
+                )
+
+                // Calculamos el total de ventas
+                const totalVentas = sortedClientes.reduce(
+                    (sum, item) => sum + item.y,
+                    0,
+                )
+
+                // Asignamos los porcentajes correctos
+                const clientesConPorcentaje = sortedClientes.map((cliente) => ({
+                    ...cliente,
+                    porcentaje:
+                        totalVentas > 0 ? (cliente.y / totalVentas) * 100 : 0,
+                }))
+
+                // Tomamos solo los 3 clientes con mayor porcentaje
+                setTopClientes(clientesConPorcentaje.slice(0, 3))
             })
             .catch((error) => console.error('Error loading JSON data:', error))
     }, [])
@@ -204,6 +243,7 @@ const Home = () => {
             </div>
 
             {/* New "Top Clientes" section */}
+            {/* Top Clientes Section */}
             <div className="w-full mt-8">
                 <Card bordered={false}>
                     <div className="flex justify-between items-center">
@@ -216,25 +256,28 @@ const Home = () => {
                         </a>
                     </div>
                     <div className="clientes mt-6 space-y-6">
-                        {[1, 2, 3].map((num) => (
+                        {topClientes.map((cliente, index) => (
                             <div
-                                key={num}
-                                className="flex items-center space-x-2"
+                                key={index}
+                                className="flex items-center space-x-2 w-full"
                             >
                                 <img
                                     src="/img/others/clienticon.png"
-                                    alt={`Cliente ${num}`}
+                                    alt={`Cliente ${index + 1}`}
                                     className="w-10 h-10 rounded-full"
                                 />
-                                <span>Cliente {num}</span>
+                                <span>{cliente.x}</span>
                                 <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
                                     <div
                                         className="h-full bg-blue-500"
                                         style={{
-                                            width: `${num * 30}%`, // Aquí puedes ajustar el porcentaje según el cliente
+                                            width: `${cliente.porcentaje}%`, // Se ajusta dinámicamente al porcentaje real
                                         }}
                                     ></div>
                                 </div>
+                                <span className="ml-2 text-sm">
+                                    {cliente.porcentaje.toFixed(1)}%
+                                </span>
                             </div>
                         ))}
                     </div>
