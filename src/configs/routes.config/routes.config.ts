@@ -57,7 +57,7 @@ export const protectedRoutes: Routes = [
     },
     {
         key: 'collapseMenu.item6', // Puedes poner cualquier clave única
-        path: '/ventas-historicas-mesanio', // Esta es la URL a la que navegarás
+        path: '/toricas-mesanio', // Esta es la URL a la que navegarás
         component: lazy(() => import('@/views/demo/VentasHistoricasMesAnio')), // Importa tu componente
         authority: [],
     },
@@ -69,6 +69,11 @@ export const protectedRoutes: Routes = [
         ), // Importa tu componente
         authority: [],
     },
-
+    {
+        key: 'collapseMenu.item7',
+        path: '/ventas_por_cliente_en_concreto/:client',
+        component: lazy(() => import('@/views/demo/GraficoPorCliente')),
+        authority: [],
+    },
     ...othersRoute,
 ]

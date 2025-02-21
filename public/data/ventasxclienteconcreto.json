@@ -1,0 +1,2322 @@
+[
+    {
+        "empresa": null,
+        "fecha": "January 2024",
+        "importe": 80
+    },
+    {
+        "empresa": null,
+        "fecha": "May 2024",
+        "importe": 90
+    },
+    {
+        "empresa": null,
+        "fecha": "August 2024",
+        "importe": 270
+    },
+    {
+        "empresa": null,
+        "fecha": "October 2024",
+        "importe": 80
+    },
+    {
+        "empresa": null,
+        "fecha": "November 2024",
+        "importe": 190
+    },
+    {
+        "empresa": "214555968",
+        "fecha": "July 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "ALAVA CENTRO VETERINARIO S.L.",
+        "fecha": "January 2024",
+        "importe": 635.25
+    },
+    {
+        "empresa": "ALAVA CENTRO VETERINARIO S.L.",
+        "fecha": "February 2024",
+        "importe": 879.6699999999999590727384202182292938232421875
+    },
+    {
+        "empresa": "ALAVA CENTRO VETERINARIO S.L.",
+        "fecha": "April 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "AMAITA",
+        "fecha": "August 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "AMAITA",
+        "fecha": "September 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Anahi Vehi",
+        "fecha": "February 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Anahi Vehi",
+        "fecha": "April 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Anahi Vehi",
+        "fecha": "July 2024",
+        "importe": 248.05000000000001136868377216160297393798828125
+    },
+    {
+        "empresa": "Anahi Vehi",
+        "fecha": "August 2024",
+        "importe": 387.19999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "Anahi Vehi",
+        "fecha": "October 2024",
+        "importe": 387.19999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "Ananda Vets",
+        "fecha": "January 2024",
+        "importe": 40
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "January 2024",
+        "importe": 1954.15000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "February 2024",
+        "importe": 1687.950000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "March 2024",
+        "importe": 2133.23000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "April 2024",
+        "importe": 2355.8699999999998908606357872486114501953125
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "October 2024",
+        "importe": 117.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "November 2024",
+        "importe": 1020.029999999999972715158946812152862548828125
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "December 2024",
+        "importe": 562.6499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "AniCura Marina Baixa Hospital Veterinario",
+        "fecha": "January 2025",
+        "importe": 1274.1300000000001091393642127513885498046875
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "January 2024",
+        "importe": 1655
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "February 2024",
+        "importe": 2059
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "March 2024",
+        "importe": 1429
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "April 2024",
+        "importe": 1692
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "May 2024",
+        "importe": 1760
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "June 2024",
+        "importe": 1543
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "July 2024",
+        "importe": 1234
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "August 2024",
+        "importe": 1588
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "September 2024",
+        "importe": 719
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "October 2024",
+        "importe": 1472
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "November 2024",
+        "importe": 2141
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "December 2024",
+        "importe": 1732
+    },
+    {
+        "empresa": "AniCura Mon Veterinari Hospital Veterinari, SLU",
+        "fecha": "January 2025",
+        "importe": 1378
+    },
+    {
+        "empresa": "ANIMAVET Dent de Lys",
+        "fecha": "December 2024",
+        "importe": 110
+    },
+    {
+        "empresa": "Animavet SA",
+        "fecha": "April 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Animavet SA",
+        "fecha": "May 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
+        "fecha": "January 2024",
+        "importe": 2223.98000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
+        "fecha": "February 2024",
+        "importe": 1718.200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
+        "fecha": "March 2024",
+        "importe": 2551.88999999999987267074175179004669189453125
+    },
+    {
+        "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
+        "fecha": "April 2024",
+        "importe": 1939.6300000000001091393642127513885498046875
+    },
+    {
+        "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
+        "fecha": "May 2024",
+        "importe": 1616.55999999999994543031789362430572509765625
+    },
+    {
+        "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
+        "fecha": "June 2024",
+        "importe": 3460.59999999999990905052982270717620849609375
+    },
+    {
+        "empresa": "AUNA ESPECIALIDADES VETERINARIAS",
+        "fecha": "August 2024",
+        "importe": 677.6000000000000227373675443232059478759765625
+    },
+    {
+        "empresa": "AUNA ESPECIALIDADES VETERINARIAS",
+        "fecha": "September 2024",
+        "importe": 290.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "AUNA ESPECIALIDADES VETERINARIAS",
+        "fecha": "December 2024",
+        "importe": 865.1499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "AUNA ESPECIALIDADES VETERINARIAS",
+        "fecha": "January 2025",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "January 2024",
+        "importe": 4118.84000000000014551915228366851806640625
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "February 2024",
+        "importe": 3487.21999999999979991116560995578765869140625
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "March 2024",
+        "importe": 2974.17999999999983629095368087291717529296875
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "April 2024",
+        "importe": 5320.3699999999998908606357872486114501953125
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "May 2024",
+        "importe": 4088.59000000000014551915228366851806640625
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "June 2024",
+        "importe": 4522.97999999999956344254314899444580078125
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "July 2024",
+        "importe": 5034.8100000000004001776687800884246826171875
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "August 2024",
+        "importe": 4783.1300000000001091393642127513885498046875
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "September 2024",
+        "importe": 3542.8800000000001091393642127513885498046875
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "October 2024",
+        "importe": 3924.03000000000020008883439004421234130859375
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "November 2024",
+        "importe": 5929
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "December 2024",
+        "importe": 4285.8199999999997089616954326629638671875
+    },
+    {
+        "empresa": "Balmesvet Veterinaris Hospital 24h",
+        "fecha": "January 2025",
+        "importe": 5614.399999999999636202119290828704833984375
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "May 2024",
+        "importe": 370
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "June 2024",
+        "importe": 160
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "July 2024",
+        "importe": 289
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "August 2024",
+        "importe": 240
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "September 2024",
+        "importe": 540
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "October 2024",
+        "importe": 80
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "November 2024",
+        "importe": 315
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "December 2024",
+        "importe": 445
+    },
+    {
+        "empresa": "Batuca Vet",
+        "fecha": "January 2025",
+        "importe": 930
+    },
+    {
+        "empresa": "Benalvet",
+        "fecha": "September 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Benalvet",
+        "fecha": "October 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "BITCLIVET,SL",
+        "fecha": "May 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "BITCLIVET,SL",
+        "fecha": "November 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "BITCLIVET,SL",
+        "fecha": "December 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "BITCLIVET,SL",
+        "fecha": "January 2025",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "C V EQUUSCAN",
+        "fecha": "December 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "January 2024",
+        "importe": 532.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "February 2024",
+        "importe": 1194.26999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "March 2024",
+        "importe": 363
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "April 2024",
+        "importe": 532.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "May 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "June 2024",
+        "importe": 389.6200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "July 2024",
+        "importe": 559.01999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "August 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "September 2024",
+        "importe": 363
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "October 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "November 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "December 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CAH ESTE, S.L. POEE014869",
+        "fecha": "January 2025",
+        "importe": 90.75
+    },
+    {
+        "empresa": "CAH REGI\u00d3N NORESTE S.L.",
+        "fecha": "March 2024",
+        "importe": 494.8899999999999863575794734060764312744140625
+    },
+    {
+        "empresa": "CAH REGI\u00d3N NORESTE S.L.",
+        "fecha": "April 2024",
+        "importe": 480.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGI\u00d3N NORESTE S.L.",
+        "fecha": "May 2024",
+        "importe": 441.6499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "CAH REGI\u00d3N NORESTE S.L.",
+        "fecha": "August 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "January 2024",
+        "importe": 298.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "February 2024",
+        "importe": 208.1200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "March 2024",
+        "importe": 1589.94000000000005456968210637569427490234375
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "April 2024",
+        "importe": 506.990000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "May 2024",
+        "importe": 1013.98000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "June 2024",
+        "importe": 416.240000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "July 2024",
+        "importe": 832.48000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "August 2024",
+        "importe": 661.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "September 2024",
+        "importe": 597.740000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "October 2024",
+        "importe": 1627.450000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "November 2024",
+        "importe": 560.23000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "December 2024",
+        "importe": 964.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE S.L.  PONN6240",
+        "fecha": "January 2025",
+        "importe": 1252.34999999999990905052982270717620849609375
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "January 2024",
+        "importe": 298.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "February 2024",
+        "importe": 208.1200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "March 2024",
+        "importe": 1589.94000000000005456968210637569427490234375
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "April 2024",
+        "importe": 506.990000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "May 2024",
+        "importe": 1013.98000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "June 2024",
+        "importe": 416.240000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "July 2024",
+        "importe": 832.48000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "August 2024",
+        "importe": 661.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "September 2024",
+        "importe": 597.740000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "October 2024",
+        "importe": 1627.450000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "November 2024",
+        "importe": 560.23000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "December 2024",
+        "importe": 964.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CAH REGION NORTE SLU",
+        "fecha": "January 2025",
+        "importe": 1252.34999999999990905052982270717620849609375
+    },
+    {
+        "empresa": "Centro de Diagnostico Veterinario",
+        "fecha": "March 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Centro de Diagnostico Veterinario",
+        "fecha": "May 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "January 2024",
+        "importe": 571.1200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "February 2024",
+        "importe": 208.1200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "March 2024",
+        "importe": 923.23000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "April 2024",
+        "importe": 879.6699999999999590727384202182292938232421875
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "May 2024",
+        "importe": 623.1499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "June 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "July 2024",
+        "importe": 272.25
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "August 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "September 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "October 2024",
+        "importe": 272.25
+    },
+    {
+        "empresa": "CENTRO VETERINARIO ALJARAFE NORTE",
+        "fecha": "November 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "Centro Veterinario Capri",
+        "fecha": "May 2024",
+        "importe": 45
+    },
+    {
+        "empresa": "centro veterinario equuscan",
+        "fecha": "February 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "centro veterinario parquelagos",
+        "fecha": "January 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "CIAVETSLU",
+        "fecha": "November 2024",
+        "importe": 80
+    },
+    {
+        "empresa": "Climevet, Lda",
+        "fecha": "August 2024",
+        "importe": 500
+    },
+    {
+        "empresa": "Climevet, Lda",
+        "fecha": "September 2024",
+        "importe": 1225
+    },
+    {
+        "empresa": "Climevet, Lda",
+        "fecha": "October 2024",
+        "importe": 968
+    },
+    {
+        "empresa": "Climevet, Lda",
+        "fecha": "November 2024",
+        "importe": 315
+    },
+    {
+        "empresa": "Climevet, Lda",
+        "fecha": "December 2024",
+        "importe": 510
+    },
+    {
+        "empresa": "Climevet, Lda",
+        "fecha": "January 2025",
+        "importe": 760
+    },
+    {
+        "empresa": "Cl\u00ednica animal dharma",
+        "fecha": "February 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "CLINICA VETERINARA PRADA",
+        "fecha": "March 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria AGABA",
+        "fecha": "January 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria AGABA",
+        "fecha": "March 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Gimaiavet SLP",
+        "fecha": "March 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Gimaiavet SLP",
+        "fecha": "October 2024",
+        "importe": 248.05000000000001136868377216160297393798828125
+    },
+    {
+        "empresa": "Clinica Veterinaria Juan de Herrera",
+        "fecha": "January 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "Clinica Veterinaria Juan de Herrera",
+        "fecha": "May 2024",
+        "importe": 127.0499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Clinica Veterinaria Juan de Herrera",
+        "fecha": "June 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Clinica Veterinaria Juan de Herrera",
+        "fecha": "October 2024",
+        "importe": 350.8999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "Clinica Veterinaria Juan de Herrera",
+        "fecha": "November 2024",
+        "importe": 127.0499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Clinica Veterinaria Juan de Herrera",
+        "fecha": "December 2024",
+        "importe": 986.1499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "Clinica Veterinaria Juan de Herrera",
+        "fecha": "January 2025",
+        "importe": 1363.670000000000072759576141834259033203125
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Pets Madrid S.L.P",
+        "fecha": "August 2024",
+        "importe": 157.30000000000001136868377216160297393798828125
+    },
+    {
+        "empresa": "clinica veterinaria robledo de chavela",
+        "fecha": "November 2024",
+        "importe": 199.650000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "January 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "February 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "April 2024",
+        "importe": 157.30000000000001136868377216160297393798828125
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "May 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "June 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "August 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "September 2024",
+        "importe": 108.900000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "November 2024",
+        "importe": 114.9500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "cl\u00ednica veterinaria Saced\u00f3n",
+        "fecha": "December 2024",
+        "importe": 133.099999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "February 2024",
+        "importe": 377
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "March 2024",
+        "importe": 215
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "April 2024",
+        "importe": 160
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "May 2024",
+        "importe": 455
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "June 2024",
+        "importe": 105
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "July 2024",
+        "importe": 500
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "August 2024",
+        "importe": 350
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "September 2024",
+        "importe": 300
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "October 2024",
+        "importe": 583
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "November 2024",
+        "importe": 490
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Taco S.L.U",
+        "fecha": "January 2025",
+        "importe": 110
+    },
+    {
+        "empresa": "Clinivet San Francisco sl",
+        "fecha": "February 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "Conectavets",
+        "fecha": "November 2024",
+        "importe": 968
+    },
+    {
+        "empresa": "Conectavets",
+        "fecha": "December 2024",
+        "importe": 1522.180000000000063664629124104976654052734375
+    },
+    {
+        "empresa": "Conectavets",
+        "fecha": "January 2025",
+        "importe": 1246.299999999999954525264911353588104248046875
+    },
+    {
+        "empresa": "CV Cania",
+        "fecha": "January 2024",
+        "importe": 40
+    },
+    {
+        "empresa": "CV Cania",
+        "fecha": "May 2024",
+        "importe": 45
+    },
+    {
+        "empresa": "CV Cania",
+        "fecha": "August 2024",
+        "importe": 135
+    },
+    {
+        "empresa": "CV Cania",
+        "fecha": "October 2024",
+        "importe": 40
+    },
+    {
+        "empresa": "CV Cania",
+        "fecha": "November 2024",
+        "importe": 95
+    },
+    {
+        "empresa": "DFR Servi\u00e7os Veterin\u00e1rios e Forma\u00e7\u00e3o LDA",
+        "fecha": "April 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "DFR Servi\u00e7os Veterin\u00e1rios e Forma\u00e7\u00e3o LDA",
+        "fecha": "May 2024",
+        "importe": 127.0499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "March 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "April 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "May 2024",
+        "importe": 223.849999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "June 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "August 2024",
+        "importe": 825.220000000000027284841053187847137451171875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "September 2024",
+        "importe": 1788.3800000000001091393642127513885498046875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "October 2024",
+        "importe": 6281.1099999999996725819073617458343505859375
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "November 2024",
+        "importe": 4709.3199999999997089616954326629638671875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "December 2024",
+        "importe": 3826.01999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "DIAGNOSFERA",
+        "fecha": "January 2025",
+        "importe": 3824.80999999999994543031789362430572509765625
+    },
+    {
+        "empresa": "Especialistas veterinarios S.L",
+        "fecha": "September 2024",
+        "importe": 254.099999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Especialistas veterinarios S.L",
+        "fecha": "October 2024",
+        "importe": 1370.930000000000063664629124104976654052734375
+    },
+    {
+        "empresa": "Especialistas veterinarios S.L",
+        "fecha": "November 2024",
+        "importe": 661.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "Especialistas veterinarios S.L",
+        "fecha": "December 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "Especialistas veterinarios S.L",
+        "fecha": "January 2025",
+        "importe": 272.25
+    },
+    {
+        "empresa": "EVA SL",
+        "fecha": "September 2024",
+        "importe": 254.099999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "EVA SL",
+        "fecha": "October 2024",
+        "importe": 1370.930000000000063664629124104976654052734375
+    },
+    {
+        "empresa": "EVA SL",
+        "fecha": "November 2024",
+        "importe": 661.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "EVA SL",
+        "fecha": "December 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "EVA SL",
+        "fecha": "January 2025",
+        "importe": 272.25
+    },
+    {
+        "empresa": "FENIX HOSPITAL VETERINARIO SL",
+        "fecha": "December 2024",
+        "importe": 320.6499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "FENIX HOSPITAL VETERINARIO SL",
+        "fecha": "January 2025",
+        "importe": 1857.34999999999990905052982270717620849609375
+    },
+    {
+        "empresa": "Feres Cl\u00ednica Veterinaria",
+        "fecha": "January 2024",
+        "importe": 1024.8699999999998908606357872486114501953125
+    },
+    {
+        "empresa": "Feres Cl\u00ednica Veterinaria",
+        "fecha": "February 2024",
+        "importe": 389.6200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "Feres Cl\u00ednica Veterinaria",
+        "fecha": "July 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "Feres Cl\u00ednica Veterinaria",
+        "fecha": "October 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Feres Cl\u00ednica Veterinaria",
+        "fecha": "December 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Feres Cl\u00ednica Veterinaria",
+        "fecha": "January 2025",
+        "importe": 617.1000000000000227373675443232059478759765625
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "January 2024",
+        "importe": 1438.69000000000005456968210637569427490234375
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "March 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "May 2024",
+        "importe": 901.450000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "July 2024",
+        "importe": 169.400000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "September 2024",
+        "importe": 796.1799999999999499777914024889469146728515625
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "October 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "November 2024",
+        "importe": 689.700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "FGULEM",
+        "fecha": "December 2024",
+        "importe": 2099.34999999999990905052982270717620849609375
+    },
+    {
+        "empresa": "Flores Vet",
+        "fecha": "July 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Flores Vet",
+        "fecha": "September 2024",
+        "importe": 45
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "January 2024",
+        "importe": 726
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "February 2024",
+        "importe": 843.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "March 2024",
+        "importe": 1206.3699999999998908606357872486114501953125
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "April 2024",
+        "importe": 998.25
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "May 2024",
+        "importe": 1349.15000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "June 2024",
+        "importe": 1506.450000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "July 2024",
+        "importe": 1452
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "August 2024",
+        "importe": 1402.390000000000100044417195022106170654296875
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "September 2024",
+        "importe": 1179.75
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "October 2024",
+        "importe": 1724.25
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "November 2024",
+        "importe": 1894.859999999999899955582804977893829345703125
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "December 2024",
+        "importe": 1804.109999999999899955582804977893829345703125
+    },
+    {
+        "empresa": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+        "fecha": "January 2025",
+        "importe": 1089
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "January 2024",
+        "importe": 611.049999999999954525264911353588104248046875
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "February 2024",
+        "importe": 2242.1300000000001091393642127513885498046875
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "March 2024",
+        "importe": 951.05999999999994543031789362430572509765625
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "April 2024",
+        "importe": 629.200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "May 2024",
+        "importe": 1351.569999999999936335370875895023345947265625
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "June 2024",
+        "importe": 1810.160000000000081854523159563541412353515625
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "July 2024",
+        "importe": 1568.160000000000081854523159563541412353515625
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "August 2024",
+        "importe": 1910.589999999999918145476840436458587646484375
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "September 2024",
+        "importe": 1963.829999999999927240423858165740966796875
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "October 2024",
+        "importe": 1795.640000000000100044417195022106170654296875
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "November 2024",
+        "importe": 1276.549999999999954525264911353588104248046875
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "December 2024",
+        "importe": 1727.8800000000001091393642127513885498046875
+    },
+    {
+        "empresa": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
+        "fecha": "January 2025",
+        "importe": 1381.819999999999936335370875895023345947265625
+    },
+    {
+        "empresa": "Hospital do Gato",
+        "fecha": "January 2024",
+        "importe": 150
+    },
+    {
+        "empresa": "Hospital do Gato",
+        "fecha": "March 2024",
+        "importe": 97
+    },
+    {
+        "empresa": "Hospital do Gato",
+        "fecha": "May 2024",
+        "importe": 160
+    },
+    {
+        "empresa": "Hospital do Gato",
+        "fecha": "June 2024",
+        "importe": 240
+    },
+    {
+        "empresa": "Hospital do Gato",
+        "fecha": "September 2024",
+        "importe": 160
+    },
+    {
+        "empresa": "Hospital do Gato",
+        "fecha": "December 2024",
+        "importe": 177
+    },
+    {
+        "empresa": "Hospital do Gato",
+        "fecha": "January 2025",
+        "importe": 97
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "March 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "May 2024",
+        "importe": 417.44999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "June 2024",
+        "importe": 447.69999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "July 2024",
+        "importe": 320.6499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "August 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "September 2024",
+        "importe": 387.19999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "October 2024",
+        "importe": 447.69999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "November 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "December 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "HOSPITAL VET. MENESCAL S.L.",
+        "fecha": "January 2025",
+        "importe": 387.19999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "Hospital Veterinario Al Sur S.L.",
+        "fecha": "May 2024",
+        "importe": 5475.25
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "January 2024",
+        "importe": 1437
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "February 2024",
+        "importe": 603
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "March 2024",
+        "importe": 816
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "April 2024",
+        "importe": 472
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "May 2024",
+        "importe": 947
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "June 2024",
+        "importe": 966
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "July 2024",
+        "importe": 569
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "August 2024",
+        "importe": 1088
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "September 2024",
+        "importe": 464
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "October 2024",
+        "importe": 1177
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "November 2024",
+        "importe": 419
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "December 2024",
+        "importe": 1173
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio de Coimbra",
+        "fecha": "January 2025",
+        "importe": 1144
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO E-HVET",
+        "fecha": "June 2024",
+        "importe": 2466
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO E-HVET",
+        "fecha": "July 2024",
+        "importe": 3900
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO E-HVET",
+        "fecha": "August 2024",
+        "importe": 1959
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO E-HVET",
+        "fecha": "September 2024",
+        "importe": 1675
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO E-HVET",
+        "fecha": "October 2024",
+        "importe": 300
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO E-HVET",
+        "fecha": "December 2024",
+        "importe": 892
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO E-HVET",
+        "fecha": "January 2025",
+        "importe": 754
+    },
+    {
+        "empresa": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+        "fecha": "June 2024",
+        "importe": 2466
+    },
+    {
+        "empresa": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+        "fecha": "July 2024",
+        "importe": 3900
+    },
+    {
+        "empresa": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+        "fecha": "August 2024",
+        "importe": 1959
+    },
+    {
+        "empresa": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+        "fecha": "September 2024",
+        "importe": 1675
+    },
+    {
+        "empresa": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+        "fecha": "October 2024",
+        "importe": 300
+    },
+    {
+        "empresa": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+        "fecha": "December 2024",
+        "importe": 892
+    },
+    {
+        "empresa": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+        "fecha": "January 2025",
+        "importe": 754
+    },
+    {
+        "empresa": "Hospital Veterinario Los Tarahales SLP",
+        "fecha": "January 2024",
+        "importe": 1133
+    },
+    {
+        "empresa": "Hospital Veterinario Los Tarahales SLP",
+        "fecha": "April 2024",
+        "importe": 2680
+    },
+    {
+        "empresa": "Hospital Veterinario Los Tarahales SLP",
+        "fecha": "May 2024",
+        "importe": 4425
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MENES S.L.",
+        "fecha": "September 2024",
+        "importe": 96.7999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "January 2024",
+        "importe": 532.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "February 2024",
+        "importe": 1194.26999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "March 2024",
+        "importe": 363
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "April 2024",
+        "importe": 532.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "May 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "June 2024",
+        "importe": 389.6200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "July 2024",
+        "importe": 559.01999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "August 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "September 2024",
+        "importe": 363
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "October 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "November 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "December 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO MIVET FAYCAN",
+        "fecha": "January 2025",
+        "importe": 90.75
+    },
+    {
+        "empresa": "Hospital Veterinario Pamplona",
+        "fecha": "November 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Hospital Veterinario Pamplona",
+        "fecha": "December 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Hospital Veterinario Sierra de Madrid",
+        "fecha": "January 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "HOSPITAL VETERINARIO SIERRA DE MADRID, S.L.",
+        "fecha": "January 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "January 2024",
+        "importe": 298.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "February 2024",
+        "importe": 208.1200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "March 2024",
+        "importe": 1589.94000000000005456968210637569427490234375
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "April 2024",
+        "importe": 506.990000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "May 2024",
+        "importe": 1013.98000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "June 2024",
+        "importe": 416.240000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "July 2024",
+        "importe": 832.48000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "August 2024",
+        "importe": 661.8700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "September 2024",
+        "importe": 597.740000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "October 2024",
+        "importe": 1627.450000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "November 2024",
+        "importe": 560.23000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "December 2024",
+        "importe": 964.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HV Mivet Avenida",
+        "fecha": "January 2025",
+        "importe": 1252.34999999999990905052982270717620849609375
+    },
+    {
+        "empresa": "HV MIVET MANRESA PONE010987",
+        "fecha": "March 2024",
+        "importe": 494.8899999999999863575794734060764312744140625
+    },
+    {
+        "empresa": "HV MIVET MANRESA PONE010987",
+        "fecha": "April 2024",
+        "importe": 480.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "HV MIVET MANRESA PONE010987",
+        "fecha": "May 2024",
+        "importe": 441.6499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "HV MIVET MANRESA PONE010987",
+        "fecha": "August 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "January 2024",
+        "importe": 1133
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "February 2024",
+        "importe": 169.400000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "April 2024",
+        "importe": 2680
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "May 2024",
+        "importe": 5689.4499999999998181010596454143524169921875
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "June 2024",
+        "importe": 29671.639999999999417923390865325927734375
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "July 2024",
+        "importe": 40033
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "August 2024",
+        "importe": 41169.6500000000014551915228366851806640625
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "September 2024",
+        "importe": 35119.27999999999883584678173065185546875
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "October 2024",
+        "importe": 26268.47999999999956344254314899444580078125
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "November 2024",
+        "importe": 30697.79999999999927240423858165740966796875
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "December 2024",
+        "importe": 33696.949999999997089616954326629638671875
+    },
+    {
+        "empresa": "IVC EVIDENSIA ASSETS SL",
+        "fecha": "January 2025",
+        "importe": 38988.5999999999985448084771633148193359375
+    },
+    {
+        "empresa": "LA FLOTA VETERINARIOS SL",
+        "fecha": "January 2024",
+        "importe": 559.01999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "LA FLOTA VETERINARIOS SL",
+        "fecha": "February 2024",
+        "importe": 389.6200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "LA FLOTA VETERINARIOS SL",
+        "fecha": "April 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "LA FLOTA VETERINARIOS SL",
+        "fecha": "October 2024",
+        "importe": 260.1499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "LA FLOTA VETERINARIOS SL",
+        "fecha": "December 2024",
+        "importe": 735.6799999999999499777914024889469146728515625
+    },
+    {
+        "empresa": "LA FLOTA VETERINARIOS SL",
+        "fecha": "January 2025",
+        "importe": 1087.7899999999999636202119290828704833984375
+    },
+    {
+        "empresa": "Laia Cambronero Gin\u00e9s",
+        "fecha": "August 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "manescal clinica veterinaria",
+        "fecha": "May 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "MARIA ISABEL HIDALGO SANTANA",
+        "fecha": "January 2025",
+        "importe": 55
+    },
+    {
+        "empresa": "Maria Jose",
+        "fecha": "September 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "January 2024",
+        "importe": 1551.220000000000027284841053187847137451171875
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "February 2024",
+        "importe": 1350.359999999999899955582804977893829345703125
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "March 2024",
+        "importe": 1309.220000000000027284841053187847137451171875
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "April 2024",
+        "importe": 986.1499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "May 2024",
+        "importe": 1989.240000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "June 2024",
+        "importe": 1444.740000000000009094947017729282379150390625
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "July 2024",
+        "importe": 1507.660000000000081854523159563541412353515625
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "August 2024",
+        "importe": 860.30999999999994543031789362430572509765625
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "September 2024",
+        "importe": 2130.80999999999994543031789362430572509765625
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "October 2024",
+        "importe": 1598.410000000000081854523159563541412353515625
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "November 2024",
+        "importe": 2191.30999999999994543031789362430572509765625
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "December 2024",
+        "importe": 1402.390000000000100044417195022106170654296875
+    },
+    {
+        "empresa": "MARIA TERESA ALVAREZ GUARDIA",
+        "fecha": "January 2025",
+        "importe": 1663.75
+    },
+    {
+        "empresa": "MEDIVET IBERIA DOS SLU",
+        "fecha": "January 2025",
+        "importe": 208.1200000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "January 2024",
+        "importe": 974.049999999999954525264911353588104248046875
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "February 2024",
+        "importe": 1226.94000000000005456968210637569427490234375
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "March 2024",
+        "importe": 975.259999999999990905052982270717620849609375
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "April 2024",
+        "importe": 607.4199999999999590727384202182292938232421875
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "May 2024",
+        "importe": 872.4099999999999681676854379475116729736328125
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "June 2024",
+        "importe": 808.279999999999972715158946812152862548828125
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "July 2024",
+        "importe": 805.8600000000000136424205265939235687255859375
+    },
+    {
+        "empresa": "Mivet Animalia POAN004238",
+        "fecha": "August 2024",
+        "importe": 516.6699999999999590727384202182292938232421875
+    },
+    {
+        "empresa": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
+        "fecha": "March 2024",
+        "importe": 494.8899999999999863575794734060764312744140625
+    },
+    {
+        "empresa": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
+        "fecha": "April 2024",
+        "importe": 480.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
+        "fecha": "May 2024",
+        "importe": 441.6499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
+        "fecha": "August 2024",
+        "importe": 181.5
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "June 2024",
+        "importe": 169.400000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "July 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "August 2024",
+        "importe": 169.400000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "September 2024",
+        "importe": 222.6399999999999863575794734060764312744140625
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "November 2024",
+        "importe": 392.04000000000002046363078989088535308837890625
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "December 2024",
+        "importe": 338.80000000000001136868377216160297393798828125
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "January 2024",
+        "importe": 480.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "February 2024",
+        "importe": 649.76999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "March 2024",
+        "importe": 623.1499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "April 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "May 2024",
+        "importe": 90.75
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "June 2024",
+        "importe": 453.75
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "July 2024",
+        "importe": 363
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "August 2024",
+        "importe": 480.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "September 2024",
+        "importe": 272.25
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "October 2024",
+        "importe": 986.1499999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "Mivet Vetsicor",
+        "fecha": "November 2024",
+        "importe": 169.400000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "RAFELBUNYOL VETERINARIA S.L",
+        "fecha": "July 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Ruth Franco Erdociain ",
+        "fecha": "March 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Sanacan",
+        "fecha": "April 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "SANIDAD VETERINARIA SL",
+        "fecha": "August 2024",
+        "importe": 290.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "SANIVET CB",
+        "fecha": "March 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "SMART APPROACH VETERINARY SERVICES",
+        "fecha": "April 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "Susana Cancio",
+        "fecha": "January 2025",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Susana Flores",
+        "fecha": "July 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Susana Flores",
+        "fecha": "September 2024",
+        "importe": 45
+    },
+    {
+        "empresa": "TECHNOLOGY ANIMAL CENTER SLP",
+        "fecha": "August 2024",
+        "importe": 127.0499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "March 2024",
+        "importe": 774.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "April 2024",
+        "importe": 774.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "May 2024",
+        "importe": 1790.799999999999954525264911353588104248046875
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "June 2024",
+        "importe": 774.3999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "August 2024",
+        "importe": 6601.760000000000218278728425502777099609375
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "September 2024",
+        "importe": 14307.0400000000008731149137020111083984375
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "October 2024",
+        "importe": 50248.8799999999973806552588939666748046875
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "November 2024",
+        "importe": 37674.5599999999976716935634613037109375
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "December 2024",
+        "importe": 30608.15999999999985448084771633148193359375
+    },
+    {
+        "empresa": "UNAVETS HEALTHCARE, S.L.",
+        "fecha": "January 2025",
+        "importe": 30598.47999999999956344254314899444580078125
+    },
+    {
+        "empresa": "Urvet Costa del Sol S.L.",
+        "fecha": "December 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "VETALLIANCE",
+        "fecha": "May 2024",
+        "importe": 108.900000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "VETALLIANCE",
+        "fecha": "October 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Veterinaria Proxem SCP",
+        "fecha": "April 2024",
+        "importe": 45
+    },
+    {
+        "empresa": "Veterinaria Proxem SCP",
+        "fecha": "October 2024",
+        "importe": 55
+    },
+    {
+        "empresa": "veteskola",
+        "fecha": "May 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "January 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "March 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "April 2024",
+        "importe": 108.900000000000005684341886080801486968994140625
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "June 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "July 2024",
+        "importe": 36.2999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "September 2024",
+        "importe": 36.2999999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "October 2024",
+        "importe": 326.69999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "November 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "Vetmascotes",
+        "fecha": "December 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "VETOVEN VETERINARIA",
+        "fecha": "November 2024",
+        "importe": 66.5499999999999971578290569595992565155029296875
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "January 2024",
+        "importe": 2631.75
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "February 2024",
+        "importe": 2775.739999999999781721271574497222900390625
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "March 2024",
+        "importe": 3709.86000000000012732925824820995330810546875
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "April 2024",
+        "importe": 2957.239999999999781721271574497222900390625
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "May 2024",
+        "importe": 2566.40999999999985448084771633148193359375
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "June 2024",
+        "importe": 3320.239999999999781721271574497222900390625
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "July 2024",
+        "importe": 2501.07000000000016370904631912708282470703125
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "August 2024",
+        "importe": 2335.3000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "September 2024",
+        "importe": 3398.88999999999987267074175179004669189453125
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "October 2024",
+        "importe": 2658.3699999999998908606357872486114501953125
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "November 2024",
+        "importe": 2775.739999999999781721271574497222900390625
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "December 2024",
+        "importe": 3735.26999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "VETPATINO S.L.",
+        "fecha": "January 2025",
+        "importe": 1815
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "January 2024",
+        "importe": 399.30000000000001136868377216160297393798828125
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "February 2024",
+        "importe": 482.79000000000002046363078989088535308837890625
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "March 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "April 2024",
+        "importe": 417.44999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "May 2024",
+        "importe": 459.80000000000001136868377216160297393798828125
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "June 2024",
+        "importe": 223.849999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "July 2024",
+        "importe": 387.19999999999998863131622783839702606201171875
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "August 2024",
+        "importe": 223.849999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "September 2024",
+        "importe": 193.599999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "October 2024",
+        "importe": 223.849999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "ZAMALBIDE",
+        "fecha": "November 2024",
+        "importe": 738.1000000000000227373675443232059478759765625
+    }
+]

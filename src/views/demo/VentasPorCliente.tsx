@@ -1,6 +1,7 @@
-import { ApexOptions } from 'apexcharts'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Chart from 'react-apexcharts'
+import { ApexOptions } from 'apexcharts'
 
 interface Venta {
     x: string | null
@@ -12,34 +13,14 @@ interface VentasPorClienteData {
     colors: string[]
 }
 
-interface ChartData {
-    type?:
-        | 'line'
-        | 'area'
-        | 'bar'
-        | 'pie'
-        | 'donut'
-        | 'radialBar'
-        | 'scatter'
-        | 'bubble'
-        | 'heatmap'
-        | 'candlestick'
-        | 'boxPlot'
-        | 'radar'
-        | 'polarArea'
-        | 'rangeBar'
-        | 'rangeArea'
-        | 'treemap'
-    series?: ApexOptions['series']
-    width?: string | number
-    height?: string | number
-    options?: ApexOptions
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: any
-}
-
 const VentasPorCliente = () => {
-    const [chartData, setChartData] = useState<ChartData | null>(null)
+    const [chartData, setChartData] = useState<{
+        options: ApexOptions
+        series: number[]
+        labels: string[]
+    } | null>(null)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch('/data/ventasxcliente1.json')
@@ -47,48 +28,54 @@ const VentasPorCliente = () => {
             .then((data: VentasPorClienteData) => {
                 const labels = data.data
                     .map((item) => item.x)
-                    .filter((label) => label !== null) as string[]
+                    .filter((label): label is string => label !== null)
                 const series = data.data.map((item) => item.y)
-                const colors = data.colors
+
                 setChartData({
                     options: {
                         chart: {
                             type: 'pie',
-                            width: 'auto', // Ajuste dinámico
+                            events: {
+                                dataPointSelection: (
+                                    event,
+                                    chartContext,
+                                    config,
+                                ) => {
+                                    const selectedIndex = config.dataPointIndex
+                                    const selectedClient = labels[selectedIndex]
+                                    console.log(
+                                        'Cliente seleccionado:',
+                                        selectedClient,
+                                    )
+                                    setTimeout(() => {
+                                        navigate(
+                                            `/ventas_por_cliente_en_concreto/${selectedClient}`,
+                                        )
+                                    }, 100)
+                                },
+                            },
                         },
+                        labels: labels,
+                        colors: data.colors,
                         plotOptions: {
                             pie: {
                                 expandOnClick: true,
+                                customScale: 1.1,
                                 donut: {
-                                    size: '0%', // Cutout en 0
+                                    size: '0%',
                                 },
                             },
                         },
                         tooltip: {
-                            theme: 'dark', // Aplica un tema oscuro
+                            theme: 'dark',
                             style: {
                                 fontSize: '14px',
                             },
-                            fillSeriesColor: false, // Usa los colores personalizados
+                            fillSeriesColor: false,
                             marker: {
-                                show: true, // Muestra el indicador de color
+                                show: true,
                             },
                         },
-                        labels: labels,
-                        colors: colors,
-                        responsive: [
-                            {
-                                breakpoint: 1024,
-                                options: {
-                                    chart: {
-                                        width: '90%',
-                                    },
-                                    legend: {
-                                        position: 'bottom',
-                                    },
-                                },
-                            },
-                        ],
                         title: {
                             text: 'Ventas por cliente:',
                             align: 'left',
@@ -104,42 +91,26 @@ const VentasPorCliente = () => {
                             position: 'right',
                         },
                     },
-
-                    dataLabels: {
-                        enabled: true,
-                        formatter: (val: number) => `${val.toFixed(1)}%`, // Siempre muestra al menos un decimal
-                        style: {
-                            fontSize: '12px',
-                        },
-                    },
-                    plotOptions: {
-                        pie: {
-                            expandOnClick: false, // Evita que los segmentos se agranden al hacer clic
-                            customScale: 1.1, // Aumenta ligeramente el tamaño del gráfico
-                        },
-                    },
-                    stroke: {
-                        show: true,
-                        width: 2, // Grosor del borde
-                        colors: ['#ffffff'], // Borde blanco
-                    },
-                    series: series, // Los datos del gráfico
+                    series: series,
+                    labels: labels,
                 })
             })
             .catch((error) => console.error('Error loading JSON data:', error))
-    }, [])
+    }, [navigate])
 
-    if (chartData === null) {
-        return <div>Loading...</div>
+    if (!chartData) {
+        return <div className="text-center text-lg">Cargando...</div>
     }
 
     return (
-        <Chart
-            options={chartData.options}
-            series={chartData.series}
-            height={590}
-            type="pie"
-        />
+        <div className="p-6 bg-white rounded-lg shadow-md">
+            <Chart
+                options={chartData.options}
+                series={chartData.series}
+                height={590}
+                type="pie"
+            />
+        </div>
     )
 }
 
