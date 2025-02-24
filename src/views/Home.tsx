@@ -1,128 +1,138 @@
 import { useEffect, useState } from 'react'
 import { Card, Segment } from '@/components/ui'
 import Chart from 'react-apexcharts'
-import { COLOR_2, COLOR_5 } from '@/constants/chart.constant'
 
 interface Cliente {
     x: string
     y: number
     porcentaje: number
 }
+
+interface CaseItem {
+    x: string | null
+    y: number
+}
+
+interface ChartData {
+    name: string
+    data: number[]
+}
+
 const BasicLine = () => {
-    const data = [
-        {
-            name: 'Desktops',
-            data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-        },
-    ]
-    return (
-        <Chart
-            options={{
-                responsive: [
+    const [data, setData] = useState<ChartData[]>([])
+
+    useEffect(() => {
+        fetch('/data/ventas_historicas.json')
+            .then((response) => response.json())
+            .then((json) => {
+                const categorias = json.data.map(
+                    (item: { x: string }) => item.x,
+                ) // Extraemos los meses
+                const valores = json.data.map((item: { y: number }) =>
+                    parseFloat(item.y.toString()),
+                ) // Convertimos los valores a números
+
+                setData([
                     {
-                        breakpoint: 700,
-                        options: {
-                            plotOptions: {
-                                bar: {
-                                    horizontal: true,
-                                },
-                            },
-                            legend: {
-                                position: 'bottom',
-                            },
-                        },
+                        name: 'Ventas Históricas',
+                        data: valores,
                     },
-                ],
-                chart: {
-                    type: 'line',
-                    zoom: {
-                        enabled: false,
+                ])
+
+                // Configurar el gráfico con las categorías y los valores
+                setOptions((prev) => ({
+                    ...prev,
+                    xaxis: {
+                        categories: categorias,
                     },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                stroke: {
-                    curve: 'smooth',
-                    width: 3,
-                },
-                colors: [COLOR_2],
-                xaxis: {
-                    categories: [
-                        'Jan',
-                        'Feb',
-                        'Mar',
-                        'Apr',
-                        'May',
-                        'Jun',
-                        'Jul',
-                        'Aug',
-                        'Sep',
-                    ],
-                },
-            }}
-            series={data}
-            height={300}
-        />
-    )
+                }))
+            })
+    }, [])
+
+    const [options, setOptions] = useState<ApexCharts.ApexOptions>({
+        chart: {
+            type: 'line',
+            zoom: {
+                enabled: false,
+            },
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3,
+        },
+        colors: ['#FF4560'], // Color rojo (puedes personalizarlo)
+        xaxis: {
+            categories: [], // Se actualizará con los datos
+        },
+    })
+
+    return <Chart options={options} series={data} height={300} />
 }
 
 const CasosGraph = () => {
-    const data = [
-        {
-            name: 'Desktops',
-            data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-        },
-    ]
+    const [data, setData] = useState<ChartData[]>([])
 
-    return (
-        <Chart
-            options={{
-                chart: {
-                    type: 'line',
-                    zoom: {
-                        enabled: false,
+    useEffect(() => {
+        fetch('/data/casos_por_anio.json')
+            .then((response) => response.json())
+            .then((json) => {
+                const categorias = json.data.map(
+                    (item: { x: string }) => item.x,
+                ) // Extraemos los años
+                const valores = json.data.map((item: { y: number }) => item.y) // Extraemos los casos
+
+                setData([
+                    {
+                        name: 'Casos por Año',
+                        data: valores,
                     },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                stroke: {
-                    curve: 'smooth',
-                    width: 3,
-                },
-                colors: [COLOR_5],
-                xaxis: {
-                    categories: [
-                        'Jan',
-                        'Feb',
-                        'Mar',
-                        'Apr',
-                        'May',
-                        'Jun',
-                        'Jul',
-                        'Aug',
-                        'Sep',
-                    ],
-                },
-            }}
-            series={data}
-            height={300}
-        />
-    )
+                ])
+
+                // Configurar el gráfico con las categorías y los valores
+                setOptions((prev) => ({
+                    ...prev,
+                    xaxis: {
+                        categories: categorias,
+                    },
+                }))
+            })
+    }, [])
+
+    const [options, setOptions] = useState<ApexCharts.ApexOptions>({
+        chart: {
+            type: 'line',
+            zoom: {
+                enabled: false,
+            },
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3,
+        },
+        colors: ['#00E396'], // Color verde (puedes personalizarlo)
+        xaxis: {
+            categories: [], // Se actualizará con los datos
+        },
+    })
+
+    return <Chart options={options} series={data} height={300} />
 }
 
 const Home = () => {
-    const [activeGraph, setActiveGraph] = useState('ventas')
-    const [topCases, setTopCases] = useState<{ x: string | null; y: number }[]>(
-        [],
-    )
+    const [activeGraph, setActiveGraph] = useState<'ventas' | 'casos'>('ventas')
+    const [topCases, setTopCases] = useState<CaseItem[]>([])
     const [topClientes, setTopClientes] = useState<Cliente[]>([])
 
     useEffect(() => {
         fetch('/data/tipos_de_casos.json')
             .then((response) => response.json())
-            .then((data: { data: { x: string | null; y: number }[] }) => {
+            .then((data: { data: CaseItem[] }) => {
                 const sortedCases = data.data
                     .filter((item) => item.x !== null)
                     .sort((a, b) => b.y - a.y)
@@ -131,9 +141,9 @@ const Home = () => {
             .catch((error) => console.error('Error loading JSON data:', error))
 
         // Cargar datos de clientes
-        fetch('/data/ventasxcliente1.json')
+        fetch('/data/ventasxcliente.json')
             .then((response) => response.json())
-            .then((data: { data: { x: string | null; y: number }[] }) => {
+            .then((data: { data: CaseItem[] }) => {
                 const clientesFiltrados: Cliente[] = data.data
                     .filter((item) => item.x !== null)
                     .map((item) => ({
@@ -243,7 +253,6 @@ const Home = () => {
             </div>
 
             {/* New "Top Clientes" section */}
-            {/* Top Clientes Section */}
             <div className="w-full mt-8">
                 <Card bordered={false}>
                     <div className="flex justify-between items-center">
@@ -271,7 +280,7 @@ const Home = () => {
                                     <div
                                         className="h-full bg-blue-500"
                                         style={{
-                                            width: `${cliente.porcentaje}%`, // Se ajusta dinámicamente al porcentaje real
+                                            width: `${cliente.porcentaje}%`,
                                         }}
                                     ></div>
                                 </div>
