@@ -1,294 +1,164 @@
 {
     "data": [
         {
-            "x": "Centro Veterinario Aralar",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "HOSPITAL VETERINARIO BENIPEIXCAR",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "ARAGO SERVEIS VETERINARIS SL",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "AniCura Albea Hospital Veterinarios",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "AniCura Velazquez Hospital Veterinario",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "GUADIAMAR SERVICIOS VETERINARIOS DE REFERENCIA SL",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "Terape\u00fatica Animal S.L",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "VETAMIC",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "VIGLO, S.L.U.",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "Anicura Valencia Sur",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "Centre Clinic Veterinari de Lleida i Segria SL",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "Hospital Veterinari Anicura Vet's Avinguda",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "Albeitar 24h S.L.",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "AniCura San Vicente HOSPITAL VETERINARIO",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "ARS VETERINARIA, SLP",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "GALTO INVESTMENTS 2017, S.L.",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
-            "x": "AniCura Arvivet HV",
-            "y": 78957,
-            "cif": "B88158167"
-        },
-        {
             "x": "Balmesvet Veterinaris Hospital 24h",
-            "y": 57626,
+            "y": 82379,
             "cif": "B65342437"
         },
         {
             "x": "Cmv Delicias",
-            "y": 47941,
+            "y": 66604,
             "cif": "B88556196"
         },
         {
-            "x": "HV Puente Genil",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "HV VISTALEGRE",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "Clinica Mediterraneo",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "HV EL BOSQUE ALUCHE",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "HV BALMES",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "Centro de endoscopia veterinaria Torrent",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "HV VILLAVICIOSA",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "HV CANIS",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
-            "x": "HV Los Tarahales",
-            "y": 39144,
-            "cif": "B06874754"
-        },
-        {
             "x": "VETPATINO S.L.",
-            "y": 37180,
+            "y": 55245,
             "cif": "B55708507"
         },
         {
-            "x": "Hospital Veterinario Eduardo Rodriguez Hardisson",
-            "y": 23892,
-            "cif": "B05422472"
+            "x": "HOSPITAL VETERINARI DE CATALUNYA S.L",
+            "y": 52161,
+            "cif": "B70683263"
         },
         {
-            "x": "Instituto M\u00e9dico Veterinario de \u00c1lava. IMVA",
-            "y": 21769,
-            "cif": "B88499504"
+            "x": "HV Los Tarahales",
+            "y": 48438,
+            "cif": "B06874754"
         },
         {
-            "x": "UNAVETS HEALHCARE SL",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "H. BIERZOO PONFERRADA",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "TARTANGAIMAN S.L.",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "HOSPITAL VETERINARIO ABAT MARCET",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "Centros Veterinarios Tartanga",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "HOSPITAL VETERINARIO BODION",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "A MEDIA L\u00daA HOSPITAL VETERINARIO - UNAVETS HEALTHCARE SL",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "NUEVO ENSANCHE",
-            "y": 21769,
-            "cif": "B88499504"
-        },
-        {
-            "x": "Unavets Healthcare",
-            "y": 21769,
-            "cif": "B88499504"
+            "x": "Centro Veterinario Aralar",
+            "y": 39219,
+            "cif": "B88158167"
         },
         {
             "x": "ANICURA M\u00d3N VETERINARI Hospital Veterinari",
-            "y": 20402,
+            "y": 28786,
             "cif": "L-705519-L"
         },
         {
             "x": "HOSPITAL  VETERINARIO ALBACORA",
-            "y": 19985,
+            "y": 28689,
             "cif": "26003629j"
         },
         {
             "x": "Hospital de Urgencias Veterinarias de la Regi\u00f3n de Murcia",
-            "y": 19219,
+            "y": 27416,
             "cif": "B73595159"
         },
         {
-            "x": "HOSPITAL VETERINARI DE CATALUNYA S.L",
-            "y": 19018,
-            "cif": "B70683263"
+            "x": "Hospital Veterinario Eduardo Rodriguez Hardisson",
+            "y": 27051,
+            "cif": "B05422472"
         },
         {
-            "x": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
-            "y": 17175,
-            "cif": "G06456487"
+            "x": "HOSPITAL VETERINARIO LA FLOTA",
+            "y": 26761,
+            "cif": "B73729188"
+        },
+        {
+            "x": "AniCura Arvivet HV",
+            "y": 22704,
+            "cif": "B88158167"
         },
         {
             "x": "Hospital Veterin\u00e1rio de Coimbra",
-            "y": 11275,
+            "y": 22242,
             "cif": "513107550"
         },
         {
             "x": "Anicura Hospital Veterinario Marina Baixa",
-            "y": 11105,
+            "y": 22060,
             "cif": "ESB88246319"
         },
         {
-            "x": "HV MIVET MASCOSAN  PONN6240",
-            "y": 10530,
-            "cif": "B88483250"
-        },
-        {
-            "x": "HV Mivet Avenida",
-            "y": 10530,
-            "cif": "B88483250"
-        },
-        {
-            "x": "CAH REGION NORTE SLU",
-            "y": 10530,
-            "cif": "B88483250"
-        },
-        {
-            "x": "Hospital Veterinario Los Tarahales SLP",
-            "y": 8238,
-            "cif": "B35563246"
-        },
-        {
-            "x": "Mivet Animalia POAN004238",
-            "y": 6786,
-            "cif": "B63549398"
+            "x": "HCV UEx. Fundaci\u00f3n Universidad Sociedad. Cirug\u00eda",
+            "y": 21562,
+            "cif": "G06456487"
         },
         {
             "x": "FGULEM",
-            "y": 6367,
+            "y": 18831,
             "cif": "G24356644"
         },
         {
-            "x": "Hospital Veterinario Al Sur S.L.",
-            "y": 5475,
-            "cif": "B18531301"
+            "x": "Albeitar 24h S.L.",
+            "y": 18610,
+            "cif": "B88158167"
         },
         {
-            "x": "MIVET FAYCAN- POEE014095",
-            "y": 4841,
-            "cif": "B88059399"
+            "x": "GUADIAMAR SERVICIOS VETERINARIOS DE REFERENCIA SL",
+            "y": 16547,
+            "cif": "B88158167"
         },
         {
-            "x": "CAH ESTE, S.L.- CENTRO MIVET: POEE014869",
-            "y": 4841,
-            "cif": "B88059399"
+            "x": "Centro de endoscopia veterinaria Torrent",
+            "y": 13446,
+            "cif": "B06874754"
         },
         {
-            "x": "Mivet Vetsicor",
-            "y": 4659,
-            "cif": "B88318472"
+            "x": "Feres Veterinaris SLP-Hospital Veterinari Feres",
+            "y": 10774,
+            "cif": "39340170G"
+        },
+        {
+            "x": "AniCura Restelo Hospital Veterin\u00e1rio",
+            "y": 10345,
+            "cif": "PT505938405"
+        },
+        {
+            "x": "Clinica Mediterraneo",
+            "y": 10234,
+            "cif": "B06874754"
+        },
+        {
+            "x": "HV MIVET MASCOSAN  PONN6240",
+            "y": 8908,
+            "cif": "B88483250"
+        },
+        {
+            "x": "HOSPITAL VETERINARIO BENIPEIXCAR",
+            "y": 7324,
+            "cif": "B88158167"
+        },
+        {
+            "x": "AniCura Albea Hospital Veterinarios",
+            "y": 7245,
+            "cif": "B88158167"
+        },
+        {
+            "x": "ANICURA URIBE KOSTA CLINICA VETERINARIA S.L.U.",
+            "y": 6436,
+            "cif": "ESB88421581"
+        },
+        {
+            "x": "Mivet Animalia POAN004238",
+            "y": 5759,
+            "cif": "B63549398"
+        },
+        {
+            "x": "Unavets Healthcare",
+            "y": 5586,
+            "cif": "B88499504"
+        },
+        {
+            "x": "HOSPITAL VETERINARIO BODION",
+            "y": 5490,
+            "cif": "B88499504"
         },
         {
             "x": "CENTRO VETERINARIO ALJARAFE NORTE",
-            "y": 4385,
+            "y": 5146,
             "cif": "44351124V"
+        },
+        {
+            "x": "CONSORCI VETERINARI SL",
+            "y": 4884,
+            "cif": "B61352738"
+        },
+        {
+            "x": "Mivet Vetsicor",
+            "y": 4676,
+            "cif": "B88318472"
         },
         {
             "x": "Climevet, Lda",
@@ -296,389 +166,664 @@
             "cif": "504279076"
         },
         {
+            "x": "CAH ESTE, S.L.- CENTRO MIVET: POEE014869",
+            "y": 3347,
+            "cif": "B88059399"
+        },
+        {
+            "x": "Batuca Vet",
+            "y": 3264,
+            "cif": "514197064"
+        },
+        {
+            "x": "HOSPITAL VETERINARI DEL MARESME MIVET PONE0010081",
+            "y": 3108,
+            "cif": "B88206115"
+        },
+        {
+            "x": "MIVET FAYCAN- POEE014095",
+            "y": 2886,
+            "cif": "B88059399"
+        },
+        {
+            "x": "HOSPITAL VET. MENESCAL S.L.",
+            "y": 2710,
+            "cif": "B53327326"
+        },
+        {
+            "x": "Hospital Veterinario Al Sur s.l.",
+            "y": 2682,
+            "cif": "B18531301"
+        },
+        {
+            "x": "Cl\u00ednica Veterinaria Taco S.L.U",
+            "y": 2656,
+            "cif": "B38355442"
+        },
+        {
+            "x": "A MEDIA L\u00daA HOSPITAL VETERINARIO - UNAVETS HEALTHCARE SL",
+            "y": 2515,
+            "cif": "B88499504"
+        },
+        {
+            "x": "Anicura Abros Hospital Veterinario SL",
+            "y": 2504,
+            "cif": "ESB88169800"
+        },
+        {
+            "x": "TARTANGAIMAN S.L.",
+            "y": 2329,
+            "cif": "B88499504"
+        },
+        {
+            "x": "AniCura Velazquez Hospital Veterinario",
+            "y": 2286,
+            "cif": "B88158167"
+        },
+        {
+            "x": "ALAVA CENTRO VETERINARIO S.L.",
+            "y": 2284,
+            "cif": "B01311414"
+        },
+        {
+            "x": "C\u00e9sar Louro",
+            "y": 2267,
+            "cif": null
+        },
+        {
+            "x": "HOSPITAL VETERINARIO ABAT MARCET",
+            "y": 2235,
+            "cif": "B88499504"
+        },
+        {
+            "x": "HOSPITAL VETERINARI MIVET MANRESA PONE010987",
+            "y": 2171,
+            "cif": "B88206115"
+        },
+        {
+            "x": "Clinica Veterinaria Juan de Herrera",
+            "y": 2082,
+            "cif": "B02962645"
+        },
+        {
+            "x": "Especialistas veterinarios S.L",
+            "y": 1900,
+            "cif": "B93061729"
+        },
+        {
+            "x": null,
+            "y": 1888,
+            "cif": null
+        },
+        {
+            "x": "NUEVO ENSANCHE",
+            "y": 1820,
+            "cif": "B88499504"
+        },
+        {
+            "x": "FENIX HOSPITAL VETERINARIO SLP",
+            "y": 1800,
+            "cif": "B42585117"
+        },
+        {
+            "x": "Cl\u00ednica Veterinaria Pets Madrid S.L.P",
+            "y": 1762,
+            "cif": "B85583649"
+        },
+        {
             "x": "BARBE ARRILLAGA SL",
-            "y": 4233,
+            "y": 1401,
             "cif": "B-75230136"
         },
         {
             "x": "Conectavets",
-            "y": 3736,
+            "y": 1343,
             "cif": "J93435956"
         },
         {
-            "x": "Cl\u00ednica Veterinaria Taco S.L.U",
-            "y": 3645,
-            "cif": "B38355442"
+            "x": "Vetoclock",
+            "y": 1175,
+            "cif": "22222222A"
         },
         {
-            "x": "Batuca Vet",
-            "y": 3369,
-            "cif": "514197064"
+            "x": "Veterinaria del Mar, S.L.",
+            "y": 1023,
+            "cif": "B66711813"
         },
         {
-            "x": "HOSPITAL VETERINARIO LA FLOTA",
-            "y": 3213,
-            "cif": "B73729188"
-        },
-        {
-            "x": "Clinica Veterinaria Juan de Herrera",
-            "y": 3142,
-            "cif": "B02962645"
-        },
-        {
-            "x": "HOSPITAL VET. MENESCAL S.L.",
-            "y": 2988,
-            "cif": "B53327326"
-        },
-        {
-            "x": "EVA SL",
-            "y": 2649,
-            "cif": "B93061729"
-        },
-        {
-            "x": "Especialistas veterinarios S.L",
-            "y": 2649,
-            "cif": "B93061729"
-        },
-        {
-            "x": "Feres Veterinaris SLP-Hospital Veterinari Feres",
-            "y": 2600,
-            "cif": "39340170G"
-        },
-        {
-            "x": "Feres Cl\u00ednica Veterinaria",
-            "y": 2600,
-            "cif": "39340170G"
-        },
-        {
-            "x": "HOSPITAL VETERINARI MIVET MANRESA PONE010987",
-            "y": 2551,
-            "cif": "B88206115"
-        },
-        {
-            "x": "HOSPITAL VETERINARI DEL MARESME MIVET PONE0010081",
-            "y": 2551,
-            "cif": "B88206115"
-        },
-        {
-            "x": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
-            "y": 2551,
-            "cif": "B88206115"
-        },
-        {
-            "x": "CAH REGI\u00d3N NORESTE S.L.",
-            "y": 2551,
-            "cif": "B88206115"
-        },
-        {
-            "x": "FENIX HOSPITAL VETERINARIO SLP",
-            "y": 2178,
-            "cif": "B42585117"
-        },
-        {
-            "x": "AUNA ESPECIALIDADES VETERINARIAS",
-            "y": 1929,
-            "cif": "B98723802"
-        },
-        {
-            "x": "ALAVA CENTRO VETERINARIO S.L.",
-            "y": 1605,
-            "cif": "B01311414"
-        },
-        {
-            "x": "Anahi Vehi",
-            "y": 1409,
-            "cif": "41550887F"
-        },
-        {
-            "x": "HV ALSUR",
-            "y": 1095,
-            "cif": "B18531301"
-        },
-        {
-            "x": "Hospital do Gato",
-            "y": 1081,
-            "cif": "510214355"
-        },
-        {
-            "x": "CLINICA VETERINARIA SACEDON",
-            "y": 840,
-            "cif": "03096442k"
-        },
-        {
-            "x": "Vetmascotes",
-            "y": 798,
-            "cif": "B-43952225"
-        },
-        {
-            "x": "NIEVES MARTINEZ TOCA",
-            "y": 790,
-            "cif": ". "
-        },
-        {
-            "x": "HOSPITAL VETERINARI LES VALLS",
-            "y": 790,
-            "cif": ". "
-        },
-        {
-            "x": "Anicura Abros Hospital Veterinario SL",
-            "y": 670,
-            "cif": "ESB88169800"
-        },
-        {
-            "x": "CV Cania",
-            "y": 355,
-            "cif": "B76124627"
-        },
-        {
-            "x": "Cl\u00ednica Veterinaria Gimaiavet SLP",
-            "y": 302,
-            "cif": "B55682314"
-        },
-        {
-            "x": "SANIDAD VETERINARIA SL",
-            "y": 290,
-            "cif": "B81062499"
-        },
-        {
-            "x": "AniCura Restelo Hospital Veterin\u00e1rio",
-            "y": 255,
-            "cif": "PT505938405"
-        },
-        {
-            "x": "BITCLIVET,SL",
-            "y": 254,
-            "cif": "B55519805"
-        },
-        {
-            "x": "VetEx - Servi\u00e7os Veterin\u00e1rios",
-            "y": 223,
-            "cif": "517596270"
-        },
-        {
-            "x": "Cl\u00ednica Veterinaria Formentera",
-            "y": 211,
-            "cif": "43445781t"
-        },
-        {
-            "x": "MEDIVET IBERIA DOS SLU",
-            "y": 208,
-            "cif": "B67852186"
-        },
-        {
-            "x": "CLINICA VETERINARIA ROBLEDO DE CHAVELA",
-            "y": 199,
-            "cif": "X3611336Z"
-        },
-        {
-            "x": "Sanacan",
-            "y": 193,
-            "cif": "11862348Y"
-        },
-        {
-            "x": "SMART APPROACH VETERINARY SERVICES",
-            "y": 193,
-            "cif": "48817494"
-        },
-        {
-            "x": "Ruth Franco Erdociain",
-            "y": 193,
-            "cif": "29108864 h"
-        },
-        {
-            "x": "VETALLIANCE",
-            "y": 163,
-            "cif": "47321446G"
-        },
-        {
-            "x": "Cl\u00ednica Veterinaria Pets Madrid S.L.P",
-            "y": 157,
-            "cif": "B85583649"
-        },
-        {
-            "x": "Hospital Veterinario Pamplona",
-            "y": 133,
-            "cif": "B31626252"
-        },
-        {
-            "x": "TECHNOLOGY ANIMAL CENTER SLP",
-            "y": 127,
-            "cif": "B98307820"
-        },
-        {
-            "x": "ANIMAVET Dent de Lys",
-            "y": 110,
-            "cif": "CHE-288.202.555"
-        },
-        {
-            "x": "Centro de Diagnostico Veterinario",
-            "y": 108,
-            "cif": "47497152J"
-        },
-        {
-            "x": "AMAITA",
-            "y": 108,
-            "cif": "15242439V"
-        },
-        {
-            "x": "Benalvet",
-            "y": 108,
-            "cif": "27394210z"
-        },
-        {
-            "x": "ALAROVET S.L.P.",
-            "y": 108,
-            "cif": "B-57990327"
-        },
-        {
-            "x": "Animavet SA",
-            "y": 108,
-            "cif": "Y0841157S"
-        },
-        {
-            "x": "Cl\u00ednica Veterinaria AGABA",
-            "y": 102,
-            "cif": "B44105336"
-        },
-        {
-            "x": "Veterinaria Proxem SCP",
-            "y": 100,
-            "cif": "J02917912"
-        },
-        {
-            "x": "Flores Vet",
-            "y": 99,
-            "cif": "209483016"
-        },
-        {
-            "x": "Susana Flores",
-            "y": 99,
-            "cif": "209483016"
+            "x": "H. BIERZOO PONFERRADA",
+            "y": 987,
+            "cif": "B88499504"
         },
         {
             "x": "HOSPITAL VETERINARIO MENES S.L.",
-            "y": 96,
+            "y": 849,
             "cif": "B33998675"
         },
         {
-            "x": "HOSPITAL VETERINARIO SIERRA DE MADRID, S.L.",
-            "y": 90,
-            "cif": "b81559171"
+            "x": "Instituto M\u00e9dico Veterinario de \u00c1lava. IMVA",
+            "y": 600,
+            "cif": "B88499504"
         },
         {
-            "x": "Hospital Veterinario Sierra de Madrid",
-            "y": 90,
-            "cif": "b81559171"
+            "x": "clinica veterinaria plaza de Italia",
+            "y": 474,
+            "cif": "B88258926"
         },
         {
-            "x": "CIAVETSLU",
-            "y": 80,
-            "cif": "B19471275"
+            "x": null,
+            "y": 434,
+            "cif": null
         },
         {
-            "x": "Urvet Costa del Sol S.L.",
-            "y": 66,
-            "cif": "25713466H"
+            "x": "SANIDAD VETERINARIA SL",
+            "y": 400,
+            "cif": "B81062499"
         },
         {
-            "x": "C V EQUUSCAN",
-            "y": 66,
-            "cif": "25713466H"
+            "x": "Cristina Mivet",
+            "y": 375,
+            "cif": "77135543Y"
         },
         {
-            "x": "Susana Cancio",
-            "y": 66,
-            "cif": "02530810m"
+            "x": "AniCura San Vicente HOSPITAL VETERINARIO",
+            "y": 375,
+            "cif": "B88158167"
+        },
+        {
+            "x": "Anahi Vehi",
+            "y": 330,
+            "cif": "41550887F"
+        },
+        {
+            "x": "HV CANIS GIRONA",
+            "y": 300,
+            "cif": "B17870502"
+        },
+        {
+            "x": "Instituto de Ci\u00eancias Biom\u00e9dicas Abel Salazar (ICBAS)",
+            "y": 300,
+            "cif": "290741190"
+        },
+        {
+            "x": null,
+            "y": 300,
+            "cif": null
+        },
+        {
+            "x": "Guzmanelbueno",
+            "y": 290,
+            "cif": "B87385760"
+        },
+        {
+            "x": "CV Cania",
+            "y": 270,
+            "cif": "B76124627"
+        },
+        {
+            "x": "MEDIVET IBERIA DOS SLU",
+            "y": 247,
+            "cif": "B67852186"
+        },
+        {
+            "x": "Donostivet",
+            "y": 247,
+            "cif": "B75147645"
+        },
+        {
+            "x": "MIVET BUSTAMANTE - POE: PONO004936",
+            "y": 225,
+            "cif": "B88156328"
+        },
+        {
+            "x": "HV Mivet Avenida",
+            "y": 200,
+            "cif": "B88483250"
+        },
+        {
+            "x": "Hospital Veterinario La Moraleja SLP",
+            "y": 162,
+            "cif": "B86694858"
+        },
+        {
+            "x": "CAH REGI\u00d3N NORESTE S.L.",
+            "y": 150,
+            "cif": "B88206115"
+        },
+        {
+            "x": "AF COLABORACIONES VETERINARIAS S.L.",
+            "y": 70,
+            "cif": "B84935378"
         },
         {
             "x": "VETOVEN VETERINARIA",
-            "y": 66,
+            "y": 55,
             "cif": "B56725989"
         },
         {
-            "x": "VETROPIA VETERINARIA",
-            "y": 66,
-            "cif": "46474325L"
+            "x": "CV APRENDO",
+            "y": 45,
+            "cif": "12345678h"
         },
         {
-            "x": "Hospital veterinario Ferral",
-            "y": 66,
-            "cif": "B24718553"
+            "x": "INTEGRAL CLINICA VETERINARIA SL",
+            "y": 40,
+            "cif": "B40613952"
         },
         {
-            "x": "CLINICA VETERINARIA SAN BARTOLOME",
-            "y": 55,
-            "cif": "42845461A"
-        },
-        {
-            "x": "manescal clinica veterinaria",
-            "y": 54,
-            "cif": "35100074G"
-        },
-        {
-            "x": "CLINICA VETERINARA PRADA S.L.",
-            "y": 54,
-            "cif": "B09539727"
-        },
-        {
-            "x": "veteskola",
-            "y": 54,
-            "cif": "53157406j"
-        },
-        {
-            "x": "Maria Jose",
-            "y": 54,
-            "cif": "75564393D"
-        },
-        {
-            "x": "RAFELBUNYOL VETERINARIA S.L",
-            "y": 54,
-            "cif": "B97804397"
-        },
-        {
-            "x": "Alexandra neves",
-            "y": 54,
-            "cif": "214555968"
-        },
-        {
-            "x": "SANIVET CB",
-            "y": 54,
-            "cif": "E24723785"
-        },
-        {
-            "x": "Laia Cambronero Gin\u00e9s",
-            "y": 54,
-            "cif": "46359288M"
+            "x": "Servicios Veterinario Baltavet SL",
+            "y": 0,
+            "cif": "B79814136"
         },
         {
             "x": "CLINICA ANIMAL DHARMA",
-            "y": 48,
+            "y": 0,
             "cif": "43119654j"
         },
         {
+            "x": "centro veterinario equuscan",
+            "y": 0,
+            "cif": "B38441119"
+        },
+        {
+            "x": "Sanacan",
+            "y": 0,
+            "cif": "11862348Y"
+        },
+        {
+            "x": "SANIVET CB",
+            "y": 0,
+            "cif": "E24723785"
+        },
+        {
+            "x": "CENTRO VETERINARIO BARI",
+            "y": 0,
+            "cif": "B76209873"
+        },
+        {
+            "x": "Aroa Royo Mart\u00edn",
+            "y": 0,
+            "cif": "28964977L"
+        },
+        {
+            "x": "KOALA SUR",
+            "y": 0,
+            "cif": "71952538M"
+        },
+        {
+            "x": "Centro de Diagnostico Veterinario",
+            "y": 0,
+            "cif": "47497152J"
+        },
+        {
+            "x": "CV Monvets",
+            "y": 0,
+            "cif": "43686878B"
+        },
+        {
+            "x": "VetEx - Servi\u00e7os Veterin\u00e1rios",
+            "y": 0,
+            "cif": "517596270"
+        },
+        {
+            "x": "SMART APPROACH VETERINARY SERVICES",
+            "y": 0,
+            "cif": "48817494"
+        },
+        {
+            "x": "HOSPITAL VETERINARI LES VALLS",
+            "y": 0,
+            "cif": ". "
+        },
+        {
+            "x": "Animavet SA",
+            "y": 0,
+            "cif": "Y0841157S"
+        },
+        {
+            "x": "SORRIBESRECUENCODEPABLO",
+            "y": 0,
+            "cif": "b16314809"
+        },
+        {
+            "x": "TECKDOG SCP",
+            "y": 0,
+            "cif": "J66186198"
+        },
+        {
+            "x": "veteskola",
+            "y": 0,
+            "cif": "53157406j"
+        },
+        {
+            "x": "Centro Veterinario Capri",
+            "y": 0,
+            "cif": "44723345Y"
+        },
+        {
+            "x": "Veterinaria Proxem SCP",
+            "y": 0,
+            "cif": "J02917912"
+        },
+        {
+            "x": "VETALLIANCE",
+            "y": 0,
+            "cif": "47321446G"
+        },
+        {
+            "x": "Veterinaria Canicats SCP",
+            "y": 0,
+            "cif": "J66838467"
+        },
+        {
+            "x": "Severino",
+            "y": 0,
+            "cif": "30243914h"
+        },
+        {
+            "x": "Vetmascotes",
+            "y": 0,
+            "cif": "B-43952225"
+        },
+        {
+            "x": "Flores Vet",
+            "y": 0,
+            "cif": "209483016"
+        },
+        {
+            "x": "Alexandra neves",
+            "y": 0,
+            "cif": "214555968"
+        },
+        {
+            "x": "Vet&Bits SL",
+            "y": 0,
+            "cif": "B55663744"
+        },
+        {
+            "x": "RAFELBUNYOL VETERINARIA S.L",
+            "y": 0,
+            "cif": "B97804397"
+        },
+        {
+            "x": "CLINICA VETERINARIA SACEDON",
+            "y": 0,
+            "cif": "03096442k"
+        },
+        {
+            "x": "manescal clinica veterinaria",
+            "y": 0,
+            "cif": "35100074G"
+        },
+        {
+            "x": "Laia Cambronero Gin\u00e9s",
+            "y": 0,
+            "cif": "46359288M"
+        },
+        {
+            "x": "Cl\u00ednica Veterinaria AGABA",
+            "y": 0,
+            "cif": "B44105336"
+        },
+        {
+            "x": "ALAROVET S.L.P.",
+            "y": 0,
+            "cif": "B-57990327"
+        },
+        {
+            "x": "cl\u00ednica arenal",
+            "y": 0,
+            "cif": "55331009R"
+        },
+        {
+            "x": "AMAITA",
+            "y": 0,
+            "cif": "15242439V"
+        },
+        {
+            "x": "Leire ortega",
+            "y": 0,
+            "cif": "72480523W"
+        },
+        {
+            "x": "AUNA ESPECIALIDADES VETERINARIAS",
+            "y": 0,
+            "cif": "B98723802"
+        },
+        {
+            "x": "CLINICA VETERINARIA",
+            "y": 0,
+            "cif": "E-97245823"
+        },
+        {
+            "x": "TECHNOLOGY ANIMAL CENTER SLP",
+            "y": 0,
+            "cif": "B98307820"
+        },
+        {
+            "x": "CLINICA VETERINARA PRADA S.L.",
+            "y": 0,
+            "cif": "B09539727"
+        },
+        {
+            "x": "RUT",
+            "y": 0,
+            "cif": "09398903E"
+        },
+        {
+            "x": "Benalvet",
+            "y": 0,
+            "cif": "27394210z"
+        },
+        {
+            "x": "CV Alaior",
+            "y": 0,
+            "cif": "41496073W"
+        },
+        {
+            "x": "MIMA'LS BY ELENA, S.L.",
+            "y": 0,
+            "cif": "B16892259"
+        },
+        {
+            "x": "Mar\u00eda Amparo Ortu\u00f1ez Navarro",
+            "y": 0,
+            "cif": "29130473F"
+        },
+        {
+            "x": "Maria Jose",
+            "y": 0,
+            "cif": "75564393D"
+        },
+        {
+            "x": "Cl\u00ednica Veterinaria Formentera",
+            "y": 0,
+            "cif": "43445781t"
+        },
+        {
+            "x": "Veterinaris ciuro SCP",
+            "y": 0,
+            "cif": "06959191J"
+        },
+        {
+            "x": "Marta Solanas Lozano",
+            "y": 0,
+            "cif": "72977764Y"
+        },
+        {
+            "x": "S\u00f2nia Nogu\u00e9s Calatayud",
+            "y": 0,
+            "cif": "47962061T"
+        },
+        {
+            "x": "CLINICA VETERINARIA ROBLEDO DE CHAVELA",
+            "y": 0,
+            "cif": "X3611336Z"
+        },
+        {
+            "x": "CIAVETSLU",
+            "y": 0,
+            "cif": "B19471275"
+        },
+        {
+            "x": "veterinarios azules",
+            "y": 0,
+            "cif": "B72591167"
+        },
+        {
+            "x": "C V EQUUSCAN",
+            "y": 0,
+            "cif": "25713466H"
+        },
+        {
+            "x": "Cl\u00ednica Veterinaria Gimaiavet SLP",
+            "y": 0,
+            "cif": "B55682314"
+        },
+        {
+            "x": "ANIMAVET Dent de Lys",
+            "y": 0,
+            "cif": "CHE-288.202.555"
+        },
+        {
+            "x": "VIA LUZ VETERINARIOS SL",
+            "y": 0,
+            "cif": "B62470059"
+        },
+        {
+            "x": "CLINICA VETERINARIA SAN BARTOLOME",
+            "y": 0,
+            "cif": "42845461A"
+        },
+        {
+            "x": "Veterinaris Alar\u00f3",
+            "y": 0,
+            "cif": "45758754R"
+        },
+        {
+            "x": "Susana Cancio",
+            "y": 0,
+            "cif": "02530810m"
+        },
+        {
+            "x": "Animelx S.L.P",
+            "y": 0,
+            "cif": "74239994L"
+        },
+        {
+            "x": "VETROPIA VETERINARIA",
+            "y": 0,
+            "cif": "46474325L"
+        },
+        {
+            "x": "Clinica Veterinaria Contrueces",
+            "y": 0,
+            "cif": "10845666Q"
+        },
+        {
+            "x": "Hospital Veterinario Pamplona",
+            "y": 0,
+            "cif": "B31626252"
+        },
+        {
+            "x": "Patricia Becerra Salas",
+            "y": 0,
+            "cif": "290741190"
+        },
+        {
+            "x": "Ruth Franco Erdociain",
+            "y": 0,
+            "cif": "29108864 h"
+        },
+        {
+            "x": "IRUNATUR S.L.",
+            "y": 0,
+            "cif": "B71275614"
+        },
+        {
+            "x": "Can Bello",
+            "y": 0,
+            "cif": "28649386B"
+        },
+        {
+            "x": "BITCLIVET,SL",
+            "y": 0,
+            "cif": "B55519805"
+        },
+        {
+            "x": "Hospital veterinario Ferral",
+            "y": 0,
+            "cif": "B24718553"
+        },
+        {
+            "x": "GAIA VETERINARIOS S.C.",
+            "y": 0,
+            "cif": "J70275219"
+        },
+        {
+            "x": "JAVIER",
+            "y": 0,
+            "cif": "74694431E"
+        },
+        {
+            "x": "Tilellit",
+            "y": 0,
+            "cif": "78583432"
+        },
+        {
+            "x": "Gestiones veterinarias ortiz y osorio sl",
+            "y": 0,
+            "cif": "B53413266"
+        },
+        {
+            "x": "In\u00e9s",
+            "y": 0,
+            "cif": "71956869N"
+        },
+        {
+            "x": "CENTRO VETERINARIO AABEM",
+            "y": 0,
+            "cif": "13919630F"
+        },
+        {
+            "x": "Ruiz Riera Veterinarios, SLP",
+            "y": 0,
+            "cif": "B57602435"
+        },
+        {
+            "x": "H.V. Les Alf\u00e0begues",
+            "y": 0,
+            "cif": "24368867E"
+        },
+        {
+            "x": "AIDA GASCO GALVEZ",
+            "y": 0,
+            "cif": "75266508C"
+        },
+        {
+            "x": "VETSCIUTADELLA",
+            "y": 0,
+            "cif": "J57908295"
+        },
+        {
+            "x": "Hospital Veterinario Sierra de Madrid",
+            "y": 0,
+            "cif": "b81559171"
+        },
+        {
+            "x": "Ananda Vets",
+            "y": 0,
+            "cif": "J10739225"
+        },
+        {
             "x": "CENTRO VETERINARIO PARQUELAGOS SL",
-            "y": 48,
+            "y": 0,
             "cif": "b87060133"
         },
         {
             "x": "Clinivet San Francisco sl",
-            "y": 48,
+            "y": 0,
             "cif": "B33587288"
-        },
-        {
-            "x": "centro veterinario equuscan",
-            "y": 48,
-            "cif": "B38441119"
-        },
-        {
-            "x": "Centro Veterinario Capri",
-            "y": 45,
-            "cif": "44723345Y"
-        },
-        {
-            "x": "Ananda Vets",
-            "y": 40,
-            "cif": "J10739225"
         }
     ],
     "colors": [
