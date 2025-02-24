@@ -1,32 +1,82 @@
 [
     {
-        "empresa": null,
-        "fecha": "January 2024",
-        "importe": 80
-    },
-    {
-        "empresa": null,
-        "fecha": "May 2024",
-        "importe": 90
-    },
-    {
-        "empresa": null,
-        "fecha": "August 2024",
-        "importe": 270
-    },
-    {
-        "empresa": null,
-        "fecha": "October 2024",
-        "importe": 80
-    },
-    {
-        "empresa": null,
-        "fecha": "November 2024",
-        "importe": 190
-    },
-    {
         "empresa": "214555968",
         "fecha": "July 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "January 2024",
+        "importe": 2894.32000000000016370904631912708282470703125
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "February 2024",
+        "importe": 3715.90999999999985448084771633148193359375
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "March 2024",
+        "importe": 4339.0600000000004001776687800884246826171875
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "April 2024",
+        "importe": 3705.01999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "May 2024",
+        "importe": 2799.94000000000005456968210637569427490234375
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "June 2024",
+        "importe": 3790.92999999999983629095368087291717529296875
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "July 2024",
+        "importe": 3711.07000000000016370904631912708282470703125
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "August 2024",
+        "importe": 3568.2899999999999636202119290828704833984375
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "September 2024",
+        "importe": 4660.920000000000072759576141834259033203125
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "October 2024",
+        "importe": 4417.7100000000000363797880709171295166015625
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "November 2024",
+        "importe": 3449.7100000000000363797880709171295166015625
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "December 2024",
+        "importe": 2940.3000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "ACTIVOS MEDIVET IBERIA, SL",
+        "fecha": "January 2025",
+        "importe": 3948.23000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "ALAROVET S.L.P.",
+        "fecha": "August 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "ALAROVET S.L.P.",
+        "fecha": "September 2024",
         "importe": 54.4500000000000028421709430404007434844970703125
     },
     {
@@ -83,6 +133,21 @@
         "empresa": "Ananda Vets",
         "fecha": "January 2024",
         "importe": 40
+    },
+    {
+        "empresa": "AniCura Abros Hospital Veterinario S.L.",
+        "fecha": "June 2024",
+        "importe": 223.849999999999994315658113919198513031005859375
+    },
+    {
+        "empresa": "AniCura Abros Hospital Veterinario S.L.",
+        "fecha": "October 2024",
+        "importe": 349.68999999999999772626324556767940521240234375
+    },
+    {
+        "empresa": "AniCura Abros Hospital Veterinario S.L.",
+        "fecha": "January 2025",
+        "importe": 96.7999999999999971578290569595992565155029296875
     },
     {
         "empresa": "AniCura Marina Baixa Hospital Veterinario",
@@ -190,6 +255,136 @@
         "importe": 1378
     },
     {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "January 2024",
+        "importe": 105912.300000000002910383045673370361328125
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "February 2024",
+        "importe": 78117.60000000000582076609134674072265625
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "March 2024",
+        "importe": 32143.6500000000014551915228366851806640625
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "April 2024",
+        "importe": 102338.25
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "May 2024",
+        "importe": 112421.10000000000582076609134674072265625
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "June 2024",
+        "importe": 64396.199999999997089616954326629638671875
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "July 2024",
+        "importe": 123891.89999999999417923390865325927734375
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "August 2024",
+        "importe": 95477.550000000002910383045673370361328125
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "September 2024",
+        "importe": 118075.35000000000582076609134674072265625
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "October 2024",
+        "importe": 95940.89999999999417923390865325927734375
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "November 2024",
+        "importe": 99172.800000000002910383045673370361328125
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "December 2024",
+        "importe": 61683.75
+    },
+    {
+        "empresa": "ANICURA SPAIN HOLDING, S.L.U.",
+        "fecha": "January 2025",
+        "importe": 94795.5
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "January 2024",
+        "importe": 7060.8199999999997089616954326629638671875
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "February 2024",
+        "importe": 5207.84000000000014551915228366851806640625
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "March 2024",
+        "importe": 2142.90999999999985448084771633148193359375
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "April 2024",
+        "importe": 6822.5500000000001818989403545856475830078125
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "May 2024",
+        "importe": 7494.739999999999781721271574497222900390625
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "June 2024",
+        "importe": 4293.079999999999927240423858165740966796875
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "July 2024",
+        "importe": 8259.4599999999991268850862979888916015625
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "August 2024",
+        "importe": 6365.170000000000072759576141834259033203125
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "September 2024",
+        "importe": 7871.6899999999995998223312199115753173828125
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "October 2024",
+        "importe": 6396.0600000000004001776687800884246826171875
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "November 2024",
+        "importe": 6611.52000000000043655745685100555419921875
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "December 2024",
+        "importe": 4112.25
+    },
+    {
+        "empresa": "AniCura Vetamic Veterinaris  190767",
+        "fecha": "January 2025",
+        "importe": 6319.6999999999998181010596454143524169921875
+    },
+    {
         "empresa": "ANIMAVET Dent de Lys",
         "fecha": "December 2024",
         "importe": 110
@@ -206,33 +401,38 @@
     },
     {
         "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
-        "fecha": "January 2024",
-        "importe": 2223.98000000000001818989403545856475830078125
+        "fecha": "July 2024",
+        "importe": 1917.84999999999990905052982270717620849609375
     },
     {
         "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
-        "fecha": "February 2024",
-        "importe": 1718.200000000000045474735088646411895751953125
+        "fecha": "August 2024",
+        "importe": 2262.6999999999998181010596454143524169921875
     },
     {
         "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
-        "fecha": "March 2024",
-        "importe": 2551.88999999999987267074175179004669189453125
+        "fecha": "September 2024",
+        "importe": 3025
     },
     {
         "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
-        "fecha": "April 2024",
-        "importe": 1939.6300000000001091393642127513885498046875
+        "fecha": "October 2024",
+        "importe": 2144.1199999999998908606357872486114501953125
     },
     {
         "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
-        "fecha": "May 2024",
-        "importe": 1616.55999999999994543031789362430572509765625
+        "fecha": "November 2024",
+        "importe": 3153.260000000000218278728425502777099609375
     },
     {
         "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
-        "fecha": "June 2024",
-        "importe": 3460.59999999999990905052982270717620849609375
+        "fecha": "December 2024",
+        "importe": 3101.23000000000001818989403545856475830078125
+    },
+    {
+        "empresa": "ANOIA PET SERVICES GROUP S.L.U.",
+        "fecha": "January 2025",
+        "importe": 3414.6199999999998908606357872486114501953125
     },
     {
         "empresa": "AUNA ESPECIALIDADES VETERINARIAS",
@@ -483,6 +683,21 @@
         "empresa": "CAH REGI\u00d3N NORESTE S.L.",
         "fecha": "August 2024",
         "importe": 181.5
+    },
+    {
+        "empresa": "CAH REGI\u00d3N NORESTE S.L.",
+        "fecha": "September 2024",
+        "importe": 222.6399999999999863575794734060764312744140625
+    },
+    {
+        "empresa": "CAH REGI\u00d3N NORESTE S.L.",
+        "fecha": "November 2024",
+        "importe": 392.04000000000002046363078989088535308837890625
+    },
+    {
+        "empresa": "CAH REGI\u00d3N NORESTE S.L.",
+        "fecha": "December 2024",
+        "importe": 338.80000000000001136868377216160297393798828125
     },
     {
         "empresa": "CAH REGION NORTE S.L.  PONN6240",
@@ -750,6 +965,26 @@
         "importe": 54.4500000000000028421709430404007434844970703125
     },
     {
+        "empresa": "Cl\u00ednica Veterinaria Formentera",
+        "fecha": "February 2024",
+        "importe": 48.39999999999999857891452847979962825775146484375
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Formentera",
+        "fecha": "May 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Formentera",
+        "fecha": "June 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
+        "empresa": "Cl\u00ednica Veterinaria Formentera",
+        "fecha": "July 2024",
+        "importe": 54.4500000000000028421709430404007434844970703125
+    },
+    {
         "empresa": "Cl\u00ednica Veterinaria Gimaiavet SLP",
         "fecha": "March 2024",
         "importe": 54.4500000000000028421709430404007434844970703125
@@ -1010,27 +1245,27 @@
         "importe": 3824.80999999999994543031789362430572509765625
     },
     {
-        "empresa": "Especialistas veterinarios S.L",
+        "empresa": "Especialistas Veterinarios de Andaluc\u00eda S.L",
         "fecha": "September 2024",
         "importe": 254.099999999999994315658113919198513031005859375
     },
     {
-        "empresa": "Especialistas veterinarios S.L",
+        "empresa": "Especialistas Veterinarios de Andaluc\u00eda S.L",
         "fecha": "October 2024",
         "importe": 1370.930000000000063664629124104976654052734375
     },
     {
-        "empresa": "Especialistas veterinarios S.L",
+        "empresa": "Especialistas Veterinarios de Andaluc\u00eda S.L",
         "fecha": "November 2024",
         "importe": 661.8700000000000045474735088646411895751953125
     },
     {
-        "empresa": "Especialistas veterinarios S.L",
+        "empresa": "Especialistas Veterinarios de Andaluc\u00eda S.L",
         "fecha": "December 2024",
         "importe": 90.75
     },
     {
-        "empresa": "Especialistas veterinarios S.L",
+        "empresa": "Especialistas Veterinarios de Andaluc\u00eda S.L",
         "fecha": "January 2025",
         "importe": 272.25
     },
@@ -1072,32 +1307,32 @@
     {
         "empresa": "Feres Cl\u00ednica Veterinaria",
         "fecha": "January 2024",
-        "importe": 1024.8699999999998908606357872486114501953125
+        "importe": 2049.739999999999781721271574497222900390625
     },
     {
         "empresa": "Feres Cl\u00ednica Veterinaria",
         "fecha": "February 2024",
-        "importe": 389.6200000000000045474735088646411895751953125
+        "importe": 779.240000000000009094947017729282379150390625
     },
     {
         "empresa": "Feres Cl\u00ednica Veterinaria",
         "fecha": "July 2024",
-        "importe": 181.5
+        "importe": 363
     },
     {
         "empresa": "Feres Cl\u00ednica Veterinaria",
         "fecha": "October 2024",
-        "importe": 193.599999999999994315658113919198513031005859375
+        "importe": 387.19999999999998863131622783839702606201171875
     },
     {
         "empresa": "Feres Cl\u00ednica Veterinaria",
         "fecha": "December 2024",
-        "importe": 193.599999999999994315658113919198513031005859375
+        "importe": 387.19999999999998863131622783839702606201171875
     },
     {
         "empresa": "Feres Cl\u00ednica Veterinaria",
         "fecha": "January 2025",
-        "importe": 617.1000000000000227373675443232059478759765625
+        "importe": 1234.200000000000045474735088646411895751953125
     },
     {
         "empresa": "FGULEM",
@@ -1365,6 +1600,91 @@
         "importe": 387.19999999999998863131622783839702606201171875
     },
     {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "January 2024",
+        "importe": 7060.8199999999997089616954326629638671875
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "February 2024",
+        "importe": 5207.84000000000014551915228366851806640625
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "March 2024",
+        "importe": 2142.90999999999985448084771633148193359375
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "April 2024",
+        "importe": 6822.5500000000001818989403545856475830078125
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "May 2024",
+        "importe": 7494.739999999999781721271574497222900390625
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "June 2024",
+        "importe": 4293.079999999999927240423858165740966796875
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "July 2024",
+        "importe": 8259.4599999999991268850862979888916015625
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "August 2024",
+        "importe": 6365.170000000000072759576141834259033203125
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "September 2024",
+        "importe": 7871.6899999999995998223312199115753173828125
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "October 2024",
+        "importe": 6396.0600000000004001776687800884246826171875
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "November 2024",
+        "importe": 6611.52000000000043655745685100555419921875
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "December 2024",
+        "importe": 4112.25
+    },
+    {
+        "empresa": "Hospital Veterinari Anicura Vet's Avinguda",
+        "fecha": "January 2025",
+        "importe": 6319.6999999999998181010596454143524169921875
+    },
+    {
+        "empresa": "HOSPITAL VETERINARI LES VALLS",
+        "fecha": "January 2024",
+        "importe": 160
+    },
+    {
+        "empresa": "HOSPITAL VETERINARI LES VALLS",
+        "fecha": "April 2024",
+        "importe": 225
+    },
+    {
+        "empresa": "HOSPITAL VETERINARI LES VALLS",
+        "fecha": "July 2024",
+        "importe": 180
+    },
+    {
+        "empresa": "HOSPITAL VETERINARI LES VALLS",
+        "fecha": "September 2024",
+        "importe": 225
+    },
+    {
         "empresa": "Hospital Veterinario Al Sur S.L.",
         "fecha": "May 2024",
         "importe": 5475.25
@@ -1433,6 +1753,21 @@
         "empresa": "Hospital Veterin\u00e1rio de Coimbra",
         "fecha": "January 2025",
         "importe": 1144
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio do Restelo, Lda.",
+        "fecha": "February 2024",
+        "importe": 70
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio do Restelo, Lda.",
+        "fecha": "August 2024",
+        "importe": 80
+    },
+    {
+        "empresa": "Hospital Veterin\u00e1rio do Restelo, Lda.",
+        "fecha": "January 2025",
+        "importe": 105
     },
     {
         "empresa": "HOSPITAL VETERINARIO E-HVET",
@@ -1695,64 +2030,64 @@
         "importe": 181.5
     },
     {
-        "empresa": "IVC EVIDENSIA ASSETS SL",
-        "fecha": "January 2024",
-        "importe": 1133
+        "empresa": "HV MIVET MANRESA PONE010987",
+        "fecha": "September 2024",
+        "importe": 222.6399999999999863575794734060764312744140625
     },
     {
-        "empresa": "IVC EVIDENSIA ASSETS SL",
-        "fecha": "February 2024",
-        "importe": 169.400000000000005684341886080801486968994140625
+        "empresa": "HV MIVET MANRESA PONE010987",
+        "fecha": "November 2024",
+        "importe": 392.04000000000002046363078989088535308837890625
     },
     {
-        "empresa": "IVC EVIDENSIA ASSETS SL",
-        "fecha": "April 2024",
-        "importe": 2680
+        "empresa": "HV MIVET MANRESA PONE010987",
+        "fecha": "December 2024",
+        "importe": 338.80000000000001136868377216160297393798828125
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "May 2024",
-        "importe": 5689.4499999999998181010596454143524169921875
+        "importe": 1095.049999999999954525264911353588104248046875
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "June 2024",
-        "importe": 29671.639999999999417923390865325927734375
+        "importe": 37863
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "July 2024",
-        "importe": 40033
+        "importe": 51471
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "August 2024",
-        "importe": 41169.6500000000014551915228366851806640625
+        "importe": 51120
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "September 2024",
-        "importe": 35119.27999999999883584678173065185546875
+        "importe": 45153.360000000000582076609134674072265625
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "October 2024",
-        "importe": 26268.47999999999956344254314899444580078125
+        "importe": 33773.7600000000020372681319713592529296875
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "November 2024",
-        "importe": 30697.79999999999927240423858165740966796875
+        "importe": 39468.5999999999985448084771633148193359375
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "December 2024",
-        "importe": 33696.949999999997089616954326629638671875
+        "importe": 43324.6500000000014551915228366851806640625
     },
     {
         "empresa": "IVC EVIDENSIA ASSETS SL",
         "fecha": "January 2025",
-        "importe": 38988.5999999999985448084771633148193359375
+        "importe": 50128.199999999997089616954326629638671875
     },
     {
         "empresa": "LA FLOTA VETERINARIOS SL",
@@ -1935,19 +2270,39 @@
         "importe": 181.5
     },
     {
-        "empresa": "MIVET MARESME PONE0010081",
-        "fecha": "June 2024",
-        "importe": 169.400000000000005684341886080801486968994140625
+        "empresa": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
+        "fecha": "September 2024",
+        "importe": 222.6399999999999863575794734060764312744140625
+    },
+    {
+        "empresa": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
+        "fecha": "November 2024",
+        "importe": 392.04000000000002046363078989088535308837890625
+    },
+    {
+        "empresa": "MIVET HOSPITAL VETERINARI MARESME CAH REGION NORESTE",
+        "fecha": "December 2024",
+        "importe": 338.80000000000001136868377216160297393798828125
     },
     {
         "empresa": "MIVET MARESME PONE0010081",
-        "fecha": "July 2024",
-        "importe": 90.75
+        "fecha": "March 2024",
+        "importe": 494.8899999999999863575794734060764312744140625
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "April 2024",
+        "importe": 480.3700000000000045474735088646411895751953125
+    },
+    {
+        "empresa": "MIVET MARESME PONE0010081",
+        "fecha": "May 2024",
+        "importe": 441.6499999999999772626324556767940521240234375
     },
     {
         "empresa": "MIVET MARESME PONE0010081",
         "fecha": "August 2024",
-        "importe": 169.400000000000005684341886080801486968994140625
+        "importe": 181.5
     },
     {
         "empresa": "MIVET MARESME PONE0010081",
@@ -2020,6 +2375,26 @@
         "importe": 169.400000000000005684341886080801486968994140625
     },
     {
+        "empresa": "Nieves Martinez Toca",
+        "fecha": "January 2024",
+        "importe": 160
+    },
+    {
+        "empresa": "Nieves Martinez Toca",
+        "fecha": "April 2024",
+        "importe": 225
+    },
+    {
+        "empresa": "Nieves Martinez Toca",
+        "fecha": "July 2024",
+        "importe": 180
+    },
+    {
+        "empresa": "Nieves Martinez Toca",
+        "fecha": "September 2024",
+        "importe": 225
+    },
+    {
         "empresa": "RAFELBUNYOL VETERINARIA S.L",
         "fecha": "July 2024",
         "importe": 54.4500000000000028421709430404007434844970703125
@@ -2072,52 +2447,52 @@
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "March 2024",
-        "importe": 774.3999999999999772626324556767940521240234375
+        "importe": 871.200000000000045474735088646411895751953125
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "April 2024",
-        "importe": 774.3999999999999772626324556767940521240234375
+        "importe": 871.200000000000045474735088646411895751953125
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "May 2024",
-        "importe": 1790.799999999999954525264911353588104248046875
+        "importe": 2014.65000000000009094947017729282379150390625
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "June 2024",
-        "importe": 774.3999999999999772626324556767940521240234375
+        "importe": 871.200000000000045474735088646411895751953125
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "August 2024",
-        "importe": 6601.760000000000218278728425502777099609375
+        "importe": 7426.97999999999956344254314899444580078125
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "September 2024",
-        "importe": 14307.0400000000008731149137020111083984375
+        "importe": 16095.420000000000072759576141834259033203125
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "October 2024",
-        "importe": 50248.8799999999973806552588939666748046875
+        "importe": 56529.9899999999979627318680286407470703125
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "November 2024",
-        "importe": 37674.5599999999976716935634613037109375
+        "importe": 42383.8799999999973806552588939666748046875
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "December 2024",
-        "importe": 30608.15999999999985448084771633148193359375
+        "importe": 34434.1800000000002910383045673370361328125
     },
     {
         "empresa": "UNAVETS HEALTHCARE, S.L.",
         "fecha": "January 2025",
-        "importe": 30598.47999999999956344254314899444580078125
+        "importe": 34423.2900000000008731149137020111083984375
     },
     {
         "empresa": "Urvet Costa del Sol S.L.",
@@ -2263,6 +2638,11 @@
         "empresa": "VETPATINO S.L.",
         "fecha": "January 2025",
         "importe": 1815
+    },
+    {
+        "empresa": "VETROPIA VETERINARIA",
+        "fecha": "January 2025",
+        "importe": 66.5499999999999971578290569595992565155029296875
     },
     {
         "empresa": "ZAMALBIDE",

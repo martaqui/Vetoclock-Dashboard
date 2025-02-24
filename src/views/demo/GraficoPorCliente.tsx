@@ -9,6 +9,23 @@ interface VentasCliente {
     empresa: string
 }
 
+interface Caso {
+    x: string | null
+    y: number
+    cif: string
+}
+
+interface TiposDeCasosData {
+    data: Caso[]
+    colors: string[]
+}
+
+interface ChartData {
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    options: any
+    series: any
+}
+
 const GraficoPorCliente = () => {
     const { client } = useParams<{ client: string }>()
     const [chartData, setChartData] = useState<{
@@ -20,13 +37,9 @@ const GraficoPorCliente = () => {
         fetch('/data/ventasxclienteconcreto.json')
             .then((response) => response.json())
             .then((data: VentasCliente[]) => {
-                console.log('Datos originales del JSON:', data)
-
                 const clientData = data.filter(
                     (item) => item.empresa === client,
                 )
-
-                console.log('Datos filtrados por cliente:', clientData)
 
                 const salesByMonth = clientData.reduce<Record<string, number>>(
                     (acc, { fecha, importe }) => {
@@ -37,14 +50,11 @@ const GraficoPorCliente = () => {
                                 year: 'numeric',
                             },
                         )
-
                         acc[month] = (acc[month] || 0) + importe
                         return acc
                     },
                     {},
                 )
-
-                console.log('Datos agrupados por mes:', salesByMonth)
 
                 setChartData({
                     labels: Object.keys(salesByMonth),
@@ -65,10 +75,7 @@ const GraficoPorCliente = () => {
             </h1>
             <Chart
                 options={{
-                    chart: {
-                        type: 'bar',
-                        height: 300,
-                    },
+                    chart: { type: 'bar', height: 300 },
                     plotOptions: {
                         bar: {
                             horizontal: false,
@@ -77,27 +84,15 @@ const GraficoPorCliente = () => {
                         },
                     },
                     colors: [COLORS[0]],
-                    dataLabels: {
-                        enabled: false,
-                    },
-                    stroke: {
-                        show: true,
-                        width: 2,
-                        colors: ['transparent'],
-                    },
-                    xaxis: {
-                        categories: chartData.labels,
-                    },
+                    dataLabels: { enabled: false },
+                    stroke: { show: true, width: 2, colors: ['transparent'] },
+                    xaxis: { categories: chartData.labels },
                     yaxis: {
                         labels: {
-                            formatter: function (value) {
-                                return value.toFixed(2)
-                            },
+                            formatter: (value) => value.toFixed(2),
                         },
                     },
-                    fill: {
-                        opacity: 1,
-                    },
+                    fill: { opacity: 1 },
                     tooltip: {
                         y: {
                             formatter: (val) => `$${val.toLocaleString()} MXN`,
@@ -111,5 +106,88 @@ const GraficoPorCliente = () => {
         </div>
     )
 }
+const TiposDeCaso = () => {
+    const { cif } = useParams<{ cif: string }>()
+    const [chartData, setChartData] = useState<ChartData | null>(null)
 
-export default GraficoPorCliente
+    useEffect(() => {
+        if (!cif) return
+
+        fetch('/data/ventasxclientetarta.json')
+            .then((response) => response.json())
+            .then((data: TiposDeCasosData) => {
+                const filteredData = data.data.filter(
+                    (item) => item.cif === cif,
+                )
+                const sortedData = filteredData
+                    .filter((item) => item.x !== null)
+                    .sort((a, b) => b.y - a.y)
+
+                setChartData({
+                    options: {
+                        chart: { type: 'pie', width: 'auto' },
+                        labels: sortedData.map((item) => item.x) as string[],
+                        colors: data.colors,
+                        legend: {
+                            position: 'bottom',
+                            horizontalAlign: 'center',
+                        },
+
+                        title: {
+                            text: 'Clientes según cif:',
+                            align: 'left',
+                            offsetX: 10,
+                            style: {
+                                fontSize: '25px',
+                                fontWeight: 'bold',
+                                color: '#000000',
+                            },
+                        },
+                        tooltip: {
+                            theme: 'dark',
+                            style: { fontSize: '14px' },
+                            fillSeriesColor: false,
+                            marker: { show: true },
+                        },
+                        responsive: [
+                            {
+                                breakpoint: 480,
+                                options: {
+                                    chart: { width: 200 },
+                                    legend: { position: 'bottom' },
+                                },
+                            },
+                        ],
+                    },
+                    series: sortedData.map((item) => item.y),
+                })
+            })
+            .catch((error) => console.error('Error loading JSON data:', error))
+    }, [cif])
+
+    if (!chartData) {
+        return <div>Loading...</div>
+    }
+
+    return (
+        <div className="p-6 bg-white rounded-lg shadow-md">
+            <Chart
+                options={chartData.options}
+                series={chartData.series}
+                height={590}
+                type="pie"
+            />
+        </div>
+    )
+}
+
+const Dashboard = () => {
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+            <GraficoPorCliente />
+            <TiposDeCaso />
+        </div>
+    )
+}
+
+export default Dashboard

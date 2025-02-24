@@ -3,7 +3,7 @@ import { APP_NAME } from '@/constants/app.constant'
 import type { CommonProps } from '@/@types/common'
 
 interface LogoProps extends CommonProps {
-    type?: 'full' | 'streamline'
+    type?: 'full' | 'streamline' | 'small'
     mode?: 'light' | 'dark'
     imgClass?: string
     logoWidth?: number | string
@@ -20,7 +20,10 @@ const Logo = (props: LogoProps) => {
         style,
         logoWidth = 'auto',
     } = props
-
+    const getLogoSrc = (mode: string, type: string) => {
+        if (type === 'small') return '/img/logo/logo-light-small.svg' // Logo en SVG
+        return `${LOGO_SRC_PATH}logo-${mode}-${type}.png` // Logo en PNG
+    }
     return (
         <div
             className={classNames('logo', className)}
@@ -31,8 +34,19 @@ const Logo = (props: LogoProps) => {
         >
             <img
                 className={imgClass}
-                src={`${LOGO_SRC_PATH}logo-${mode}-${type}.png`}
+                src={getLogoSrc(mode, type)} // Usamos la función para obtener el src
                 alt={`${APP_NAME} logo`}
+                style={
+                    getLogoSrc(mode, type).endsWith('.svg')
+                        ? {}
+                        : {
+                              // Establecemos estilos vacíos si es SVG
+                              width: '150px', // Fuerza el ancho
+                              height: 'auto', // Mantiene la proporción
+                              maxWidth: 'none', // Elimina restricciones
+                              maxHeight: 'none', // Elimina restricciones
+                          }
+                }
             />
         </div>
     )

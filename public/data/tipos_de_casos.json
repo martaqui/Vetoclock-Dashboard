@@ -54,7 +54,7 @@
         },
         {
             "x": "Ecografía",
-            "y": 1271
+            "y": 1272
         },
         {
             "x": "Endocrinología",
@@ -66,11 +66,11 @@
         },
         {
             "x": "Medicina felina",
-            "y": 90
+            "y": 91
         },
         {
             "x": "Medicina interna",
-            "y": 148
+            "y": 149
         },
         {
             "x": "Medicina interna equinos",
@@ -78,7 +78,7 @@
         },
         {
             "x": "Neuroimagen",
-            "y": 11
+            "y": 12
         },
         {
             "x": "Neurología",
@@ -90,7 +90,7 @@
         },
         {
             "x": "Oncología",
-            "y": 181
+            "y": 182
         },
         {
             "x": "Radiología",
@@ -110,7 +110,7 @@
         },
         {
             "x": "TAC y RM. Cinco regiones",
-            "y": 8
+            "y": 9
         },
         {
             "x": "TAC y RM. Cuatro regiones",
@@ -118,19 +118,19 @@
         },
         {
             "x": "TAC y RM. Cuerpo completo",
-            "y": 1020
+            "y": 1031
         },
         {
             "x": "TAC y RM. Dos regiones",
-            "y": 4867
+            "y": 4936
         },
         {
             "x": "TAC y RM. Tres regiones",
-            "y": 463
+            "y": 487
         },
         {
             "x": "TAC y RM. Una región",
-            "y": 16269
+            "y": 16429
         },
         {
             "x": "TAC y RM.Una región",

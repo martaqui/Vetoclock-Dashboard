@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import Chart from 'react-apexcharts'
-import { COLORS } from '@/constants/chart.constant'
 import { ApexOptions } from 'apexcharts'
+import { COLORS } from '@/constants/chart.constant'
 
-// Define types
 interface DataPoint {
     x: string
     y: number
@@ -31,22 +30,16 @@ const VentasUltimosDosMeses = () => {
         fetch('/data/ingresos_ultimos_dos_meses.json')
             .then((response) => response.json())
             .then((data: FetchedData) => {
-                const labels = data.datasets[0].data.map(
-                    (item: DataPoint) => item.x,
-                )
-                const series = data.datasets.map(
-                    (dataset: Dataset, index: number) => ({
-                        name: dataset.label,
-                        data: dataset.data.map((item: DataPoint) => item.y),
-                        color: COLORS[index],
-                    }),
-                )
-
+                const labels = data.datasets[0].data.map((item) => item.x)
+                const series = data.datasets.map((dataset, index) => ({
+                    name: dataset.label,
+                    data: dataset.data.map((item) => item.y),
+                    color: COLORS[index],
+                }))
                 setChartData({ series, categories: labels })
             })
             .catch((error) => console.error('Error loading JSON data:', error))
     }, [])
-
     const options: ApexOptions = {
         chart: {
             type: 'line',
@@ -57,11 +50,20 @@ const VentasUltimosDosMeses = () => {
         stroke: {
             width: [3, 3],
             curve: 'straight',
-            dashArray: [0, 0],
         },
-        markers: { size: 4 },
-        legend: { position: 'top' },
-        xaxis: { categories: chartData.categories },
+        markers: {
+            size: 4, // Tamaño de los puntos en la gráfica
+        },
+        legend: {
+            position: 'top',
+            itemMargin: {
+                horizontal: 30, // Espacio entre el punto y el texto
+                vertical: 50,
+            },
+        },
+        xaxis: {
+            categories: chartData.categories,
+        },
         tooltip: {
             y: {
                 formatter: (val: number) => `${val} unidades`,

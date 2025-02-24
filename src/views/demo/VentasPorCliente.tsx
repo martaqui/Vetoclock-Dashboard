@@ -6,6 +6,7 @@ import { ApexOptions } from 'apexcharts'
 interface Venta {
     x: string | null
     y: number
+    cif: string
 }
 
 interface VentasPorClienteData {
@@ -23,7 +24,7 @@ const VentasPorCliente = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('/data/ventasxcliente1.json')
+        fetch('/data/ventasxcliente.json')
             .then((response) => response.json())
             .then((data: VentasPorClienteData) => {
                 const labels = data.data
@@ -35,6 +36,7 @@ const VentasPorCliente = () => {
                     options: {
                         chart: {
                             type: 'pie',
+                            width: 'auto',
                             events: {
                                 dataPointSelection: (
                                     event,
@@ -43,13 +45,16 @@ const VentasPorCliente = () => {
                                 ) => {
                                     const selectedIndex = config.dataPointIndex
                                     const selectedClient = labels[selectedIndex]
+                                    const selectedCif =
+                                        data.data[selectedIndex].cif
+
                                     console.log(
                                         'Cliente seleccionado:',
                                         selectedClient,
                                     )
                                     setTimeout(() => {
                                         navigate(
-                                            `/ventas_por_cliente_en_concreto/${selectedClient}`,
+                                            `/ventas_por_cliente_en_concreto/${selectedClient}/${selectedCif}`,
                                         )
                                     }, 100)
                                 },
@@ -77,10 +82,8 @@ const VentasPorCliente = () => {
                             },
                         },
                         title: {
-                            text: 'Ventas por cliente:',
                             align: 'left',
                             offsetX: 10,
-                            offsetY: 10,
                             style: {
                                 fontSize: '25px',
                                 fontWeight: 'bold',
@@ -104,10 +107,15 @@ const VentasPorCliente = () => {
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-md">
+            {/* 🟢 Título con margin-bottom en lugar de padding */}
+            <div className="mb-4 text-xl font-bold text-black">
+                Ventas por cliente:
+            </div>
+
             <Chart
                 options={chartData.options}
                 series={chartData.series}
-                height={590}
+                height={690}
                 type="pie"
             />
         </div>

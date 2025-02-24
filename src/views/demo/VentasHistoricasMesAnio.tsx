@@ -33,7 +33,7 @@ const VentasHistoricasMesAnio = () => {
     const [selectedYear, setSelectedYear] = useState<string>('')
 
     useEffect(() => {
-        fetch('/data/ventas_historicas_mesanio.json')
+        fetch('/data/ventas_historicas_mesanio2.json')
             .then((response) => response.json())
             .then((data) => {
                 const filteredData = (data.data as DataItem[]).filter(
