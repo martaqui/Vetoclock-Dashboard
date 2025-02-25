@@ -1,0 +1,132 @@
+{
+    "data": [
+        {
+            "x": "Emilio Crespo Ruiz de Elvira",
+            "y": 127635
+        },
+        {
+            "x": "Alicia Barbero Fern\u00e1ndez",
+            "y": 103965
+        },
+        {
+            "x": "GONZALO SANZ",
+            "y": 69755
+        },
+        {
+            "x": "Mar\u00eda Lorenzo Toja",
+            "y": 62050
+        },
+        {
+            "x": "Monica Vila Pastor",
+            "y": 50055
+        },
+        {
+            "x": "Mario Encinoso Quintana",
+            "y": 36075
+        },
+        {
+            "x": "Henri Van Bree & Ingrid Gielen",
+            "y": 32845
+        },
+        {
+            "x": "Maria Ortega Prieto",
+            "y": 21700
+        },
+        {
+            "x": "Vicente Esteve",
+            "y": 14060
+        },
+        {
+            "x": "Vetoclock Team",
+            "y": 14040
+        },
+        {
+            "x": "LUCIA DEL REAL DELGADO",
+            "y": 7855
+        },
+        {
+            "x": "Sergio Moya",
+            "y": 1505
+        },
+        {
+            "x": "Alexis J. Santana Gonz\u00e1lez",
+            "y": 1025
+        },
+        {
+            "x": "ANDREA PEREZ",
+            "y": 920
+        },
+        {
+            "x": "Xavier S\u00e1nchez Salguero",
+            "y": 750
+        },
+        {
+            "x": "Bel\u00e9n Montoya",
+            "y": 550
+        },
+        {
+            "x": "Blanca G\u00f3mez Trujillo",
+            "y": 530
+        },
+        {
+            "x": "Elena Lopez Medina",
+            "y": 465
+        },
+        {
+            "x": "Beatriz Bala\u00f1a",
+            "y": 180
+        },
+        {
+            "x": "Enrique Rodr\u00edguez",
+            "y": 100
+        },
+        {
+            "x": "ROSANA ALVAREZ",
+            "y": 100
+        },
+        {
+            "x": "Montse Carrasco",
+            "y": 80
+        },
+        {
+            "x": "Jos\u00e9 Rodr\u00edguez",
+            "y": 75
+        },
+        {
+            "x": "Sara Pe\u00f1a",
+            "y": 75
+        },
+        {
+            "x": "Vetoclock admin",
+            "y": 75
+        },
+        {
+            "x": "Ana Rios",
+            "y": 50
+        },
+        {
+            "x": "Sergio Monteagudo",
+            "y": 50
+        },
+        {
+            "x": "Roberto L\u00f3pez",
+            "y": 50
+        },
+        {
+            "x": "Eduard Jos\u00e9 Cunilleras",
+            "y": 50
+        },
+        {
+            "x": "Lara Armengou",
+            "y": 30
+        }
+    ],
+    "colors": [
+        "rgba(100, 50, 200, 0.6)",
+        "rgba(130, 70, 225, 0.6)",
+        "rgba(160, 90, 250, 0.6)",
+        "rgba(190, 110, 220, 0.6)",
+        "rgba(220, 130, 245, 0.6)",
+        "rgba(250, 50, 215, 0.6)"
+    ]
+}

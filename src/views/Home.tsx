@@ -7,7 +7,11 @@ interface Cliente {
     y: number
     porcentaje: number
 }
-
+interface Especialista {
+    x: string
+    y: number
+    porcentaje: number
+}
 interface CaseItem {
     x: string | null
     y: number
@@ -63,7 +67,7 @@ const BasicLine = () => {
             curve: 'smooth',
             width: 3,
         },
-        colors: ['#FF4560'], // Color rojo (puedes personalizarlo)
+        colors: ['#22C55E'], // Color rojo (puedes personalizarlo)
         xaxis: {
             categories: [], // Se actualizará con los datos
         },
@@ -115,7 +119,7 @@ const CasosGraph = () => {
             curve: 'smooth',
             width: 3,
         },
-        colors: ['#00E396'], // Color verde (puedes personalizarlo)
+        colors: ['#3B82F6'], // Color verde (puedes personalizarlo)
         xaxis: {
             categories: [], // Se actualizará con los datos
         },
@@ -128,6 +132,7 @@ const Home = () => {
     const [activeGraph, setActiveGraph] = useState<'ventas' | 'casos'>('ventas')
     const [topCases, setTopCases] = useState<CaseItem[]>([])
     const [topClientes, setTopClientes] = useState<Cliente[]>([])
+    const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
 
     useEffect(() => {
         fetch('/data/tipos_de_casos.json')
@@ -174,6 +179,46 @@ const Home = () => {
                 setTopClientes(clientesConPorcentaje.slice(0, 3))
             })
             .catch((error) => console.error('Error loading JSON data:', error))
+        fetch('/data/costesxespecialista.json')
+            .then((response) => response.json())
+            .then((data: { data: Especialista[] }) => {
+                const especialistasFiltrados: Especialista[] = data.data.map(
+                    (item) => ({
+                        x: item.x,
+                        y: item.y,
+                        porcentaje: 0, // Inicializamos en 0
+                    }),
+                )
+
+                // Obtener la suma total de costos de todos los especialistas
+                const totalCostes = especialistasFiltrados.reduce(
+                    (sum, item) => sum + item.y,
+                    0,
+                )
+
+                // Calcular el porcentaje correctamente
+                const especialistasConPorcentaje = especialistasFiltrados.map(
+                    (especialista) => ({
+                        ...especialista,
+                        porcentaje:
+                            totalCostes > 0
+                                ? (especialista.y / totalCostes) * 100
+                                : 0,
+                    }),
+                )
+
+                // Ordenar de mayor a menor y seleccionar los 3 primeros
+                setTopEspecialistas(
+                    especialistasConPorcentaje
+                        .sort((a, b) => b.y - a.y)
+                        .slice(0, 3),
+                )
+            })
+            .catch((error) =>
+                console.error('Error cargando especialistas:', error),
+            )
+
+        // 👈 Se cierra correctamente el `useEffect`
     }, [])
 
     return (
@@ -286,6 +331,40 @@ const Home = () => {
                                 </div>
                                 <span className="ml-2 text-sm">
                                     {cliente.porcentaje.toFixed(1)}%
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </Card>
+            </div>
+            <div className="w-full mt-8">
+                <Card bordered={false}>
+                    <div className="flex justify-between items-center">
+                        <h5>Top Especialistas</h5>
+                        <a
+                            href="/single-menu-view"
+                            className="text-blue-500 hover:underline"
+                        >
+                            Ver todos
+                        </a>
+                    </div>
+                    <div className="especialistas mt-6 space-y-6">
+                        {topEspecialistas.map((especialista, index) => (
+                            <div
+                                key={index}
+                                className="flex items-center space-x-2 w-full"
+                            >
+                                <span>{especialista.x}</span>
+                                <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div
+                                        className="h-full bg-green-500"
+                                        style={{
+                                            width: `${especialista.porcentaje}%`,
+                                        }}
+                                    ></div>
+                                </div>
+                                <span className="ml-2 text-sm">
+                                    {especialista.porcentaje.toFixed(1)}%
                                 </span>
                             </div>
                         ))}
