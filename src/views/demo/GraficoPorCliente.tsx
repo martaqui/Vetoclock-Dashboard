@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Chart from 'react-apexcharts'
 import { COLORS } from '@/constants/chart.constant'
@@ -108,6 +108,7 @@ const GraficoPorCliente = () => {
 }
 const TiposDeCaso = () => {
     const { cif } = useParams<{ cif: string }>()
+    const navigate = useNavigate()
     const [chartData, setChartData] = useState<ChartData | null>(null)
 
     useEffect(() => {
@@ -125,14 +126,36 @@ const TiposDeCaso = () => {
 
                 setChartData({
                     options: {
-                        chart: { type: 'pie', width: 'auto' },
+                        chart: {
+                            type: 'pie',
+                            width: 'auto',
+                            events: {
+                                dataPointSelection: (
+                                    _event: unknown,
+                                    _chartContext: unknown,
+                                    config: { dataPointIndex: number },
+                                ) => {
+                                    const selectedCase =
+                                        sortedData[config.dataPointIndex]?.x
+                                    const selectedCIF =
+                                        sortedData[config.dataPointIndex]?.cif
+                                    if (selectedCase && selectedCIF) {
+                                        // Aquí pasamos tanto el 'cliente' como el 'cif' en la URL
+                                        navigate(
+                                            `/ventas-por-cliente-desglosado?case=${encodeURIComponent(
+                                                selectedCase,
+                                            )}&cif=${encodeURIComponent(selectedCIF)}`,
+                                        )
+                                    }
+                                },
+                            },
+                        },
                         labels: sortedData.map((item) => item.x) as string[],
                         colors: data.colors,
                         legend: {
                             position: 'bottom',
                             horizontalAlign: 'center',
                         },
-
                         title: {
                             text: 'Clientes según cif:',
                             align: 'left',
@@ -163,7 +186,7 @@ const TiposDeCaso = () => {
                 })
             })
             .catch((error) => console.error('Error loading JSON data:', error))
-    }, [cif])
+    }, [cif, navigate])
 
     if (!chartData) {
         return <div>Loading...</div>
@@ -183,7 +206,7 @@ const TiposDeCaso = () => {
 
 const Dashboard = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GraficoPorCliente />
             <TiposDeCaso />
         </div>

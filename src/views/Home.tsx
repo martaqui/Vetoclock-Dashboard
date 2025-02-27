@@ -226,13 +226,16 @@ const Home = () => {
             {/* Main grid container */}
             <div className="grid grid-cols-4 gap-4 md:h-[500px]">
                 {/* Chart Section - Takes Full Height */}
-                <div className="col-span-4 md:col-span-3 h-full">
-                    <Card bordered={false} className="h-full flex flex-col">
-                        <div className="grid grid-rows-3 gap-4 h-full">
-                            <Segment className="gap-4 md:flex-row flex-col row-span-1">
-                                <Segment.Item value="left" className="md:w-1/2">
+                <div className="col-span-4 md:col-span-3">
+                    <Card bordered={false} className="flex flex-col">
+                        <div className="grid grid-rows-5 gap-4">
+                            <Segment className="gap-4 md:flex-row flex-col h-full">
+                                <Segment.Item
+                                    value="left"
+                                    className="md:w-1/2 h-full"
+                                >
                                     <div
-                                        className="flex w-100 cursor-pointer"
+                                        className="flex w-100 h-100 cursor-pointer"
                                         onClick={() => setActiveGraph('ventas')}
                                     >
                                         Total ventas
@@ -240,17 +243,17 @@ const Home = () => {
                                 </Segment.Item>
                                 <Segment.Item
                                     value="right"
-                                    className="md:w-1/2"
+                                    className="md:w-1/2 h-full"
                                 >
                                     <div
-                                        className="flex w-100 cursor-pointer"
+                                        className="flex w-100 h-100 cursor-pointer"
                                         onClick={() => setActiveGraph('casos')}
                                     >
                                         Total casos
                                     </div>
                                 </Segment.Item>
                             </Segment>
-                            <div className="row-span-2 flex-1">
+                            <div className="row-span-4 flex-1">
                                 {activeGraph === 'casos' ? (
                                     <CasosGraph />
                                 ) : (

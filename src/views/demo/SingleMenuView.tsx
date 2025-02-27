@@ -57,7 +57,8 @@ const SingleMenuView = () => {
                             ></div>
                         </div>
                         <span className="ml-2 text-sm whitespace-nowrap">
-                            {especialista.y.toLocaleString()} €
+                            {especialista.y.toLocaleString()}€ (
+                            {especialista.porcentaje?.toFixed(2)}%)
                         </span>
                     </div>
                 ))}

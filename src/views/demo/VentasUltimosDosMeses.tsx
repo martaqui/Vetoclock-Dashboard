@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import '../../index.css'
 import Chart from 'react-apexcharts'
 import { ApexOptions } from 'apexcharts'
 import { COLORS } from '@/constants/chart.constant'
@@ -67,6 +68,9 @@ const VentasUltimosDosMeses = () => {
         tooltip: {
             y: {
                 formatter: (val: number) => `${val} unidades`,
+            },
+            marker: {
+                show: true,
             },
         },
         grid: { borderColor: '#f1f1f1' },
