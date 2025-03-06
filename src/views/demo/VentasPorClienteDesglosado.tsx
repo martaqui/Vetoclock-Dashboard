@@ -19,6 +19,7 @@ const VentasPorClienteDesglosado = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const [startDate, setStartDate] = useState<Date | null>(null)
     const [endDate, setEndDate] = useState<Date | null>(null)
+    const [selectedYear, setSelectedYear] = useState<string>('')
 
     // Obtener 'case' y 'cif' desde la URL
     const params = new URLSearchParams(location.search)
@@ -28,7 +29,6 @@ const VentasPorClienteDesglosado = () => {
     useEffect(() => {
         if (!cliente || !cif) return
 
-        // Realizamos la solicitud al JSON de ventas
         fetch('/data/ventasxclinicaconcreta.json')
             .then((response) => {
                 if (!response.ok) {
@@ -37,7 +37,6 @@ const VentasPorClienteDesglosado = () => {
                 return response.json()
             })
             .then((data: VentasItem[]) => {
-                // Verificamos si data existe
                 if (!data || data.length === 0) {
                     console.error(
                         'No se encontraron datos en la respuesta',
@@ -47,12 +46,10 @@ const VentasPorClienteDesglosado = () => {
                     return
                 }
 
-                // Filtramos los datos para el cliente seleccionado
                 const filteredData = data.filter(
                     (item) => item.empresa === cliente,
                 )
 
-                // Comprobamos si hay datos filtrados
                 if (filteredData.length === 0) {
                     console.error(
                         'No se encontraron datos para el cliente:',
@@ -71,7 +68,6 @@ const VentasPorClienteDesglosado = () => {
                     )
                 })
 
-                // Estructuramos los datos para el gráfico
                 setCategories(filteredByDate.map((item) => item.fecha))
                 setChartData([
                     {
@@ -85,7 +81,22 @@ const VentasPorClienteDesglosado = () => {
                 console.error('Error loading JSON data:', error)
                 setLoading(false)
             })
-    }, [cliente, cif, startDate, endDate]) // Asegurarnos de que se recargue cuando cambie el cliente, cif o las fechas
+    }, [cliente, cif, startDate, endDate])
+
+    // Función para manejar el cambio de año en el DatePickerComponent
+    const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const year = event.target.value
+        if (year !== '--') {
+            const newYear = parseInt(year, 10)
+            setSelectedYear(newYear.toString())
+            setStartDate(new Date(newYear, 0, 1))
+            setEndDate(new Date(newYear, 11, 31))
+        } else {
+            setSelectedYear('')
+            setStartDate(null)
+            setEndDate(null)
+        }
+    }
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-md">
@@ -93,15 +104,16 @@ const VentasPorClienteDesglosado = () => {
                 Ventas Por Cliente Desglosado: {cliente} ({cif})
             </h1>
 
-            {/* Añadir DatePickerComponent aquí */}
+            {/* DatePickerComponent con todas las props necesarias */}
             <DatePickerComponent
                 startDate={startDate}
                 endDate={endDate}
+                selectedYear={selectedYear}
                 setStartDate={setStartDate}
                 setEndDate={setEndDate}
+                handleYearChange={handleYearChange}
             />
 
-            {/* Mostrar el gráfico solo si los datos están cargados */}
             {loading ? (
                 <div>Loading...</div>
             ) : chartData.length === 0 ? (
@@ -109,24 +121,13 @@ const VentasPorClienteDesglosado = () => {
             ) : (
                 <Chart
                     options={{
-                        chart: {
-                            type: 'line',
-                            zoom: { enabled: false },
-                        },
-                        colors: COLORS, // Usamos el array de colores de la constante
+                        chart: { type: 'line', zoom: { enabled: false } },
+                        colors: COLORS,
                         dataLabels: { enabled: false },
-                        stroke: {
-                            width: 3,
-                            curve: 'smooth',
-                            dashArray: [0],
-                        },
-                        xaxis: {
-                            categories: categories, // Asignamos las fechas como categorías
-                        },
+                        stroke: { width: 3, curve: 'smooth', dashArray: [0] },
+                        xaxis: { categories: categories },
                         tooltip: {
-                            y: {
-                                formatter: (val: number) => `${val} EUR`, // Formato para mostrar el importe
-                            },
+                            y: { formatter: (val: number) => `${val} EUR` },
                         },
                         grid: { borderColor: '#f1f1f1' },
                     }}
