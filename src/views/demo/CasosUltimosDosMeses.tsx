@@ -28,7 +28,7 @@ const CasosUltimosDosMeses = () => {
     })
 
     useEffect(() => {
-        fetch('/data/casos_ultimos_dos_meses1.json')
+        fetch('/data/casos_ultimos_dos_meses.json')
             .then((response) => response.json())
             .then((data: FetchedData) => {
                 const labels = data.datasets[0].data.map(

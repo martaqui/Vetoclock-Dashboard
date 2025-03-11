@@ -2,29 +2,31 @@ import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import './DatePickerComponent.css' // Asegúrate de importar tu archivo CSS
+import { Dispatch, SetStateAction } from 'react'
 
 interface DatePickerComponentProps {
     startDate: Date | null
     endDate: Date | null
-    selectedYear: string
-    setStartDate: (date: Date | null) => void
-    setEndDate: (date: Date | null) => void
-    handleYearChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
+    // selectedYear: string
+    setStartDate: Dispatch<SetStateAction<Date>>
+    setEndDate: Dispatch<SetStateAction<Date>>
+    // handleYearChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
 const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
     startDate,
     endDate,
-    selectedYear,
+    // selectedYear,
     setStartDate,
     setEndDate,
-    handleYearChange,
+    // handleYearChange,
 }) => {
     return (
         <div className="datepicker-container">
             <div className="date-range">
                 <DatePicker
                     selectsStart
+                    showMonthYearPicker
                     selected={startDate} // Shorthand prop, listed first
                     startDate={startDate}
                     endDate={endDate}
@@ -34,6 +36,7 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
                 />
                 <DatePicker
                     selectsEnd
+                    showMonthYearPicker
                     selected={endDate} // Shorthand prop, listed first
                     startDate={startDate}
                     endDate={endDate}
@@ -43,8 +46,7 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
                     onChange={(date) => setEndDate(date)}
                 />
             </div>
-
-            {/* Selector de Año */}
+            {/* Selector de Año
             <div className="year-select-container">
                 <label htmlFor="year">Selecciona el año:</label>
                 <select
@@ -59,7 +61,7 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
                         </option>
                     ))}
                 </select>
-            </div>
+            </div> */}
         </div>
     )
 }
@@ -67,10 +69,10 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
 DatePickerComponent.propTypes = {
     startDate: PropTypes.instanceOf(Date),
     endDate: PropTypes.instanceOf(Date),
-    selectedYear: PropTypes.string,
+    // selectedYear: PropTypes.string,
     setStartDate: PropTypes.func.isRequired,
     setEndDate: PropTypes.func.isRequired,
-    handleYearChange: PropTypes.func.isRequired,
+    // handleYearChange: PropTypes.func.isRequired,
 }
 
 export default DatePickerComponent
