@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { COLOR_1 } from '@/constants/chart.constant'
 import { ApexOptions } from 'apexcharts'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
+import { Card } from '@/components/ui'
 
 interface DataItem {
     nombre_grupo: string
@@ -20,6 +21,18 @@ interface ChartData {
         data: number[]
     }[]
     options: ApexOptions
+}
+
+interface Cliente {
+    x: string
+    y: number
+    porcentaje: number
+}
+
+interface Especialista {
+    x: string
+    y: number
+    porcentaje: number
 }
 
 const obtenerFechaEnEspañol = (fecha: string) => {
@@ -62,6 +75,8 @@ const CasosHistoricoAnual = () => {
     const [endDate, setEndDate] = useState(new Date())
     const [empresa, setEmpresa] = useState<string>('')
     const [empresas, setEmpresas] = useState<string[]>([])
+    const [topClientes, setTopClientes] = useState<Cliente[]>([])
+    const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -100,7 +115,80 @@ const CasosHistoricoAnual = () => {
                 console.error('Error al cargar los datos JSON:', error),
             )
     }, [])
+    useEffect(() => {
+        fetch('/data/ventasxcliente.json')
+            .then((response) => response.json())
+            .then((data: { data: Cliente[] }) => {
+                const clientesFiltrados: Cliente[] = data.data
+                    .filter((item) => item.x !== null)
+                    .map((item) => ({
+                        x: item.x || 'Cliente Desconocido',
+                        y: item.y,
+                        porcentaje: 0, // Inicializamos con 0
+                    }))
 
+                // Ordenamos de mayor a menor
+                const sortedClientes = clientesFiltrados.sort(
+                    (a, b) => b.y - a.y,
+                )
+
+                // Calculamos el total de ventas
+                const totalVentas = sortedClientes.reduce(
+                    (sum, item) => sum + item.y,
+                    0,
+                )
+
+                // Asignamos los porcentajes correctos
+                const clientesConPorcentaje = sortedClientes.map((cliente) => ({
+                    ...cliente,
+                    porcentaje:
+                        totalVentas > 0 ? (cliente.y / totalVentas) * 100 : 0,
+                }))
+
+                // Tomamos solo los 3 clientes con mayor porcentaje
+                setTopClientes(clientesConPorcentaje.slice(0, 3))
+            })
+            .catch((error) => console.error('Error loading JSON data:', error))
+
+        fetch('/data/costesxespecialista.json')
+            .then((response) => response.json())
+            .then((data: { data: Especialista[] }) => {
+                const especialistasFiltrados: Especialista[] = data.data.map(
+                    (item) => ({
+                        x: item.x,
+                        y: item.y,
+                        porcentaje: 0, // Inicializamos en 0
+                    }),
+                )
+
+                // Obtener la suma total de costos de todos los especialistas
+                const totalCostes = especialistasFiltrados.reduce(
+                    (sum, item) => sum + item.y,
+                    0,
+                )
+
+                // Calcular el porcentaje correctamente
+                const especialistasConPorcentaje = especialistasFiltrados.map(
+                    (especialista) => ({
+                        ...especialista,
+                        porcentaje:
+                            totalCostes > 0
+                                ? (especialista.y / totalCostes) * 100
+                                : 0,
+                    }),
+                )
+
+                // Ordenar de mayor a menor y seleccionar los 3 primeros
+                setTopEspecialistas(
+                    especialistasConPorcentaje
+                        .sort((a, b) => b.y - a.y)
+                        .slice(0, 3),
+                )
+            })
+            .catch((error) =>
+                console.error('Error cargando especialistas:', error),
+            )
+    }, [])
     useEffect(() => {
         if (items.length === 0) return
 
@@ -264,6 +352,86 @@ const CasosHistoricoAnual = () => {
                     type="area"
                     height={300}
                 />
+            </div>
+            <hr />
+            <hr />
+            <hr />
+            <div className="mt-8 w-full">
+                <Card bordered={false}>
+                    <div className="flex justify-between items-center">
+                        <h5>Top Clientes</h5>
+                        <a
+                            href="ventas-por-cliente"
+                            className="text-blue-500 hover:underline"
+                        >
+                            Ver todos
+                        </a>
+                    </div>
+                    <div className="clientes mt-6 space-y-6">
+                        {topClientes.map((cliente, index) => (
+                            <div
+                                key={index}
+                                className="flex items-center space-x-2 w-full"
+                            >
+                                <img
+                                    src="/img/others/clienticon.png"
+                                    alt={`Cliente ${index + 1}`}
+                                    className="w-10 h-10 rounded-full"
+                                />
+                                <span>{cliente.x}</span>
+                                <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div
+                                        className="h-full bg-blue-500"
+                                        style={{
+                                            width: `${cliente.porcentaje}%`,
+                                        }}
+                                    ></div>
+                                </div>
+                                <span className="ml-2 text-sm">
+                                    {cliente.porcentaje.toFixed(1)}%
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </Card>
+
+                <Card bordered={false} className="mt-6">
+                    <div className="flex justify-between items-center">
+                        <h5>Top Especialistas</h5>
+                        <a
+                            href="costes-por-especialista"
+                            className="text-blue-500 hover:underline"
+                        >
+                            Ver todos
+                        </a>
+                    </div>
+                    <div className="clientes mt-6 space-y-6">
+                        {topEspecialistas.map((especialista, index) => (
+                            <div
+                                key={index}
+                                className="flex items-center space-x-2 w-full"
+                            >
+                                <img
+                                    src="/img/others/specialisticon.png"
+                                    alt={`Especialista ${index + 1}`}
+                                    className="w-10 h-10 rounded-full"
+                                />
+                                <span>{especialista.x}</span>
+                                <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div
+                                        className="h-full bg-blue-500"
+                                        style={{
+                                            width: `${especialista.porcentaje}%`,
+                                        }}
+                                    ></div>
+                                </div>
+                                <span className="ml-2 text-sm">
+                                    {especialista.porcentaje.toFixed(1)}%
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </Card>
             </div>
         </div>
     )
