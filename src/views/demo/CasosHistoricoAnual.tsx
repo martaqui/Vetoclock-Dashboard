@@ -60,7 +60,8 @@ const CasosHistoricoAnual = () => {
         () => new Date(new Date().setMonth(new Date().getMonth() - 3)),
     )
     const [endDate, setEndDate] = useState(new Date())
-
+    const [empresa, setEmpresa] = useState<string>('')
+    const [empresas, setEmpresas] = useState<string[]>([])
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -89,6 +90,11 @@ const CasosHistoricoAnual = () => {
                         new Set(parsedData.map((item) => item.nombre_grupo)),
                     ),
                 )
+                const uniqueEmpresas = Array.from(
+                    new Set(parsedData.map((item) => item.empresa)),
+                )
+                console.log('Empresas cargadas:', uniqueEmpresas)
+                setEmpresas(uniqueEmpresas)
             })
             .catch((error) =>
                 console.error('Error al cargar los datos JSON:', error),
@@ -97,17 +103,24 @@ const CasosHistoricoAnual = () => {
 
     useEffect(() => {
         if (items.length === 0) return
+
         const grouped = items.reduce<{
             [key: string]: { total: number; filtro: number }
         }>((acc, item) => {
             if (grupo && item.nombre_grupo !== grupo) return acc
+            if (empresa && empresa !== '' && item.empresa !== empresa)
+                return acc
+
             const casos = parseInt(item.total_casos, 10) || 0
             const key = item.mes_anio
+
             acc[key] = acc[key] || { total: 0, filtro: 0 }
             acc[key].total += casos
+
             if (!tipoUrgencia || item.tipo_urgencia === tipoUrgencia) {
                 acc[key].filtro += casos
             }
+
             return acc
         }, {})
 
@@ -117,6 +130,14 @@ const CasosHistoricoAnual = () => {
             const fechaFinal = convertirFechaAFormato(endDate)
             return item >= fechaInicial && item <= fechaFinal
         })
+
+        // 📊 Obtener el valor máximo dinámico
+        const maxTotal = Math.max(...data.map((date) => grouped[date].total), 0)
+        const maxFiltrado = Math.max(
+            ...data.map((date) => grouped[date].filtro),
+            0,
+        )
+        const maxY = Math.max(maxTotal, maxFiltrado) || 10 // Evita 0 como máximo
 
         setChartData({
             series: [
@@ -151,23 +172,29 @@ const CasosHistoricoAnual = () => {
                     categories: data.map(obtenerFechaEnEspañol),
                     type: 'category',
                 },
-                yaxis: { opposite: true, max: 500 },
+                yaxis: { opposite: true, max: maxY }, // 🔥 Se ajusta dinámicamente
                 legend: { horizontalAlign: 'left' },
             },
         })
-    }, [tipoUrgencia, grupo, items, handleClick, startDate, endDate])
+    }, [tipoUrgencia, grupo, items, handleClick, startDate, endDate, empresa])
 
     if (!chartData) return <div>Loading...</div>
-
+    console.log('Empresas en el select:', empresas)
     return (
-        <div>
-            <h2 className="text-lg font-bold mb-4">Casos Históricos Anual</h2>
-            <div className="mb-4 flex gap-4">
-                <div>
-                    {' '}
-                    <label className="mr-2">Filtrar por grupo:</label>
+        <div className="p-6 bg-white rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                Casos Históricos Anual
+            </h2>
+
+            {/* Contenedor de filtros */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                {/* Filtro por Grupo */}
+                <div className="flex flex-col">
+                    <label className="text-sm font-medium text-gray-600 mb-1">
+                        Filtrar por grupo:
+                    </label>
                     <select
-                        className="p-2 border rounded"
+                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                         value={grupo}
                         onChange={(e) => setGrupo(e.target.value)}
                     >
@@ -179,12 +206,33 @@ const CasosHistoricoAnual = () => {
                         ))}
                     </select>
                 </div>
-                <div>
-                    <label className="mr-2">
+
+                {/* Filtro por Empresa */}
+                <div className="flex flex-col">
+                    <label className="text-sm font-medium text-gray-600 mb-1">
+                        Filtrar por empresa:
+                    </label>
+                    <select
+                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        value={empresa}
+                        onChange={(e) => setEmpresa(e.target.value)}
+                    >
+                        <option value="">Todas</option>
+                        {empresas.map((empr) => (
+                            <option key={empr} value={empr}>
+                                {empr}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                {/* Filtro por Tipo de Urgencia */}
+                <div className="flex flex-col">
+                    <label className="text-sm font-medium text-gray-600 mb-1">
                         Filtrar por tipo de urgencia:
                     </label>
                     <select
-                        className="p-2 border rounded"
+                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                         value={tipoUrgencia}
                         onChange={(e) => setTipoUrgencia(e.target.value)}
                     >
@@ -196,6 +244,10 @@ const CasosHistoricoAnual = () => {
                         ))}
                     </select>
                 </div>
+            </div>
+
+            {/* Selector de Fechas */}
+            <div className="mb-6">
                 <DatePickerComponent
                     startDate={startDate}
                     endDate={endDate}
@@ -203,7 +255,9 @@ const CasosHistoricoAnual = () => {
                     setEndDate={setEndDate}
                 />
             </div>
-            <div onClick={handleClick}>
+
+            {/* Gráfico */}
+            <div onClick={handleClick} className="cursor-pointer">
                 <Chart
                     options={chartData.options}
                     series={chartData.series}
