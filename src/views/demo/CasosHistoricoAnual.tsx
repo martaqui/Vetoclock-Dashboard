@@ -13,6 +13,7 @@ interface DataItem {
     total_casos: string
     nombre_usuario: string
     tipo_urgencia: string
+    tipo_locale: string
 }
 
 interface ChartData {
@@ -77,6 +78,8 @@ const CasosHistoricoAnual = () => {
     const [empresas, setEmpresas] = useState<string[]>([])
     const [topClientes, setTopClientes] = useState<Cliente[]>([])
     const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
+    const [tipoCaso, setTipoCaso] = useState<string>('')
+    const [tiposCaso, setTiposCaso] = useState<string[]>([])
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -95,26 +98,24 @@ const CasosHistoricoAnual = () => {
                     return
                 }
                 setItems(parsedData)
-                setTiposUrgencia(
-                    Array.from(
-                        new Set(parsedData.map((item) => item.tipo_urgencia)),
-                    ),
-                )
-                setGrupos(
-                    Array.from(
-                        new Set(parsedData.map((item) => item.nombre_grupo)),
-                    ),
-                )
-                const uniqueEmpresas = Array.from(
-                    new Set(parsedData.map((item) => item.empresa)),
-                )
-                console.log('Empresas cargadas:', uniqueEmpresas)
-                setEmpresas(uniqueEmpresas)
+                setTiposUrgencia([
+                    ...new Set(parsedData.map((item) => item.tipo_urgencia)),
+                ])
+                setGrupos([
+                    ...new Set(parsedData.map((item) => item.nombre_grupo)),
+                ])
+                setEmpresas([
+                    ...new Set(parsedData.map((item) => item.empresa)),
+                ])
+                setTiposCaso([
+                    ...new Set(parsedData.map((item) => item.tipo_locale)),
+                ])
             })
             .catch((error) =>
                 console.error('Error al cargar los datos JSON:', error),
             )
     }, [])
+
     useEffect(() => {
         fetch('/data/ventasxcliente.json')
             .then((response) => response.json())
@@ -198,6 +199,7 @@ const CasosHistoricoAnual = () => {
             if (grupo && item.nombre_grupo !== grupo) return acc
             if (empresa && empresa !== '' && item.empresa !== empresa)
                 return acc
+            if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
             const casos = parseInt(item.total_casos, 10) || 0
             const key = item.mes_anio
@@ -264,7 +266,16 @@ const CasosHistoricoAnual = () => {
                 legend: { horizontalAlign: 'left' },
             },
         })
-    }, [tipoUrgencia, grupo, items, handleClick, startDate, endDate, empresa])
+    }, [
+        tipoUrgencia,
+        grupo,
+        items,
+        handleClick,
+        startDate,
+        endDate,
+        empresa,
+        tipoCaso,
+    ])
 
     if (!chartData) return <div>Loading...</div>
     console.log('Empresas en el select:', empresas)
@@ -313,7 +324,23 @@ const CasosHistoricoAnual = () => {
                         ))}
                     </select>
                 </div>
-
+                <div className="flex flex-col">
+                    <label className="text-sm font-medium text-gray-600 mb-1">
+                        Filtrar por tipo de caso:
+                    </label>
+                    <select
+                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        value={tipoCaso}
+                        onChange={(e) => setTipoCaso(e.target.value)}
+                    >
+                        <option value="">Todos</option>
+                        {tiposCaso.map((caso) => (
+                            <option key={caso} value={caso}>
+                                {caso}
+                            </option>
+                        ))}
+                    </select>
+                </div>
                 {/* Filtro por Tipo de Urgencia */}
                 <div className="flex flex-col">
                     <label className="text-sm font-medium text-gray-600 mb-1">
