@@ -80,6 +80,7 @@ const CasosHistoricoAnual = () => {
     const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
     const [tipoCaso, setTipoCaso] = useState<string>('')
     const [tiposCaso, setTiposCaso] = useState<string[]>([])
+
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -98,23 +99,54 @@ const CasosHistoricoAnual = () => {
                     return
                 }
                 setItems(parsedData)
-                setTiposUrgencia([
-                    ...new Set(parsedData.map((item) => item.tipo_urgencia)),
-                ])
-                setGrupos([
-                    ...new Set(parsedData.map((item) => item.nombre_grupo)),
-                ])
-                setEmpresas([
-                    ...new Set(parsedData.map((item) => item.empresa)),
-                ])
-                setTiposCaso([
-                    ...new Set(parsedData.map((item) => item.tipo_locale)),
-                ])
+
+                setGrupos(
+                    Array.from(
+                        new Set(parsedData.map((item) => item.nombre_grupo)),
+                    ).sort(), // Ordenar grupos alfabéticamente
+                )
+
+                // Ordenar empresas alfabéticamente
+
+                setTiposUrgencia(
+                    Array.from(
+                        new Set(parsedData.map((item) => item.tipo_urgencia)),
+                    ).sort(), // Ordenar tipos de urgencia alfabéticamente
+                )
+
+                setTiposCaso(
+                    Array.from(
+                        new Set(parsedData.map((item) => item.tipo_locale)),
+                    ).sort(), // Ordenar tipos de caso alfabéticamente
+                )
             })
             .catch((error) =>
                 console.error('Error al cargar los datos JSON:', error),
             )
     }, [])
+
+    useEffect(() => {
+        if (grupo) {
+            // Filtrar las empresas del grupo seleccionado
+            const empresasFiltradas = [
+                ...new Set(
+                    items
+                        .filter((item) => item.nombre_grupo === grupo)
+                        .map((item) => item.empresa),
+                ),
+            ]
+            setEmpresas(empresasFiltradas)
+
+            // Si la empresa seleccionada ya no está disponible, la reseteamos
+            if (!empresasFiltradas.includes(empresa)) {
+                setEmpresa('')
+            }
+        } else {
+            // Si no hay grupo seleccionado, mostrar todas las empresas
+            setEmpresas([...new Set(items.map((item) => item.empresa))])
+        }
+    }, [grupo, items])
+    // Se agregan 'empresa' y 'todasLasEmpresas'
 
     useEffect(() => {
         fetch('/data/ventasxcliente.json')
