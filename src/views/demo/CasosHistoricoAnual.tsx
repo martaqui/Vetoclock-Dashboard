@@ -237,8 +237,8 @@ const CasosHistoricoAnual = () => {
             const tiposDeCasoFiltrados = [
                 ...new Set(
                     items
-                        .filter((item) => item.nombre_usuario === especialista)
-                        .map((item) => item.tipo_locale),
+                        .filter((item) => item.nombre_usuario === especialista) // Filtra por especialista
+                        .map((item) => item.tipo_locale), // Extrae los tipos de casos
                 ),
             ].sort() // Ordenar alfabéticamente
             setTiposCaso(tiposDeCasoFiltrados)
@@ -248,7 +248,7 @@ const CasosHistoricoAnual = () => {
                 [...new Set(items.map((item) => item.tipo_locale))].sort(),
             )
         }
-    }, [especialista, items])
+    }, [especialista, items]) // Dependencias: especialista y items
 
     useEffect(() => {
         if (items.length === 0) return
@@ -257,7 +257,7 @@ const CasosHistoricoAnual = () => {
             [key: string]: { total: number; filtro: number }
         }>((acc, item) => {
             if (grupo && item.nombre_grupo !== grupo) return acc
-            if (especialista && item.nombre_usuario !== especialista) return acc
+            if (especialista && item.nombre_usuario !== especialista) return acc // Filtro por especialista
             if (empresa && empresa !== '' && item.empresa !== empresa)
                 return acc
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
@@ -336,6 +336,7 @@ const CasosHistoricoAnual = () => {
         endDate,
         empresa,
         tipoCaso,
+        especialista, // Asegúrate de que esto también esté como dependencia
     ])
 
     if (!chartData) return <div>Loading...</div>
