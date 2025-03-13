@@ -14,6 +14,9 @@ interface DataItem {
     nombre_usuario: string
     tipo_urgencia: string
     tipo_locale: string
+    total_coste: string
+    total_precio: string
+    margen: string
 }
 
 interface ChartData {
@@ -80,7 +83,8 @@ const CasosHistoricoAnual = () => {
     const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
     const [tipoCaso, setTipoCaso] = useState<string>('')
     const [tiposCaso, setTiposCaso] = useState<string[]>([])
-
+    const [especialista, setEspecialista] = useState<string>('')
+    const [especialistas, setEspecialistas] = useState<string[]>([])
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -119,12 +123,16 @@ const CasosHistoricoAnual = () => {
                         new Set(parsedData.map((item) => item.tipo_locale)),
                     ).sort(), // Ordenar tipos de caso alfabéticamente
                 )
+                setEspecialistas(
+                    Array.from(
+                        new Set(parsedData.map((item) => item.nombre_usuario)),
+                    ).sort(),
+                )
             })
             .catch((error) =>
                 console.error('Error al cargar los datos JSON:', error),
             )
     }, [])
-
     useEffect(() => {
         if (grupo) {
             // Filtrar las empresas del grupo seleccionado
@@ -134,7 +142,7 @@ const CasosHistoricoAnual = () => {
                         .filter((item) => item.nombre_grupo === grupo)
                         .map((item) => item.empresa),
                 ),
-            ]
+            ].sort()
             setEmpresas(empresasFiltradas)
 
             // Si la empresa seleccionada ya no está disponible, la reseteamos
@@ -222,6 +230,26 @@ const CasosHistoricoAnual = () => {
                 console.error('Error cargando especialistas:', error),
             )
     }, [])
+
+    useEffect(() => {
+        if (especialista) {
+            // Filtrar tipos de caso del especialista seleccionado
+            const tiposDeCasoFiltrados = [
+                ...new Set(
+                    items
+                        .filter((item) => item.nombre_usuario === especialista)
+                        .map((item) => item.tipo_locale),
+                ),
+            ].sort() // Ordenar alfabéticamente
+            setTiposCaso(tiposDeCasoFiltrados)
+        } else {
+            // Si no hay especialista seleccionado, mostrar todos los tipos de caso
+            setTiposCaso(
+                [...new Set(items.map((item) => item.tipo_locale))].sort(),
+            )
+        }
+    }, [especialista, items])
+
     useEffect(() => {
         if (items.length === 0) return
 
@@ -229,6 +257,7 @@ const CasosHistoricoAnual = () => {
             [key: string]: { total: number; filtro: number }
         }>((acc, item) => {
             if (grupo && item.nombre_grupo !== grupo) return acc
+            if (especialista && item.nombre_usuario !== especialista) return acc
             if (empresa && empresa !== '' && item.empresa !== empresa)
                 return acc
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
@@ -391,6 +420,23 @@ const CasosHistoricoAnual = () => {
                         ))}
                     </select>
                 </div>
+                <div className="flex flex-col">
+                    <label className="text-sm font-medium text-gray-600 mb-1">
+                        Filtrar por especialista:
+                    </label>
+                    <select
+                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        value={especialista}
+                        onChange={(e) => setEspecialista(e.target.value)}
+                    >
+                        <option value="">Todos</option>
+                        {especialistas.map((esp) => (
+                            <option key={esp} value={esp}>
+                                {esp}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
 
             {/* Selector de Fechas */}
@@ -404,7 +450,8 @@ const CasosHistoricoAnual = () => {
             </div>
 
             {/* Gráfico */}
-            <div onClick={handleClick} className="cursor-pointer">
+            <div className="cursor-pointer" onClick={handleClick}>
+                {' '}
                 <Chart
                     options={chartData.options}
                     series={chartData.series}
