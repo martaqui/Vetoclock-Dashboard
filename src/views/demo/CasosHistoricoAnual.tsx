@@ -88,7 +88,7 @@ const CasosHistoricoAnual = () => {
     const [totalCasos, setTotalCasos] = useState<number>(0)
     const [totalCasosAnioAnterior, setTotalCasosAnioAnterior] =
         useState<number>(0)
-
+    const [diferencia, setDiferencia] = useState<number>(0)
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -325,7 +325,10 @@ const CasosHistoricoAnual = () => {
 
         setTotalCasos(totalCasosCalculado)
         setTotalCasosAnioAnterior(totalCasosAnioAnteriorCalculado)
+        const diferencia = totalCasosCalculado - totalCasosAnioAnteriorCalculado
 
+        // 🔥 Guardar la diferencia en el estado
+        setDiferencia(diferencia)
         const fechasOrdenadas = Object.keys(grouped).reverse()
         const data = fechasOrdenadas.filter((item) => {
             const fechaInicial = convertirFechaAFormato(startDate)
@@ -544,7 +547,7 @@ const CasosHistoricoAnual = () => {
                     {
                         x: `Total Casos ${startDate.getFullYear() - 1}`,
                         porcentaje: totalCasosAnioAnteriorPercent, // 🔥 Ahora sí se moverá correctamente
-                        y: totalCasosAnioAnterior,
+                        y: diferencia,
                     },
                     ...topClientes.map((cliente) => ({
                         ...cliente,
