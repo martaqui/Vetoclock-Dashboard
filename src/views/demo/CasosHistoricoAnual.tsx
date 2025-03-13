@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { COLOR_1 } from '@/constants/chart.constant'
 import { ApexOptions } from 'apexcharts'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
-import { Card } from '@/components/ui'
+import TopList from './TopList/TopList'
 
 interface DataItem {
     nombre_grupo: string
@@ -85,6 +85,10 @@ const CasosHistoricoAnual = () => {
     const [tiposCaso, setTiposCaso] = useState<string[]>([])
     const [especialista, setEspecialista] = useState<string>('')
     const [especialistas, setEspecialistas] = useState<string[]>([])
+    const [totalCasos, setTotalCasos] = useState<number>(0)
+    const [totalCasosAnioAnterior, setTotalCasosAnioAnterior] =
+        useState<number>(0)
+
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -253,27 +257,74 @@ const CasosHistoricoAnual = () => {
     useEffect(() => {
         if (items.length === 0) return
 
+        const fechaInicial = convertirFechaAFormato(startDate)
+        const fechaFinal = convertirFechaAFormato(endDate)
+
+        const startDateLastYear = new Date(startDate)
+        startDateLastYear.setFullYear(startDate.getFullYear() - 1)
+        const endDateLastYear = new Date(endDate)
+        endDateLastYear.setFullYear(endDate.getFullYear() - 1)
+
+        const fechaInicialAnterior = convertirFechaAFormato(startDateLastYear)
+        const fechaFinalAnterior = convertirFechaAFormato(endDateLastYear)
+
         const grouped = items.reduce<{
             [key: string]: { total: number; filtro: number }
         }>((acc, item) => {
             if (grupo && item.nombre_grupo !== grupo) return acc
-            if (especialista && item.nombre_usuario !== especialista) return acc // Filtro por especialista
+            if (especialista && item.nombre_usuario !== especialista) return acc
             if (empresa && empresa !== '' && item.empresa !== empresa)
                 return acc
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
-            const casos = parseInt(item.total_casos, 10) || 0
             const key = item.mes_anio
+            const casos = parseInt(item.total_casos, 10) || 0
 
-            acc[key] = acc[key] || { total: 0, filtro: 0 }
-            acc[key].total += casos
-
-            if (!tipoUrgencia || item.tipo_urgencia === tipoUrgencia) {
-                acc[key].filtro += casos
+            if (key >= fechaInicial && key <= fechaFinal) {
+                acc[key] = acc[key] || { total: 0, filtro: 0 }
+                acc[key].total += casos
+                if (!tipoUrgencia || item.tipo_urgencia === tipoUrgencia) {
+                    acc[key].filtro += casos
+                }
             }
 
             return acc
         }, {})
+        const totalCasosCalculado = Object.values(grouped).reduce(
+            (sum, item) => sum + item.filtro,
+            0,
+        )
+
+        // 🔥 Agrupar los casos del año anterior
+        const groupedAnioAnterior = items.reduce<{
+            [key: string]: { total: number; filtro: number }
+        }>((acc, item) => {
+            if (grupo && item.nombre_grupo !== grupo) return acc
+            if (especialista && item.nombre_usuario !== especialista) return acc
+            if (empresa && empresa !== '' && item.empresa !== empresa)
+                return acc
+            if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
+
+            const key = item.mes_anio
+            const casos = parseInt(item.total_casos, 10) || 0
+
+            if (key >= fechaInicialAnterior && key <= fechaFinalAnterior) {
+                acc[key] = acc[key] || { total: 0, filtro: 0 }
+                acc[key].total += casos
+                if (!tipoUrgencia || item.tipo_urgencia === tipoUrgencia) {
+                    acc[key].filtro += casos
+                }
+            }
+
+            return acc
+        }, {})
+
+        const totalCasosAnioAnteriorCalculado = Object.values(
+            groupedAnioAnterior,
+        ).reduce((sum, item) => sum + item.filtro, 0)
+
+        setTotalCasos(totalCasosCalculado)
+        setTotalCasosAnioAnterior(totalCasosAnioAnteriorCalculado)
 
         const fechasOrdenadas = Object.keys(grouped).reverse()
         const data = fechasOrdenadas.filter((item) => {
@@ -341,6 +392,23 @@ const CasosHistoricoAnual = () => {
 
     if (!chartData) return <div>Loading...</div>
     console.log('Empresas en el select:', empresas)
+
+    const maxClientes = Math.max(
+        totalCasos,
+        totalCasosAnioAnterior, // 🔥 Ahora este valor es correcto
+        ...topClientes.map((cliente) => cliente.y || 1), // Evitar errores con 1
+    )
+
+    const totalCasosAnioAnteriorPercent =
+        maxClientes > 0
+            ? Math.max((totalCasosAnioAnterior / maxClientes) * 100, 30) // 🔥 Ajuste dinámico
+            : 0
+
+    // Asegurar que la barra de "Total Casos" nunca se vea demasiado pequeña
+    const totalCasosPercent =
+        maxClientes > 0
+            ? Math.max((totalCasos / maxClientes) * 100, 30) // 🔥 Nunca será menor al 30%
+            : 0
     return (
         <div className="p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">
@@ -460,86 +528,34 @@ const CasosHistoricoAnual = () => {
                     height={300}
                 />
             </div>
-            <hr />
-            <hr />
-            <hr />
-            <div className="mt-8 w-full">
-                <Card bordered={false}>
-                    <div className="flex justify-between items-center">
-                        <h5>Top Clientes</h5>
-                        <a
-                            href="ventas-por-cliente"
-                            className="text-blue-500 hover:underline"
-                        >
-                            Ver todos
-                        </a>
-                    </div>
-                    <div className="clientes mt-6 space-y-6">
-                        {topClientes.map((cliente, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center space-x-2 w-full"
-                            >
-                                <img
-                                    src="/img/others/clienticon.png"
-                                    alt={`Cliente ${index + 1}`}
-                                    className="w-10 h-10 rounded-full"
-                                />
-                                <span>{cliente.x}</span>
-                                <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div
-                                        className="h-full bg-blue-500"
-                                        style={{
-                                            width: `${cliente.porcentaje}%`,
-                                        }}
-                                    ></div>
-                                </div>
-                                <span className="ml-2 text-sm">
-                                    {cliente.porcentaje.toFixed(1)}%
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </Card>
 
-                <Card bordered={false} className="mt-6">
-                    <div className="flex justify-between items-center">
-                        <h5>Top Especialistas</h5>
-                        <a
-                            href="costes-por-especialista"
-                            className="text-blue-500 hover:underline"
-                        >
-                            Ver todos
-                        </a>
-                    </div>
-                    <div className="clientes mt-6 space-y-6">
-                        {topEspecialistas.map((especialista, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center space-x-2 w-full"
-                            >
-                                <img
-                                    src="/img/others/specialisticon.png"
-                                    alt={`Especialista ${index + 1}`}
-                                    className="w-10 h-10 rounded-full"
-                                />
-                                <span>{especialista.x}</span>
-                                <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div
-                                        className="h-full bg-blue-500"
-                                        style={{
-                                            width: `${especialista.porcentaje}%`,
-                                        }}
-                                    ></div>
-                                </div>
-                                <span className="ml-2 text-sm">
-                                    {especialista.porcentaje.toFixed(1)}%
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </Card>
-            </div>
+            <hr />
+
+            <TopList
+                title="Top Clientes"
+                link="ventas-por-cliente"
+                linkText="Ver todos"
+                items={[
+                    {
+                        x: 'Total Casos',
+                        porcentaje: totalCasosPercent,
+                        y: totalCasos,
+                    },
+                    {
+                        x: `Total Casos ${startDate.getFullYear() - 1}`,
+                        porcentaje: totalCasosAnioAnteriorPercent, // 🔥 Ahora sí se moverá correctamente
+                        y: totalCasosAnioAnterior,
+                    },
+                    ...topClientes.map((cliente) => ({
+                        ...cliente,
+                        porcentaje:
+                            maxClientes > 0
+                                ? (cliente.y / maxClientes) * 100
+                                : 0,
+                    })),
+                ]}
+                icon="/img/others/clienticon.png"
+            />
         </div>
     )
 }
