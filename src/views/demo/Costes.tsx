@@ -66,7 +66,7 @@ const convertirFechaAFormato = (fecha: Date) => {
     return `${año}-${mes}`
 }
 
-const VentasHistoricoAnual = () => {
+const Costes = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null)
     const [tipoUrgencia, setTipoUrgencia] = useState<string>('')
     const [tiposUrgencia, setTiposUrgencia] = useState<string[]>([])
@@ -280,7 +280,7 @@ const VentasHistoricoAnual = () => {
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
             const key = item.mes_anio
-            const casos = parseInt(item.total_precio, 10) || 0
+            const casos = parseInt(item.total_coste, 10) || 0
 
             if (key >= fechaInicial && key <= fechaFinal) {
                 acc[key] = acc[key] || { total: 0, filtro: 0 }
@@ -308,7 +308,7 @@ const VentasHistoricoAnual = () => {
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
             const key = item.mes_anio
-            const casos = parseInt(item.total_precio, 10) || 0
+            const casos = parseInt(item.total_coste, 10) || 0
 
             if (key >= fechaInicialAnterior && key <= fechaFinalAnterior) {
                 acc[key] = acc[key] || { total: 0, filtro: 0 }
@@ -426,7 +426,7 @@ const VentasHistoricoAnual = () => {
     return (
         <div className="p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-                Ventas Historico Anual
+                Costes Especialistas
             </h2>
 
             {/* Contenedor de filtros */}
@@ -575,4 +575,4 @@ const VentasHistoricoAnual = () => {
     )
 }
 
-export default VentasHistoricoAnual
+export default Costes
