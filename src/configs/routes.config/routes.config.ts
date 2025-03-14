@@ -89,6 +89,12 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/demo/Costes')),
         authority: [],
     },
+    {
+        key: 'collapseMenu.item8',
+        path: '/margen',
+        component: lazy(() => import('@/views/demo/Margen')),
+        authority: [],
+    },
 
     ...othersRoute,
 ]
