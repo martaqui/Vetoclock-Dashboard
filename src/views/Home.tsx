@@ -345,7 +345,7 @@ const Home = () => {
                     <div className="flex justify-between items-center">
                         <h5>Top Especialistas</h5>
                         <a
-                            href="/single-menu-view"
+                            href="/especialistas'"
                             className="text-blue-500 hover:underline"
                         >
                             Ver todos

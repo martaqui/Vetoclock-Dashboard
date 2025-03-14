@@ -121,7 +121,7 @@ const navigationConfig: NavigationTree[] = [
                 subMenu: [
                     {
                         key: 'groupMenu.collapse.item1',
-                        path: '/single-menu-view',
+                        path: '/especialistas',
                         title: 'Costes Especialistas',
                         translateKey: 'nav.groupMenu.collapse.item1',
                         icon: '',
