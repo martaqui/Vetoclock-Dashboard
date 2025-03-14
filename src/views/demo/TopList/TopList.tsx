@@ -51,7 +51,7 @@ const TopList: React.FC<TopListProps> = ({
                             ></div>
                         </div>
                         <span className="ml-2 text-sm">
-                            {item.y} {/* Mostrar siempre el total de casos */}
+                            {index === 2 ? `${item.y}%` : item.y}
                         </span>
                     </div>
                 ))}

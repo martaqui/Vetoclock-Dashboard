@@ -89,6 +89,8 @@ const CasosHistoricoAnual = () => {
     const [totalCasosAnioAnterior, setTotalCasosAnioAnterior] =
         useState<number>(0)
     const [diferencia, setDiferencia] = useState<number>(0)
+    const [variacionPorcentaje, setVariacionPorcentaje] = useState<number>(0)
+
     const navigate = useNavigate()
 
     const handleClick = useCallback(() => {
@@ -326,9 +328,18 @@ const CasosHistoricoAnual = () => {
         setTotalCasos(totalCasosCalculado)
         setTotalCasosAnioAnterior(totalCasosAnioAnteriorCalculado)
         const diferencia = totalCasosCalculado - totalCasosAnioAnteriorCalculado
+        // 🔥 Calcular la variación en porcentaje
+        const variacionPorcentaje =
+            totalCasosAnioAnteriorCalculado > 0
+                ? ((totalCasosCalculado - totalCasosAnioAnteriorCalculado) /
+                      totalCasosAnioAnteriorCalculado) *
+                  100
+                : 0 // Evitar división por 0
 
         // 🔥 Guardar la diferencia en el estado
         setDiferencia(diferencia)
+        setVariacionPorcentaje(variacionPorcentaje)
+
         const fechasOrdenadas = Object.keys(grouped).reverse()
         const data = fechasOrdenadas.filter((item) => {
             const fechaInicial = convertirFechaAFormato(startDate)
@@ -542,20 +553,21 @@ const CasosHistoricoAnual = () => {
                     {
                         x: 'Total Casos',
                         porcentaje: totalCasosPercent,
-                        y: totalCasos,
+                        y: totalCasos, // 🔥 Se mantiene el total en la primera fila
                     },
                     {
-                        x: `Total Casos ${startDate.getFullYear() - 1}`,
-                        porcentaje: totalCasosAnioAnteriorPercent, // 🔥 Ahora sí se moverá correctamente
-                        y: diferencia,
+                        x: `Variación`,
+                        porcentaje: totalCasosAnioAnteriorPercent, // 🔥 La barra sigue siendo proporcional
+                        y: diferencia, // 🔥 En lugar del total del año anterior, mostramos la diferencia
                     },
-                    ...topClientes.map((cliente) => ({
-                        ...cliente,
-                        porcentaje:
-                            maxClientes > 0
-                                ? (cliente.y / maxClientes) * 100
-                                : 0,
-                    })),
+                    {
+                        x: 'Variación %',
+                        porcentaje: Math.min(
+                            Math.abs(variacionPorcentaje),
+                            100,
+                        ),
+                        y: Number(variacionPorcentaje.toFixed(2)), // 🔥 Convertimos a número
+                    },
                 ]}
                 icon="/img/others/clienticon.png"
             />
