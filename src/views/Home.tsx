@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Card, Segment } from '@/components/ui'
-import Chart from 'react-apexcharts'
+import { Card } from '@/components/ui'
+import TotalCasosHome from './demo/TotalCasosHome'
+import TotalVentasHome from './demo/TotalVentasHome'
+import TotalMargenHome from './demo/TotalMargenHome'
+import TotalCostesHome from './demo/TotalCostesHome'
 
 interface Cliente {
     x: string
@@ -17,119 +20,7 @@ interface CaseItem {
     y: number
 }
 
-interface ChartData {
-    name: string
-    data: number[]
-}
-
-const BasicLine = () => {
-    const [data, setData] = useState<ChartData[]>([])
-
-    useEffect(() => {
-        fetch('/data/ventas_historicas.json')
-            .then((response) => response.json())
-            .then((json) => {
-                const categorias = json.data.map(
-                    (item: { x: string }) => item.x,
-                ) // Extraemos los meses
-                const valores = json.data.map((item: { y: number }) =>
-                    parseFloat(item.y.toString()),
-                ) // Convertimos los valores a números
-
-                setData([
-                    {
-                        name: 'Ventas Históricas',
-                        data: valores,
-                    },
-                ])
-
-                // Configurar el gráfico con las categorías y los valores
-                setOptions((prev) => ({
-                    ...prev,
-                    xaxis: {
-                        categories: categorias,
-                    },
-                }))
-            })
-    }, [])
-
-    const [options, setOptions] = useState<ApexCharts.ApexOptions>({
-        chart: {
-            type: 'line',
-            zoom: {
-                enabled: false,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        stroke: {
-            curve: 'smooth',
-            width: 3,
-        },
-        colors: ['#22C55E'], // Color rojo (puedes personalizarlo)
-        xaxis: {
-            categories: [], // Se actualizará con los datos
-        },
-    })
-
-    return <Chart options={options} series={data} height={300} />
-}
-
-const CasosGraph = () => {
-    const [data, setData] = useState<ChartData[]>([])
-
-    useEffect(() => {
-        fetch('/data/casos_por_anio.json')
-            .then((response) => response.json())
-            .then((json) => {
-                const categorias = json.data.map(
-                    (item: { x: string }) => item.x,
-                ) // Extraemos los años
-                const valores = json.data.map((item: { y: number }) => item.y) // Extraemos los casos
-
-                setData([
-                    {
-                        name: 'Casos por Año',
-                        data: valores,
-                    },
-                ])
-
-                // Configurar el gráfico con las categorías y los valores
-                setOptions((prev) => ({
-                    ...prev,
-                    xaxis: {
-                        categories: categorias,
-                    },
-                }))
-            })
-    }, [])
-
-    const [options, setOptions] = useState<ApexCharts.ApexOptions>({
-        chart: {
-            type: 'line',
-            zoom: {
-                enabled: false,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        stroke: {
-            curve: 'smooth',
-            width: 3,
-        },
-        colors: ['#3B82F6'], // Color verde (puedes personalizarlo)
-        xaxis: {
-            categories: [], // Se actualizará con los datos
-        },
-    })
-
-    return <Chart options={options} series={data} height={300} />
-}
-
 const Home = () => {
-    const [activeGraph, setActiveGraph] = useState<'ventas' | 'casos'>('ventas')
     const [topCases, setTopCases] = useState<CaseItem[]>([])
     const [topClientes, setTopClientes] = useState<Cliente[]>([])
     const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
@@ -217,8 +108,6 @@ const Home = () => {
             .catch((error) =>
                 console.error('Error cargando especialistas:', error),
             )
-
-        // 👈 Se cierra correctamente el `useEffect`
     }, [])
 
     return (
@@ -226,39 +115,34 @@ const Home = () => {
             {/* Main grid container */}
             <div className="grid grid-cols-4 gap-4 md:h-[500px]">
                 {/* Chart Section - Takes Full Height */}
-                <div className="col-span-4 md:col-span-3">
-                    <Card bordered={false} className="flex flex-col">
-                        <div className="grid grid-rows-5 gap-4">
-                            <Segment className="gap-4 md:flex-row flex-col h-full">
-                                <Segment.Item
-                                    value="left"
-                                    className="md:w-1/2 h-full"
-                                >
-                                    <div
-                                        className="flex w-100 h-100 cursor-pointer"
-                                        onClick={() => setActiveGraph('ventas')}
-                                    >
-                                        Total ventas
-                                    </div>
-                                </Segment.Item>
-                                <Segment.Item
-                                    value="right"
-                                    className="md:w-1/2 h-full"
-                                >
-                                    <div
-                                        className="flex w-100 h-100 cursor-pointer"
-                                        onClick={() => setActiveGraph('casos')}
-                                    >
-                                        Total casos
-                                    </div>
-                                </Segment.Item>
-                            </Segment>
-                            <div className="row-span-4 flex-1">
-                                {activeGraph === 'casos' ? (
-                                    <CasosGraph />
-                                ) : (
-                                    <BasicLine />
-                                )}
+                <div
+                    className="col-span-4 md:col-span-3 overflow-auto"
+                    style={{ maxHeight: '600px' }}
+                >
+                    <Card bordered={false} className="flex flex-col p-0">
+                        <div className="grid grid-rows-3 gap-2">
+                            {' '}
+                            {/* Ajustar la distancia entre las filas */}
+                            {/* Gráfico Total Casos */}
+                            <div className="mb-4">
+                                {' '}
+                                {/* Reducción del margen entre gráficos */}
+                                <h3>Casos</h3>
+                                <TotalCasosHome />
+                            </div>
+                            {/* Gráfico Ventas Históricas */}
+                            <div className="mb-4">
+                                <h3>Ingresos</h3>
+                                <TotalVentasHome />
+                            </div>
+                            {/* Gráfico Margen */}
+                            <div className="mb-4">
+                                <h3>Margen</h3>
+                                <TotalMargenHome />
+                            </div>
+                            <div className="mb-4">
+                                <h3>Costes</h3>
+                                <TotalCostesHome />
                             </div>
                         </div>
                     </Card>
@@ -345,7 +229,7 @@ const Home = () => {
                     <div className="flex justify-between items-center">
                         <h5>Top Especialistas</h5>
                         <a
-                            href="/especialistas'"
+                            href="/single-menu-view"
                             className="text-blue-500 hover:underline"
                         >
                             Ver todos

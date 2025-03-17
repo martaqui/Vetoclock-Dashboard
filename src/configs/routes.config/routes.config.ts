@@ -25,12 +25,7 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/demo/VentasHistoricoAnual')),
         authority: [],
     },
-    {
-        key: 'collapseMenu.item2',
-        path: '/ventas-ultimos-dos-meses',
-        component: lazy(() => import('@/views/demo/VentasUltimosDosMeses')),
-        authority: [],
-    },
+
     {
         key: 'collapseMenu.item3',
         path: '/ventas-por-cliente',
@@ -49,12 +44,7 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/demo/TiposDeCaso')),
         authority: [],
     },
-    {
-        key: 'collapseMenu.item5',
-        path: '/casos-ultimos-dos-meses',
-        component: lazy(() => import('@/views/demo/CasosUltimosDosMeses')),
-        authority: [],
-    },
+
     {
         key: 'collapseMenu.item6', // Puedes poner cualquier clave única
         path: '/ventas-historicas-mesanio', // Esta es la URL a la que navegarás

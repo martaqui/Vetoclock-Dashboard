@@ -47,16 +47,6 @@ const navigationConfig: NavigationTree[] = [
                 authority: [],
                 subMenu: [],
             },
-            {
-                key: 'collapseMenu.item5',
-                path: '/casos-ultimos-dos-meses',
-                title: 'Casos últimos dos meses',
-                translateKey: 'nav.collapseMenu.item5',
-                icon: '',
-                type: NAV_ITEM_TYPE_ITEM,
-                authority: [],
-                subMenu: [],
-            },
         ],
     },
     {
@@ -120,16 +110,7 @@ const navigationConfig: NavigationTree[] = [
                 authority: [],
                 subMenu: [],
             },
-            {
-                key: 'collapseMenu.item2',
-                path: '/ventas-ultimos-dos-meses',
-                title: 'Ventas últimos dos meses',
-                translateKey: 'nav.collapseMenu.item2',
-                icon: '',
-                type: NAV_ITEM_TYPE_ITEM,
-                authority: [],
-                subMenu: [],
-            },
+
             {
                 key: 'collapseMenu.item3',
                 path: '/ventas-por-cliente',
