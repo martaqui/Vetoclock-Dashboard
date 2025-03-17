@@ -546,7 +546,7 @@ const VentasHistoricoAnual = () => {
             <hr />
 
             <TopList
-                title="Top Clientes"
+                title=""
                 link="ventas-por-cliente"
                 linkText="Ver todos"
                 items={[

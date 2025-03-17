@@ -50,7 +50,7 @@ const Especialistas = () => {
                         <span className="w-40 truncate">{especialista.x}</span>
                         <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
-                                className="h-full bg-green-500"
+                                className="h-full bg-blue-500"
                                 style={{
                                     width: `${especialista.porcentaje}%`,
                                 }}

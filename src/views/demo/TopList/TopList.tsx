@@ -51,7 +51,8 @@ const TopList: React.FC<TopListProps> = ({
                             ></div>
                         </div>
                         <span className="ml-2 text-sm">
-                            {index === 2 ? `${item.y}%` : item.y}
+                            {item.y.toLocaleString('es-ES')}{' '}
+                            {/* 🔥 Aplica formato con puntos de miles */}
                         </span>
                     </div>
                 ))}

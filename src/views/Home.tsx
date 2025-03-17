@@ -149,7 +149,6 @@ const Home = () => {
             <div className="w-full mt-8">
                 <Card bordered={false}>
                     <div className="flex justify-between items-center">
-                        <h5>Top Clientes</h5>
                         <a
                             href="ventas-por-cliente"
                             className="text-blue-500 hover:underline"

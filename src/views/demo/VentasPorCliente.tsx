@@ -109,7 +109,7 @@ const VentasPorCliente = () => {
         <div className="p-6 bg-white rounded-lg shadow-md">
             {/* 🟢 Título con margin-bottom en lugar de padding */}
             <div className="mb-4 text-xl font-bold text-black">
-                Ventas por cliente:
+                Ingresos por cliente:
             </div>
 
             <Chart

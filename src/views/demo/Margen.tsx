@@ -544,21 +544,20 @@ const Margen = () => {
             </div>
 
             <hr />
-
             <TopList
-                title="Top Clientes"
+                title=""
                 link="ventas-por-cliente"
                 linkText="Ver todos"
                 items={[
                     {
                         x: 'Total Casos',
                         porcentaje: totalCasosPercent,
-                        y: totalCasos, // 🔥 Se mantiene el total en la primera fila
+                        y: totalCasos, // Este ya se ve bien
                     },
                     {
                         x: `Variación`,
-                        porcentaje: totalCasosAnioAnteriorPercent, // 🔥 La barra sigue siendo proporcional
-                        y: diferencia, // 🔥 En lugar del total del año anterior, mostramos la diferencia
+                        porcentaje: totalCasosAnioAnteriorPercent,
+                        y: diferencia, // 🔥 Asegúrate de que este valor es un número válido
                     },
                     {
                         x: 'Variación %',
@@ -566,7 +565,7 @@ const Margen = () => {
                             Math.abs(variacionPorcentaje),
                             100,
                         ),
-                        y: Number(variacionPorcentaje.toFixed(2)), // 🔥 Convertimos a número
+                        y: Number(variacionPorcentaje.toFixed(2)),
                     },
                 ]}
                 icon="/img/others/clienticon.png"
