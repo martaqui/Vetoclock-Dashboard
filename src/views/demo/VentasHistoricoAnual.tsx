@@ -426,7 +426,7 @@ const VentasHistoricoAnual = () => {
     return (
         <div className="p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-                Ventas Historico Anual
+                Ingresos
             </h2>
 
             {/* Contenedor de filtros */}

@@ -41,7 +41,7 @@ const Especialistas = () => {
     return (
         <div className="w-full mt-8 p-6 bg-white shadow rounded-lg">
             <div className="flex justify-between items-center mb-4">
-                <h1 className="text-lg font-bold">Especialistas</h1>
+                <h1 className="text-lg font-bold">Costes especialistas</h1>
                 <hr />
             </div>
             <div className="space-y-4">

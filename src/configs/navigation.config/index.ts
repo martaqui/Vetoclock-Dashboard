@@ -79,8 +79,8 @@ const navigationConfig: NavigationTree[] = [
                     },
                     {
                         key: 'groupMenu.collapse.item2',
-                        path: '/group-collapse-menu-item-view-2',
-                        title: 'Menu item 2',
+                        path: '/tiempo-de-respuesta',
+                        title: 'Tiempo de respuesta',
                         translateKey: 'nav.groupMenu.collapse.item2',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
