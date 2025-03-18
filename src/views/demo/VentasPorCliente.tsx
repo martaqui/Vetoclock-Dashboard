@@ -168,32 +168,34 @@ const CasosPorGrupo = () => {
                 Ingresos por grupo:
             </div>
 
-            {/* 🔥 Selector de Fechas */}
-            <div className="mb-6">
-                <DatePickerComponent
-                    startDate={startDate}
-                    endDate={endDate}
-                    setStartDate={setStartDate}
-                    setEndDate={setEndDate}
-                />
+            {/* 🔥 Contenedor para el selector de fechas y el botón */}
+            <div className="mb-6 flex flex-wrap items-center justify-between">
+                {/* DatePicker con sombra y borde más estético */}
+                <div className="flex items-center gap-4 p-3 bg-gray-100 rounded-lg shadow-sm">
+                    <DatePickerComponent
+                        startDate={startDate}
+                        endDate={endDate}
+                        setStartDate={setStartDate}
+                        setEndDate={setEndDate}
+                    />
+                </div>
+
+                {/* Botón "Ver más grupos" mejor posicionado */}
+                <button
+                    onClick={() => setMostrarTodos(!mostrarTodos)}
+                    className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-md hover:bg-gray-400 transition-all"
+                >
+                    {mostrarTodos ? 'Mostrar menos' : 'Ver más grupos'}
+                </button>
             </div>
 
+            {/* Gráfico */}
             <Chart
                 options={chartData.options}
                 series={chartData.series}
                 height={390}
                 type="pie"
             />
-
-            {/* 🔥 Botón para alternar entre ver solo 4 grupos o todos */}
-            <div className="mt-4 text-center">
-                <button
-                    onClick={() => setMostrarTodos(!mostrarTodos)}
-                    className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-all"
-                >
-                    {mostrarTodos ? 'Mostrar menos' : 'Ver más grupos'}
-                </button>
-            </div>
         </div>
     )
 }

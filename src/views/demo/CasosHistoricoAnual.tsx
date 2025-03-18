@@ -427,7 +427,7 @@ const CasosHistoricoAnual = () => {
         <div className="p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">Casos</h2>
 
-            {/* Contenedor de filtros */}
+            {/* 🔥 Contenedor de filtros con 3 columnas */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                 {/* Filtro por Grupo */}
                 <div className="flex flex-col">
@@ -466,6 +466,8 @@ const CasosHistoricoAnual = () => {
                         ))}
                     </select>
                 </div>
+
+                {/* Filtro por Tipo de Caso */}
                 <div className="flex flex-col">
                     <label className="text-sm font-medium text-gray-600 mb-1">
                         Filtrar por tipo de caso:
@@ -483,6 +485,7 @@ const CasosHistoricoAnual = () => {
                         ))}
                     </select>
                 </div>
+
                 {/* Filtro por Tipo de Urgencia */}
                 <div className="flex flex-col">
                     <label className="text-sm font-medium text-gray-600 mb-1">
@@ -520,8 +523,8 @@ const CasosHistoricoAnual = () => {
                 </div>
             </div>
 
-            {/* Selector de Fechas */}
-            <div className="mb-6">
+            {/* 🔥 Selector de Fechas justo debajo de "Filtrar por tipo de urgencia" */}
+            <div className="flex w-full lg:w-[40%] justify-start items-center p-3 bg-gray-100 rounded-lg shadow-sm mb-6">
                 <DatePickerComponent
                     startDate={startDate}
                     endDate={endDate}
@@ -532,7 +535,6 @@ const CasosHistoricoAnual = () => {
 
             {/* Gráfico */}
             <div className="cursor-pointer" onClick={handleClick}>
-                {' '}
                 <Chart
                     options={chartData.options}
                     series={chartData.series}
@@ -551,12 +553,12 @@ const CasosHistoricoAnual = () => {
                     {
                         x: 'Total Casos',
                         porcentaje: totalCasosPercent,
-                        y: totalCasos, // 🔥 Se mantiene el total en la primera fila
+                        y: totalCasos,
                     },
                     {
                         x: `Variación`,
-                        porcentaje: totalCasosAnioAnteriorPercent, // 🔥 La barra sigue siendo proporcional
-                        y: diferencia, // 🔥 En lugar del total del año anterior, mostramos la diferencia
+                        porcentaje: totalCasosAnioAnteriorPercent,
+                        y: diferencia,
                     },
                     {
                         x: 'Variación %',
@@ -564,7 +566,7 @@ const CasosHistoricoAnual = () => {
                             Math.abs(variacionPorcentaje),
                             100,
                         ),
-                        y: Number(variacionPorcentaje.toFixed(2)), // 🔥 Convertimos a número
+                        y: Number(variacionPorcentaje.toFixed(2)),
                     },
                 ]}
                 icon="/img/others/clienticon.png"

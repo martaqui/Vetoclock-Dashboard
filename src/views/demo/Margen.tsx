@@ -523,7 +523,7 @@ const Margen = () => {
             </div>
 
             {/* Selector de Fechas */}
-            <div className="mb-6">
+            <div className="flex w-full lg:w-[40%] justify-start items-center p-3 bg-gray-100 rounded-lg shadow-sm mb-6">
                 <DatePickerComponent
                     startDate={startDate}
                     endDate={endDate}
@@ -550,7 +550,7 @@ const Margen = () => {
                 linkText="Ver todos"
                 items={[
                     {
-                        x: 'Total Casos',
+                        x: 'Total',
                         porcentaje: totalCasosPercent,
                         y: totalCasos, // 🔥 Se mantiene el total en la primera fila
                     },
