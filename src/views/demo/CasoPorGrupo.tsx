@@ -117,7 +117,7 @@ const CasoPorGrupo = () => {
             <Chart
                 options={chartData.options}
                 series={chartData.series}
-                height={590}
+                height={390}
                 type="pie"
             />
             <button
