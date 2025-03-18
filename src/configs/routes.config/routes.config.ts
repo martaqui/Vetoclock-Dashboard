@@ -44,6 +44,12 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/demo/TiposDeCaso')),
         authority: [],
     },
+    {
+        key: 'collapseMenu.item4',
+        path: '/casos-por-cliente',
+        component: lazy(() => import('@/views/demo/CasoPorGrupo')),
+        authority: [],
+    },
 
     {
         key: 'collapseMenu.item6', // Puedes poner cualquier clave única

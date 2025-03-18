@@ -47,6 +47,16 @@ const navigationConfig: NavigationTree[] = [
                 authority: [],
                 subMenu: [],
             },
+            {
+                key: 'collapseMenu.item4',
+                path: '/casos-por-cliente',
+                title: 'Casos por cliente',
+                translateKey: 'nav.collapseMenu.item4',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
         ],
     },
     {

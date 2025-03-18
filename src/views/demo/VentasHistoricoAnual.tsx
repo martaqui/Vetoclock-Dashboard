@@ -539,7 +539,7 @@ const VentasHistoricoAnual = () => {
                     options={chartData.options}
                     series={chartData.series}
                     type="area"
-                    height={300}
+                    height={390}
                 />
             </div>
 
