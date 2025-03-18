@@ -50,9 +50,9 @@ const TopList: React.FC<TopListProps> = ({
                                 }}
                             ></div>
                         </div>
-                        <span className="ml-2 text-sm">
-                            {item.y.toLocaleString('es-ES')}{' '}
-                            {/* 🔥 Aplica formato con puntos de miles */}
+                        <span className="ml-2 text-sm whitespace-nowrap">
+                            {item.y.toLocaleString('es-ES')}
+                            {item.x === 'Variación %' ? '%' : ''}
                         </span>
                     </div>
                 ))}

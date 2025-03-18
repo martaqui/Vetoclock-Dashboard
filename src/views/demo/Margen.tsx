@@ -552,12 +552,12 @@ const Margen = () => {
                     {
                         x: 'Total Casos',
                         porcentaje: totalCasosPercent,
-                        y: totalCasos, // Este ya se ve bien
+                        y: totalCasos, // 🔥 Se mantiene el total en la primera fila
                     },
                     {
                         x: `Variación`,
-                        porcentaje: totalCasosAnioAnteriorPercent,
-                        y: diferencia, // 🔥 Asegúrate de que este valor es un número válido
+                        porcentaje: totalCasosAnioAnteriorPercent, // 🔥 La barra sigue siendo proporcional
+                        y: diferencia, // 🔥 En lugar del total del año anterior, mostramos la diferencia
                     },
                     {
                         x: 'Variación %',
@@ -565,7 +565,7 @@ const Margen = () => {
                             Math.abs(variacionPorcentaje),
                             100,
                         ),
-                        y: Number(variacionPorcentaje.toFixed(2)),
+                        y: Number(variacionPorcentaje.toFixed(2)), // 🔥 Convertimos a número
                     },
                 ]}
                 icon="/img/others/clienticon.png"

@@ -2,14 +2,13 @@ import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import './DatePickerComponent.css' // Asegúrate de importar tu archivo CSS
-import { Dispatch, SetStateAction } from 'react'
 
 interface DatePickerComponentProps {
     startDate: Date | null
     endDate: Date | null
     // selectedYear: string
-    setStartDate: Dispatch<SetStateAction<Date>>
-    setEndDate: Dispatch<SetStateAction<Date>>
+    setStartDate: React.Dispatch<React.SetStateAction<Date | null>>
+    setEndDate: React.Dispatch<React.SetStateAction<Date | null>>
     // handleYearChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
