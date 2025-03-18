@@ -86,7 +86,7 @@ const TotalVentasHome = () => {
                 const data: ChartData = {
                     series: [
                         {
-                            name: 'Ventas Totales',
+                            name: 'Ingresos totales',
                             data: ventasTotalesPorMes,
                         },
                     ],
@@ -96,7 +96,7 @@ const TotalVentasHome = () => {
                             zoom: { enabled: false },
                             events: {
                                 click: () =>
-                                    navigate('/ventas-historico-anual'),
+                                    navigate('/ingresos-historico-anual'),
                             },
                         },
                         dataLabels: { enabled: false },

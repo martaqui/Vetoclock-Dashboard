@@ -538,7 +538,7 @@ const CasosHistoricoAnual = () => {
 
             <TopList
                 title=""
-                link="ventas-por-cliente"
+                link="ingresos-por-cliente"
                 linkText="Ver todos"
                 items={[
                     {

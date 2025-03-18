@@ -21,14 +21,14 @@ export const protectedRoutes: Routes = [
     },
     {
         key: 'collapseMenu.item1',
-        path: '/ventas-historico-anual',
+        path: '/ingresos-historico-anual',
         component: lazy(() => import('@/views/demo/VentasHistoricoAnual')),
         authority: [],
     },
 
     {
         key: 'collapseMenu.item3',
-        path: '/ventas-por-cliente',
+        path: '/ingresos-por-cliente',
         component: lazy(() => import('@/views/demo/VentasPorCliente')),
         authority: [],
     },
@@ -73,7 +73,7 @@ export const protectedRoutes: Routes = [
     },
     {
         key: 'collapseMenu.item8',
-        path: '/ventas-por-cliente-desglosado',
+        path: '/ingresos-por-cliente-desglosado',
         component: lazy(
             () => import('@/views/demo/VentasPorClienteDesglosado'),
         ),

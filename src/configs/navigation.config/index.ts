@@ -112,7 +112,7 @@ const navigationConfig: NavigationTree[] = [
         subMenu: [
             {
                 key: 'collapseMenu.item1',
-                path: '/ventas-historico-anual',
+                path: '/ingresos-historico-anual',
                 title: 'Ingresos',
                 translateKey: 'nav.collapseMenu.item1',
                 icon: '',
@@ -123,7 +123,7 @@ const navigationConfig: NavigationTree[] = [
 
             {
                 key: 'collapseMenu.item3',
-                path: '/ventas-por-cliente',
+                path: '/ingresos-por-cliente',
                 title: 'Ingresos por cliente',
                 translateKey: 'nav.collapseMenu.item3',
                 icon: '',

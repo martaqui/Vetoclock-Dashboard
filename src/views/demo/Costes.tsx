@@ -358,11 +358,11 @@ const Costes = () => {
         setChartData({
             series: [
                 {
-                    name: 'Casos Filtrados',
+                    name: 'Costes Filtrados',
                     data: data.map((date) => grouped[date].filtro),
                 },
                 {
-                    name: 'Total Casos',
+                    name: 'Total Costes',
                     data: data.map((date) => grouped[date].total),
                 },
             ],
@@ -547,7 +547,7 @@ const Costes = () => {
 
             <TopList
                 title=""
-                link="ventas-por-cliente"
+                link="ingresos-por-cliente"
                 linkText="Ver todos"
                 items={[
                     {

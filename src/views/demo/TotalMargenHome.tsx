@@ -95,7 +95,7 @@ const TotalMargenHome = () => {
                 const data: ChartData = {
                     series: [
                         {
-                            name: 'Margen',
+                            name: 'Margen total',
                             data: margenTotalesPorMes,
                         },
                     ],

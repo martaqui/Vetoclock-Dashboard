@@ -142,7 +142,7 @@ const TiposDeCaso = () => {
                                     if (selectedCase && selectedCIF) {
                                         // Aquí pasamos tanto el 'cliente' como el 'cif' en la URL
                                         navigate(
-                                            `/ventas-por-cliente-desglosado?case=${encodeURIComponent(
+                                            `/ingresos-por-cliente-desglosado?case=${encodeURIComponent(
                                                 selectedCase,
                                             )}&cif=${encodeURIComponent(selectedCIF)}`,
                                         )

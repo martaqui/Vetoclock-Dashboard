@@ -95,7 +95,7 @@ const TotalCasosHome = () => {
                 const data: ChartData = {
                     series: [
                         {
-                            name: 'Ventas Totales',
+                            name: 'Casos totales',
                             data: ventasTotalesPorMes,
                         },
                     ],

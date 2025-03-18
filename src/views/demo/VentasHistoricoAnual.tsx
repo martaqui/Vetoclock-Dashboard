@@ -358,11 +358,11 @@ const VentasHistoricoAnual = () => {
         setChartData({
             series: [
                 {
-                    name: 'Casos Filtrados',
+                    name: 'Ingresos filtrados',
                     data: data.map((date) => grouped[date].filtro),
                 },
                 {
-                    name: 'Total Casos',
+                    name: 'Total ingresos',
                     data: data.map((date) => grouped[date].total),
                 },
             ],
@@ -547,7 +547,7 @@ const VentasHistoricoAnual = () => {
 
             <TopList
                 title=""
-                link="ventas-por-cliente"
+                link="ingresos-por-cliente"
                 linkText="Ver todos"
                 items={[
                     {

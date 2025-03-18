@@ -358,11 +358,11 @@ const Margen = () => {
         setChartData({
             series: [
                 {
-                    name: 'Casos Filtrados',
+                    name: 'Margen Filtrado',
                     data: data.map((date) => grouped[date].filtro),
                 },
                 {
-                    name: 'Total Casos',
+                    name: 'Total Margen',
                     data: data.map((date) => grouped[date].total),
                 },
             ],
@@ -546,7 +546,7 @@ const Margen = () => {
             <hr />
             <TopList
                 title=""
-                link="ventas-por-cliente"
+                link="ingresos-por-cliente"
                 linkText="Ver todos"
                 items={[
                     {
