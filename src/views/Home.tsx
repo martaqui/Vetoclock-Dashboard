@@ -5,7 +5,7 @@ import TotalVentasHome from './demo/TotalVentasHome'
 import TotalMargenHome from './demo/TotalMargenHome'
 import TotalCostesHome from './demo/TotalCostesHome'
 
-interface Cliente {
+interface Grupo {
     x: string
     y: number
     porcentaje: number
@@ -17,8 +17,13 @@ interface AsignadoItem {
     tiempo_medio_horas: string
 }
 
+interface DataItem {
+    nombre_grupo: string
+    total_casos: string
+}
+
 const Home = () => {
-    const [topClientes, setTopClientes] = useState<Cliente[]>([])
+    const [topGrupos, setTopGrupos] = useState<Grupo[]>([])
     const [topAsignados, setTopAsignados] = useState<AsignadoItem[]>([])
 
     useEffect(() => {
@@ -36,45 +41,42 @@ const Home = () => {
                 const sortedAsignados = asignadosData.slice(0, 6)
                 setTopAsignados(sortedAsignados)
 
-                // Fetch de clientes
-                const clientesResponse = await fetch(
-                    '/data/ventasxcliente.json',
-                )
-                const clientesData = await clientesResponse.json()
-                console.log('Clientes:', clientesData) // Verifica los datos
+                // Fetch de casos
+                const casosResponse = await fetch('/data/casos_dashboard.json')
+                const casosData: DataItem[] = await casosResponse.json()
+                console.log('Casos:', casosData) // Verifica los datos
 
-                // Filtrar y organizar los datos de clientes
-                const clientesFiltrados = clientesData.data
-                    .filter(
-                        (item: { x: string | null; y: number }) =>
-                            item.x !== null,
-                    )
-                    .map((item: { x: string; y: number }) => ({
-                        x: item.x || 'Cliente Desconocido',
-                        y: item.y,
-                        porcentaje: 0, // Inicializamos con 0
+                // Agrupar por nombre_grupo
+                const gruposMap = casosData.reduce<Record<string, number>>(
+                    (acc, item) => {
+                        const grupo = item.nombre_grupo || 'Grupo Desconocido'
+                        const total = parseInt(item.total_casos, 10) || 0
+                        acc[grupo] = (acc[grupo] || 0) + total
+                        return acc
+                    },
+                    {},
+                )
+
+                const gruposArray = Object.entries(gruposMap)
+                    .map(([grupo, total]) => ({
+                        x: grupo,
+                        y: total,
+                        porcentaje: 0,
                     }))
+                    .sort((a, b) => b.y - a.y) // Ordenar por cantidad de casos
 
-                const sortedClientes = clientesFiltrados.sort(
-                    (a: Cliente, b: Cliente) => b.y - a.y, // Aseguramos que b.y y a.y son números
-                )
-
-                const totalVentas = sortedClientes.reduce(
-                    (sum: number, item: Cliente) => sum + item.y, // Especificamos que sum y item.y son números
+                const totalCasos = gruposArray.reduce(
+                    (sum, item) => sum + item.y,
                     0,
                 )
 
-                const clientesConPorcentaje = sortedClientes.map(
-                    (cliente: Cliente) => ({
-                        ...cliente,
-                        porcentaje:
-                            totalVentas > 0
-                                ? (cliente.y / totalVentas) * 100
-                                : 0,
-                    }),
-                )
+                const gruposConPorcentaje = gruposArray.map((grupo) => ({
+                    ...grupo,
+                    porcentaje:
+                        totalCasos > 0 ? (grupo.y / totalCasos) * 100 : 0,
+                }))
 
-                setTopClientes(clientesConPorcentaje.slice(0, 3))
+                setTopGrupos(gruposConPorcentaje.slice(0, 3))
             } catch (error) {
                 console.error('Error loading JSON data:', error)
             }
@@ -150,34 +152,34 @@ const Home = () => {
                 <Card bordered={false}>
                     <div className="flex justify-between items-center">
                         <a
-                            href="ventas-por-cliente"
+                            href="/casos-por-cliente"
                             className="text-blue-500 hover:underline"
                         >
                             Ver todos
                         </a>
                     </div>
                     <div className="clientes mt-6 space-y-6">
-                        {topClientes.map((cliente, index) => (
+                        {topGrupos.map((grupo, index) => (
                             <div
                                 key={index}
                                 className="flex items-center space-x-2 w-full"
                             >
                                 <img
                                     src="/img/others/clienticon.png"
-                                    alt={`Cliente ${index + 1}`}
+                                    alt={`Grupo ${index + 1}`}
                                     className="w-10 h-10 rounded-full"
                                 />
-                                <span>{cliente.x}</span>
+                                <span>{grupo.x}</span>
                                 <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
                                     <div
                                         className="h-full bg-blue-500"
                                         style={{
-                                            width: `${cliente.porcentaje}%`,
+                                            width: `${grupo.porcentaje}%`,
                                         }}
                                     ></div>
                                 </div>
                                 <span className="ml-2 text-sm">
-                                    {cliente.porcentaje.toFixed(1)}%
+                                    {grupo.porcentaje.toFixed(1)}%
                                 </span>
                             </div>
                         ))}

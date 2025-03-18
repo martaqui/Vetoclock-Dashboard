@@ -80,7 +80,7 @@ const navigationConfig: NavigationTree[] = [
                     {
                         key: 'groupMenu.collapse.item1',
                         path: '/especialistas',
-                        title: 'Costes Especialistas',
+                        title: 'Costes',
                         translateKey: 'nav.groupMenu.collapse.item1',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,

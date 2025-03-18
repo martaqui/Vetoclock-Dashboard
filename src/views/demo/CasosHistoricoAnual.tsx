@@ -1,6 +1,5 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import Chart from 'react-apexcharts'
-import { useNavigate } from 'react-router-dom'
 import { COLOR_1 } from '@/constants/chart.constant'
 import { ApexOptions } from 'apexcharts'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
@@ -90,12 +89,6 @@ const CasosHistoricoAnual = () => {
         useState<number>(0)
     const [diferencia, setDiferencia] = useState<number>(0)
     const [variacionPorcentaje, setVariacionPorcentaje] = useState<number>(0)
-
-    const navigate = useNavigate()
-
-    const handleClick = useCallback(() => {
-        navigate('/casos_historico_anual_mes_anio')
-    }, [navigate])
 
     useEffect(() => {
         fetch('/data/casos_dashboard.json')
@@ -370,7 +363,6 @@ const CasosHistoricoAnual = () => {
                 chart: {
                     type: 'line',
                     zoom: { enabled: false },
-                    events: { click: handleClick },
                 },
                 colors: [COLOR_1, '#D3D3D3'],
                 fill: {
@@ -396,7 +388,6 @@ const CasosHistoricoAnual = () => {
         tipoUrgencia,
         grupo,
         items,
-        handleClick,
         startDate,
         endDate,
         empresa,
@@ -534,7 +525,7 @@ const CasosHistoricoAnual = () => {
             </div>
 
             {/* Gráfico */}
-            <div className="cursor-pointer" onClick={handleClick}>
+            <div className="cursor-pointer">
                 <Chart
                     options={chartData.options}
                     series={chartData.series}
@@ -551,7 +542,7 @@ const CasosHistoricoAnual = () => {
                 linkText="Ver todos"
                 items={[
                     {
-                        x: 'Total Casos',
+                        x: 'Total',
                         porcentaje: totalCasosPercent,
                         y: totalCasos,
                     },

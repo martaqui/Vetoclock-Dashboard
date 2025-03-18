@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import Chart from 'react-apexcharts'
 import { ApexOptions } from 'apexcharts'
+import { useNavigate } from 'react-router-dom'
 
 interface DataItem {
     nombre_grupo: string
@@ -25,6 +26,7 @@ interface ChartData {
 
 const TotalCasosHome = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null) // Cambié a un solo objeto ChartData o null
+    const navigate = useNavigate()
 
     const fetchData = useCallback(() => {
         fetch('/data/casos_dashboard.json') // Conexión al archivo JSON
@@ -102,6 +104,9 @@ const TotalCasosHome = () => {
                             type: 'line',
                             zoom: {
                                 enabled: false,
+                            },
+                            events: {
+                                click: () => navigate('/casos-historico-anual'),
                             },
                         },
                         dataLabels: {
