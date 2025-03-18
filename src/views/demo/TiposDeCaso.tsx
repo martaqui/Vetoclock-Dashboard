@@ -1,57 +1,62 @@
 import { useEffect, useState } from 'react'
 import Chart from 'react-apexcharts'
 import { ApexOptions } from 'apexcharts'
+import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
 
-interface Caso {
-    x: string | null
-    y: number
-}
-
-interface TiposDeCasosData {
-    data: Caso[]
-    colors: string[]
+interface DataItem {
+    tipo_locale: string
+    mes_anio: string
+    total_casos: string
 }
 
 interface ChartData {
-    type?:
-        | 'line'
-        | 'area'
-        | 'bar'
-        | 'pie'
-        | 'donut'
-        | 'radialBar'
-        | 'scatter'
-        | 'bubble'
-        | 'heatmap'
-        | 'candlestick'
-        | 'boxPlot'
-        | 'radar'
-        | 'polarArea'
-        | 'rangeBar'
-        | 'rangeArea'
-        | 'treemap'
-    series?: ApexOptions['series']
-    width?: string | number
-    height?: string | number
-    options?: ApexOptions
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: any
+    series: number[]
+    options: ApexOptions
 }
 
 const TiposDeCaso = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null)
-    useEffect(() => {
-        fetch('/data/tipos_de_casos.json')
-            .then((response) => response.json())
-            .then((data: TiposDeCasosData) => {
-                // Ordenar los datos de mayor a menor según 'y'
-                const sortedData = data.data
-                    .filter((item) => item.x !== null) // Filtrar nulos
-                    .sort((a, b) => b.y - a.y) // Ordenar de mayor a menor
+    const [startDate, setStartDate] = useState<Date | null>(null)
+    const [endDate, setEndDate] = useState<Date | null>(null)
 
-                const labels = sortedData.map((item) => item.x) as string[]
-                const series = sortedData.map((item) => item.y)
-                const colors = data.colors
+    useEffect(() => {
+        fetch('/data/casos_dashboard.json')
+            .then((response) => response.json())
+            .then((data: DataItem[]) => {
+                if (!data || data.length === 0) return
+
+                let filteredData = data
+
+                // Filtrar por fecha si hay rango seleccionado
+                if (startDate && endDate) {
+                    const startStr = startDate.toISOString().slice(0, 7)
+                    const endStr = endDate.toISOString().slice(0, 7)
+
+                    filteredData = data.filter(
+                        (item) =>
+                            item.mes_anio >= startStr &&
+                            item.mes_anio <= endStr,
+                    )
+                }
+
+                // Agrupar por tipo de caso (tipo_locale)
+                const casosPorTipo = filteredData.reduce<
+                    Record<string, number>
+                >((acc, item) => {
+                    const tipo = item.tipo_locale || 'Desconocido'
+                    const total = parseInt(item.total_casos, 10) || 0
+                    acc[tipo] = (acc[tipo] || 0) + total
+                    return acc
+                }, {})
+
+                // Convertir a array y ordenar de mayor a menor
+                const sortedCasos = Object.entries(casosPorTipo)
+                    .map(([tipo, total]) => ({ x: tipo, y: total }))
+                    .sort((a, b) => b.y - a.y)
+                    .slice(0, 10) // 🔥 Mostrar solo los 10 más importantes
+
+                const labels = sortedCasos.map((item) => item.x)
+                const series = sortedCasos.map((item) => item.y)
 
                 setChartData({
                     options: {
@@ -59,13 +64,24 @@ const TiposDeCaso = () => {
                             type: 'pie',
                             width: 'auto',
                         },
-                        labels: labels, // Ahora en orden
-                        colors: colors,
+                        labels: labels,
+                        colors: [
+                            '#FF8C00',
+                            '#FFA500',
+                            '#FFD700',
+                            '#FF4500',
+                            '#FF6347',
+                            '#FF7F50',
+                            '#FFA07A',
+                            '#FFDAB9',
+                            '#FFE4B5',
+                            '#FFFACD',
+                        ], // 🔥 Gama de naranjas
                         legend: {
                             position: 'right',
                         },
                         title: {
-                            text: 'Tipos de caso:',
+                            text: '',
                             align: 'left',
                             offsetX: 10,
                             style: {
@@ -79,6 +95,10 @@ const TiposDeCaso = () => {
                             style: { fontSize: '14px' },
                             fillSeriesColor: false,
                             marker: { show: true },
+                            y: {
+                                formatter: (value: number) =>
+                                    value.toLocaleString('es-ES'),
+                            },
                         },
                         responsive: [
                             {
@@ -90,23 +110,41 @@ const TiposDeCaso = () => {
                             },
                         ],
                     },
-                    series: series, // Ahora en orden
+                    series: series,
                 })
             })
-            .catch((error) => console.error('Error loading JSON data:', error))
-    }, [])
+            .catch((error) => console.error('Error cargando los datos:', error))
+    }, [startDate, endDate]) // 🔥 Se actualiza cuando cambia el selector de fechas
 
     if (!chartData) {
-        return <div>Loading...</div>
+        return <div>Cargando...</div>
     }
 
     return (
-        <Chart
-            options={chartData.options}
-            series={chartData.series}
-            height={590}
-            type="pie"
-        />
+        <div className="p-6 bg-white rounded-lg shadow-md">
+            {/* 🔥 Título */}
+            <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                Tipos de caso:
+            </h2>
+
+            {/* 🔥 Selector de Fechas debajo del título */}
+            <div className="flex w-full lg:w-[40%] justify-start items-center p-3 bg-gray-100 rounded-lg shadow-sm mb-6">
+                <DatePickerComponent
+                    startDate={startDate}
+                    endDate={endDate}
+                    setStartDate={setStartDate}
+                    setEndDate={setEndDate}
+                />
+            </div>
+
+            {/* 📊 Gráfico */}
+            <Chart
+                options={chartData.options}
+                series={chartData.series}
+                height={390}
+                type="pie"
+            />
+        </div>
     )
 }
 
