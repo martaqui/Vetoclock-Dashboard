@@ -27,6 +27,7 @@ interface ChartData {
 const TotalCasosHome = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null) // Cambié a un solo objeto ChartData o null
     const navigate = useNavigate()
+    const [isScrolling, setIsScrolling] = useState(false)
 
     const fetchData = useCallback(() => {
         fetch('/data/casos_dashboard.json') // Conexión al archivo JSON
@@ -137,16 +138,46 @@ const TotalCasosHome = () => {
         fetchData() // Llamar la función cuando se monte el componente
     }, [fetchData])
 
+    useEffect(() => {
+        let scrollTimeout: NodeJS.Timeout
+
+        const handleScroll = () => {
+            setIsScrolling(true)
+
+            // Si el usuario deja de hacer scroll, esperamos 300ms y desactivamos el estado
+            clearTimeout(scrollTimeout)
+            scrollTimeout = setTimeout(() => {
+                setIsScrolling(false)
+            }, 300)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+            clearTimeout(scrollTimeout)
+        }
+    }, [])
+
     return (
         <div className="w-full mt-8">
             {chartData ? (
-                <Chart
-                    options={chartData.options} // Ya no es necesario usar chartData?.options
-                    series={chartData.series} // Ya no es necesario usar chartData?.series
-                    height={300}
-                />
+                <div
+                    className="cursor-pointer"
+                    onClick={
+                        !isScrolling
+                            ? () => navigate('/casos-historico-anual')
+                            : undefined
+                    }
+                >
+                    <Chart
+                        options={chartData.options}
+                        series={chartData.series}
+                        height={300}
+                    />
+                </div>
             ) : (
-                <p>Cargando gráfico...</p> // Mostrar un mensaje mientras se cargan los datos
+                <p>Cargando gráfico...</p>
             )}
         </div>
     )
