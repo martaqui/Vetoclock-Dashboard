@@ -27,10 +27,19 @@ interface ChartData {
 const TotalMargenHome = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null)
     const navigate = useNavigate()
-    const [isScrolling, setIsScrolling] = useState(false)
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+    // Detectar si la pantalla es de móvil
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     const fetchData = useCallback(() => {
-        fetch('/data/casos_dashboard.json') // Conexión al archivo JSON
+        fetch('/data/casos_dashboard.json')
             .then((response) => response.json())
             .then((json) => {
                 if (!Array.isArray(json)) {
@@ -38,24 +47,16 @@ const TotalMargenHome = () => {
                     return
                 }
 
-                // Obtener la fecha actual sin modificar el objeto "now"
                 const currentDate = new Date()
-
-                // Declaramos lastThreeMonths como un array de strings
                 const lastThreeMonths: string[] = []
 
-                // Copiar la fecha actual para no modificar el objeto original
                 for (let i = 3; i >= 1; i--) {
                     const tempDate = new Date(currentDate)
                     tempDate.setMonth(currentDate.getMonth() - i)
-                    const monthYear = tempDate.toISOString().slice(0, 7) // 'YYYY-MM'
+                    const monthYear = tempDate.toISOString().slice(0, 7)
                     lastThreeMonths.push(monthYear)
                 }
 
-                // Imprimir los valores de los meses para ver qué meses se calculan
-                console.log('Últimos tres meses:', lastThreeMonths)
-
-                // Filtrar los datos para obtener solo los de los últimos tres meses
                 const filteredData = json.filter((item: DataItem) =>
                     lastThreeMonths.includes(item.mes_anio),
                 )
@@ -67,32 +68,27 @@ const TotalMargenHome = () => {
                     return
                 }
 
-                // Calcular los márgenes totales por mes
                 const margenTotalesPorMes = lastThreeMonths.map((mes) => {
-                    const margenMes = filteredData
+                    return filteredData
                         .filter((item) => item.mes_anio === mes)
                         .reduce(
                             (total, item) =>
                                 total + (parseFloat(item.margen) || 0),
                             0,
                         )
-                    return margenMes
                 })
 
-                // Formatear los meses para que se muestren de forma legible (Enero 2025)
                 const monthsFormatted = lastThreeMonths.map((mes) => {
                     const dateObj = new Date(mes + '-01')
                     const options: Intl.DateTimeFormatOptions = {
                         month: 'long',
                         year: 'numeric',
                     }
-                    // Aquí ajustamos la capitalización usando charAt(0).toUpperCase()
                     return dateObj
                         .toLocaleDateString('es-ES', options)
-                        .replace(/^\w/, (c) => c.toUpperCase()) // Capitaliza la primera letra
+                        .replace(/^\w/, (c) => c.toUpperCase())
                 })
 
-                // Definir los datos del gráfico
                 const data: ChartData = {
                     series: [
                         {
@@ -107,7 +103,11 @@ const TotalMargenHome = () => {
                                 enabled: false,
                             },
                             events: {
-                                click: () => navigate('/margen'),
+                                click: () => {
+                                    if (!isMobile) {
+                                        navigate('/margen')
+                                    }
+                                },
                             },
                         },
                         dataLabels: {
@@ -117,12 +117,12 @@ const TotalMargenHome = () => {
                             curve: 'smooth',
                             width: 3,
                         },
-                        colors: ['#3B82F6'], // Color verde
+                        colors: ['#3B82F6'], // Color azul
                         xaxis: {
                             categories: monthsFormatted,
                         },
                         yaxis: {
-                            min: 0, // Asegurar que el eje Y empieza en 0
+                            min: 0,
                         },
                     },
                 }
@@ -132,42 +132,16 @@ const TotalMargenHome = () => {
             .catch((error) => {
                 console.error('Error cargando los datos:', error)
             })
-    }, [])
+    }, [isMobile, navigate])
 
     useEffect(() => {
-        fetchData() // Llamar la función cuando se monte el componente
+        fetchData()
     }, [fetchData])
-
-    useEffect(() => {
-        let scrollTimeout: NodeJS.Timeout
-
-        const handleScroll = () => {
-            setIsScrolling(true)
-
-            // Si el usuario deja de hacer scroll, esperamos 300ms y desactivamos el estado
-            clearTimeout(scrollTimeout)
-            scrollTimeout = setTimeout(() => {
-                setIsScrolling(false)
-            }, 300)
-        }
-
-        window.addEventListener('scroll', handleScroll)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-            clearTimeout(scrollTimeout)
-        }
-    }, [])
 
     return (
         <div className="w-full mt-8">
             {chartData ? (
-                <div
-                    className="cursor-pointer"
-                    onClick={
-                        !isScrolling ? () => navigate('/margen') : undefined
-                    }
-                >
+                <div className="cursor-pointer">
                     <Chart
                         options={chartData.options}
                         series={chartData.series}

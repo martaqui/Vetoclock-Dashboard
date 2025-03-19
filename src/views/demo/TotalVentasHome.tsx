@@ -27,10 +27,19 @@ interface ChartData {
 const TotalVentasHome = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null)
     const navigate = useNavigate()
-    const [isScrolling, setIsScrolling] = useState(false)
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+    // Detectar si la pantalla es de móvil
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     const fetchData = useCallback(() => {
-        fetch('/data/casos_dashboard.json') // Conexión al archivo JSON
+        fetch('/data/casos_dashboard.json')
             .then((response) => response.json())
             .then((json) => {
                 if (!Array.isArray(json)) {
@@ -38,7 +47,6 @@ const TotalVentasHome = () => {
                     return
                 }
 
-                // Obtener la fecha actual sin modificar el objeto "now"
                 const currentDate = new Date()
                 const lastThreeMonths: string[] = []
 
@@ -48,8 +56,6 @@ const TotalVentasHome = () => {
                     const monthYear = tempDate.toISOString().slice(0, 7)
                     lastThreeMonths.push(monthYear)
                 }
-
-                console.log('Últimos tres meses:', lastThreeMonths)
 
                 const filteredData = json.filter((item: DataItem) =>
                     lastThreeMonths.includes(item.mes_anio),
@@ -63,14 +69,13 @@ const TotalVentasHome = () => {
                 }
 
                 const ventasTotalesPorMes = lastThreeMonths.map((mes) => {
-                    const ventasMes = filteredData
+                    return filteredData
                         .filter((item) => item.mes_anio === mes)
                         .reduce(
                             (total, item) =>
                                 total + parseFloat(item.total_precio),
                             0,
                         )
-                    return ventasMes
                 })
 
                 const monthsFormatted = lastThreeMonths.map((mes) => {
@@ -96,8 +101,11 @@ const TotalVentasHome = () => {
                             type: 'line',
                             zoom: { enabled: false },
                             events: {
-                                click: () =>
-                                    navigate('/ingresos-historico-anual'),
+                                click: () => {
+                                    if (!isMobile) {
+                                        navigate('/ingresos-historico-anual')
+                                    }
+                                },
                             },
                         },
                         dataLabels: { enabled: false },
@@ -113,44 +121,16 @@ const TotalVentasHome = () => {
             .catch((error) => {
                 console.error('Error cargando los datos:', error)
             })
-    }, [navigate])
+    }, [isMobile, navigate])
 
     useEffect(() => {
         fetchData()
     }, [fetchData])
 
-    useEffect(() => {
-        let scrollTimeout: NodeJS.Timeout
-
-        const handleScroll = () => {
-            setIsScrolling(true)
-
-            // Si el usuario deja de hacer scroll, esperamos 300ms y desactivamos el estado
-            clearTimeout(scrollTimeout)
-            scrollTimeout = setTimeout(() => {
-                setIsScrolling(false)
-            }, 300)
-        }
-
-        window.addEventListener('scroll', handleScroll)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-            clearTimeout(scrollTimeout)
-        }
-    }, [])
-
     return (
         <div className="w-full mt-8">
             {chartData ? (
-                <div
-                    className="cursor-pointer"
-                    onClick={
-                        !isScrolling
-                            ? () => navigate('/ingresos-historico-anual')
-                            : undefined
-                    }
-                >
+                <div className="cursor-pointer">
                     <Chart
                         options={chartData.options}
                         series={chartData.series}
