@@ -209,6 +209,7 @@ const CasosPorEspecialista = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 <select
+                    className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     value={grupo}
                     onChange={(e) => setGrupo(e.target.value)}
                 >
@@ -220,6 +221,7 @@ const CasosPorEspecialista = () => {
                     ))}
                 </select>
                 <select
+                    className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     value={empresa}
                     onChange={(e) => setEmpresa(e.target.value)}
                 >
@@ -231,6 +233,7 @@ const CasosPorEspecialista = () => {
                     ))}
                 </select>
                 <select
+                    className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     value={tipoUrgencia}
                     onChange={(e) => setTipoUrgencia(e.target.value)}
                 >
@@ -242,6 +245,7 @@ const CasosPorEspecialista = () => {
                     ))}
                 </select>
                 <select
+                    className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     value={tipoCaso}
                     onChange={(e) => setTipoCaso(e.target.value)}
                 >
@@ -253,13 +257,14 @@ const CasosPorEspecialista = () => {
                     ))}
                 </select>
             </div>
-
-            <DatePickerComponent
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
-            />
+            <div className="flex w-full lg:w-[40%] justify-start items-center p-3 bg-gray-100 rounded-lg shadow-sm mb-6">
+                <DatePickerComponent
+                    startDate={startDate}
+                    endDate={endDate}
+                    setStartDate={setStartDate}
+                    setEndDate={setEndDate}
+                />
+            </div>
             <Chart
                 options={chartData.options}
                 series={chartData.series}
