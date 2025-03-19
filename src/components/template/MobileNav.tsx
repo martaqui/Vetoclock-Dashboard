@@ -9,6 +9,7 @@ import appConfig from '@/configs/app.config'
 import { useThemeStore } from '@/store/themeStore'
 import { useRouteKeyStore } from '@/store/routeKeyStore'
 import { useSessionUser } from '@/store/authStore'
+import logo from '/img/logo/logo-light-full.png'
 
 const VerticalMenuContent = lazy(
     () => import('@/components/template/VerticalMenuContent'),
@@ -50,7 +51,13 @@ const MobileNav = ({
                 <MobileNavToggle toggled={isOpen} />
             </div>
             <Drawer
-                title="Navigation"
+                title={
+                    <img
+                        src={logo}
+                        alt="VetoClock Logo"
+                        className="h-10 mx-auto"
+                    />
+                }
                 isOpen={isOpen}
                 bodyClass={classNames('p-0')}
                 width={330}
