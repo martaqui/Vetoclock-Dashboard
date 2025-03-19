@@ -25,12 +25,22 @@ interface ChartData {
 }
 
 const TotalCasosHome = () => {
-    const [chartData, setChartData] = useState<ChartData | null>(null) // Cambié a un solo objeto ChartData o null
+    const [chartData, setChartData] = useState<ChartData | null>(null)
     const navigate = useNavigate()
-    const [isScrolling, setIsScrolling] = useState(false)
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+    // Detectar cambios de tamaño de pantalla
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     const fetchData = useCallback(() => {
-        fetch('/data/casos_dashboard.json') // Conexión al archivo JSON
+        fetch('/data/casos_dashboard.json')
             .then((response) => response.json())
             .then((json) => {
                 if (!Array.isArray(json)) {
@@ -38,13 +48,9 @@ const TotalCasosHome = () => {
                     return
                 }
 
-                // Obtener la fecha actual sin modificar el objeto "now"
                 const currentDate = new Date()
-
-                // Declaramos lastThreeMonths como un array de strings
                 const lastThreeMonths: string[] = []
 
-                // Copiar la fecha actual para no modificar el objeto original
                 for (let i = 3; i >= 1; i--) {
                     const tempDate = new Date(currentDate)
                     tempDate.setMonth(currentDate.getMonth() - i)
@@ -52,10 +58,6 @@ const TotalCasosHome = () => {
                     lastThreeMonths.push(monthYear)
                 }
 
-                // Imprimir los valores de los meses para ver qué meses se calculan
-                console.log('Últimos tres meses:', lastThreeMonths)
-
-                // Filtrar los datos para obtener solo los de los últimos tres meses
                 const filteredData = json.filter((item: DataItem) =>
                     lastThreeMonths.includes(item.mes_anio),
                 )
@@ -67,7 +69,6 @@ const TotalCasosHome = () => {
                     return
                 }
 
-                // Calcular las ventas totales por mes
                 const ventasTotalesPorMes = lastThreeMonths.map((mes) => {
                     const ventasMes = filteredData
                         .filter((item) => item.mes_anio === mes)
@@ -79,20 +80,17 @@ const TotalCasosHome = () => {
                     return ventasMes
                 })
 
-                // Formatear los meses para que se muestren de forma legible (Enero 2025)
                 const monthsFormatted = lastThreeMonths.map((mes) => {
                     const dateObj = new Date(mes + '-01')
                     const options: Intl.DateTimeFormatOptions = {
                         month: 'long',
                         year: 'numeric',
                     }
-                    // Aquí ajustamos la capitalización usando charAt(0).toUpperCase()
                     return dateObj
                         .toLocaleDateString('es-ES', options)
                         .replace(/^\w/, (c) => c.toUpperCase()) // Capitaliza la primera letra
                 })
 
-                // Definir los datos del gráfico
                 const data: ChartData = {
                     series: [
                         {
@@ -107,7 +105,11 @@ const TotalCasosHome = () => {
                                 enabled: false,
                             },
                             events: {
-                                click: () => navigate('/casos-historico-anual'),
+                                click: () => {
+                                    if (!isMobile) {
+                                        navigate('/casos-historico-anual')
+                                    }
+                                },
                             },
                         },
                         dataLabels: {
@@ -117,12 +119,12 @@ const TotalCasosHome = () => {
                             curve: 'smooth',
                             width: 3,
                         },
-                        colors: ['#3B82F6'], // Color del gráfico
+                        colors: ['#3B82F6'],
                         xaxis: {
                             categories: monthsFormatted,
                         },
                         yaxis: {
-                            min: 0, // Asegurar que el eje Y empieza en 0
+                            min: 0,
                         },
                     },
                 }
@@ -132,44 +134,17 @@ const TotalCasosHome = () => {
             .catch((error) => {
                 console.error('Error cargando los datos:', error)
             })
-    }, [])
+    }, [isMobile, navigate])
 
+    // 🔥 EJECUTAR FETCH AL MONTAR EL COMPONENTE
     useEffect(() => {
-        fetchData() // Llamar la función cuando se monte el componente
+        fetchData()
     }, [fetchData])
-
-    useEffect(() => {
-        let scrollTimeout: NodeJS.Timeout
-
-        const handleScroll = () => {
-            setIsScrolling(true)
-
-            // Si el usuario deja de hacer scroll, esperamos 300ms y desactivamos el estado
-            clearTimeout(scrollTimeout)
-            scrollTimeout = setTimeout(() => {
-                setIsScrolling(false)
-            }, 300)
-        }
-
-        window.addEventListener('scroll', handleScroll)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-            clearTimeout(scrollTimeout)
-        }
-    }, [])
 
     return (
         <div className="w-full mt-8">
             {chartData ? (
-                <div
-                    className="cursor-pointer"
-                    onClick={
-                        !isScrolling
-                            ? () => navigate('/casos-historico-anual')
-                            : undefined
-                    }
-                >
+                <div className="cursor-pointer">
                     <Chart
                         options={chartData.options}
                         series={chartData.series}
