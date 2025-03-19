@@ -1,142 +1,82 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Chart from 'react-apexcharts'
 import { ApexOptions } from 'apexcharts'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
 
-interface CasoDashboard {
+interface DataItem {
     nombre_grupo: string
-    empresa: string
     mes_anio: string
     total_casos: string
-    nombre_usuario: string
-    tipo_urgencia: string
-    tipo_locale: string
-    total_coste: string
-    total_precio: string
-    margen: string
 }
 
-const convertirFechaAFormato = (fecha: Date) => {
-    const año = fecha.getFullYear()
-    const mes = (fecha.getMonth() + 1).toString().padStart(2, '0')
-    return `${año}-${mes}`
+interface ChartData {
+    series: number[]
+    options: ApexOptions
 }
 
-const CasosPorGrupo = () => {
-    const [chartData, setChartData] = useState<{
-        options: ApexOptions
-        series: number[]
-        labels: string[]
-    } | null>(null)
-
-    const [mostrarTodos, setMostrarTodos] = useState(false) // Estado para alternar entre 4 y todos los grupos
+const VentasPorCliente = () => {
+    const [chartData, setChartData] = useState<ChartData | null>(null)
     const [startDate, setStartDate] = useState<Date | null>(null)
     const [endDate, setEndDate] = useState<Date | null>(null)
-
-    const navigate = useNavigate()
+    const [showAll, setShowAll] = useState(false)
 
     useEffect(() => {
         fetch('/data/casos_dashboard.json')
             .then((response) => response.json())
-            .then((data: CasoDashboard[]) => {
-                // 🔥 Si no hay fechas seleccionadas, mostramos todos los datos
-                const fechaInicial = startDate
-                    ? convertirFechaAFormato(startDate)
-                    : '0000-00'
-                const fechaFinal = endDate
-                    ? convertirFechaAFormato(endDate)
-                    : '9999-99'
+            .then((data: DataItem[]) => {
+                if (!data || data.length === 0) return
 
-                // 🔥 Filtrar por fechas solo si están seleccionadas
-                const datosFiltrados = data.filter(
-                    (item) =>
-                        item.mes_anio >= fechaInicial &&
-                        item.mes_anio <= fechaFinal,
-                )
+                let filteredData = data
+                if (startDate && endDate) {
+                    const startStr = startDate.toISOString().slice(0, 7)
+                    const endStr = endDate.toISOString().slice(0, 7)
 
-                // 🔥 Agrupar por "nombre_grupo" y calcular ingresos totales (total_precio)
-                const grupoIngresos: Record<string, number> = {}
+                    filteredData = data.filter(
+                        (item) =>
+                            item.mes_anio >= startStr &&
+                            item.mes_anio <= endStr,
+                    )
+                }
 
-                datosFiltrados.forEach((item) => {
-                    const grupo = item.nombre_grupo || 'Sin Grupo'
-                    const ingresos = parseFloat(item.total_precio) || 0 // Convertir total_precio a número
-                    grupoIngresos[grupo] =
-                        (grupoIngresos[grupo] || 0) + ingresos
-                })
+                const casosPorGrupo = filteredData.reduce<
+                    Record<string, number>
+                >((acc, item) => {
+                    const grupo = item.nombre_grupo || 'Desconocido'
+                    const total = parseInt(item.total_casos, 10) || 0
+                    acc[grupo] = (acc[grupo] || 0) + total
+                    return acc
+                }, {})
 
-                // 🔥 Ordenar los grupos por ingresos (de mayor a menor)
-                const gruposOrdenados = Object.entries(grupoIngresos).sort(
-                    ([, ingresosA], [, ingresosB]) => ingresosB - ingresosA,
-                )
+                const sortedCasos = Object.entries(casosPorGrupo)
+                    .map(([grupo, total]) => ({ x: grupo, y: total }))
+                    .sort((a, b) => b.y - a.y)
 
-                // 🔥 Definir cuántos grupos mostrar (4 o todos)
-                const gruposMostrados = mostrarTodos
-                    ? gruposOrdenados
-                    : gruposOrdenados.slice(0, 4)
+                const displayedCasos = showAll
+                    ? sortedCasos
+                    : sortedCasos.slice(0, 10)
 
-                // Extraer etiquetas y valores para el gráfico
-                const labels = gruposMostrados.map(([grupo]) => grupo)
-                const series = gruposMostrados.map(([, ingresos]) => ingresos)
                 setChartData({
                     options: {
-                        chart: {
-                            type: 'pie',
-                            width: 'auto',
-                            events: {
-                                dataPointSelection: (
-                                    event,
-                                    chartContext,
-                                    config,
-                                ) => {
-                                    const selectedIndex = config.dataPointIndex
-                                    const selectedGroup = labels[selectedIndex]
-
-                                    console.log(
-                                        'Grupo seleccionado:',
-                                        selectedGroup,
-                                    )
-                                    setTimeout(() => {
-                                        navigate(
-                                            `/ventas_por_grupo/${selectedGroup}`,
-                                        )
-                                    }, 100)
-                                },
-                            },
-                        },
-                        labels: labels,
+                        chart: { type: 'pie', width: 'auto' },
+                        labels: displayedCasos.map((item) => item.x),
                         colors: [
-                            '#FF6B00', // Naranja fuerte
-                            '#FFA600', // Amarillo-naranja
-                            '#FFC100', // Naranja suave
-                            '#FFD700', // Dorado
-                            '#FF8C42', // Naranja pastel
-                            '#FFAE42', // Amarillo oscuro
+                            '#FF8C00',
+                            '#FFA500',
+                            '#FFD700',
+                            '#FF4500',
+                            '#FF6347',
+                            '#FF7F50',
+                            '#FFA07A',
+                            '#FFDAB9',
+                            '#FFE4B5',
+                            '#FFFACD',
                         ],
-                        tooltip: {
-                            theme: 'dark',
-                            y: {
-                                formatter: (value: number) =>
-                                    value.toLocaleString('es-ES', {
-                                        minimumFractionDigits: 2,
-                                        maximumFractionDigits: 2,
-                                    }) + '€',
-                            },
-                        },
-                        dataLabels: {
-                            formatter: (value: number) =>
-                                value.toFixed(2) + '%', // 🔥 Mostrar porcentaje en sectores
-                        },
-                        plotOptions: {
-                            pie: {
-                                expandOnClick: true,
-                                customScale: 1.1,
-                                donut: {
-                                    size: '0%',
-                                },
-                            },
+                        legend: {
+                            position: 'right',
+                            floating: false,
                         },
                         title: {
+                            text: '',
                             align: 'left',
                             offsetX: 10,
                             style: {
@@ -145,59 +85,60 @@ const CasosPorGrupo = () => {
                                 color: '#000000',
                             },
                         },
-                        legend: {
-                            position: 'right',
+                        tooltip: {
+                            theme: 'dark',
+                            style: { fontSize: '14px' },
+                            y: {
+                                formatter: (value: number) =>
+                                    value.toLocaleString('es-ES'),
+                            },
                         },
+                        responsive: [
+                            {
+                                breakpoint: 768,
+                                options: {
+                                    legend: { position: 'bottom' },
+                                },
+                            },
+                        ],
                     },
-                    series: series,
-                    labels: labels,
+                    series: displayedCasos.map((item) => item.y),
                 })
             })
-            .catch((error) =>
-                console.error('Error cargando casos_dashboard.json:', error),
-            )
-    }, [navigate, mostrarTodos, startDate, endDate]) // 🔥 Se actualiza cuando cambia el rango de fechas
+            .catch((error) => console.error('Error cargando los datos:', error))
+    }, [startDate, endDate, showAll])
 
     if (!chartData) {
-        return <div className="text-center text-lg">Cargando...</div>
+        return <div>Cargando...</div>
     }
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-md">
-            <div className="mb-4 text-xl font-bold text-black">
-                Ingresos por grupo:
+            <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                Ventas por cliente:
+            </h2>
+            <div className="flex w-full lg:w-[40%] justify-start items-center p-3 bg-gray-100 rounded-lg shadow-sm mb-6">
+                <DatePickerComponent
+                    startDate={startDate}
+                    endDate={endDate}
+                    setStartDate={setStartDate}
+                    setEndDate={setEndDate}
+                />
             </div>
-
-            {/* 🔥 Contenedor para el selector de fechas y el botón */}
-            <div className="mb-6 flex flex-wrap items-center justify-between">
-                {/* DatePicker con sombra y borde más estético */}
-                <div className="flex items-center gap-4 p-3 bg-gray-100 rounded-lg shadow-sm">
-                    <DatePickerComponent
-                        startDate={startDate}
-                        endDate={endDate}
-                        setStartDate={setStartDate}
-                        setEndDate={setEndDate}
-                    />
-                </div>
-
-                {/* Botón "Ver más grupos" mejor posicionado */}
-                <button
-                    onClick={() => setMostrarTodos(!mostrarTodos)}
-                    className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-md hover:bg-gray-400 transition-all"
-                >
-                    {mostrarTodos ? 'Mostrar menos' : 'Ver más grupos'}
-                </button>
-            </div>
-
-            {/* Gráfico */}
             <Chart
                 options={chartData.options}
                 series={chartData.series}
                 height={390}
                 type="pie"
             />
+            <button
+                onClick={() => setShowAll(!showAll)}
+                className="mt-4 px-4 py-2 bg-gray-300 rounded-lg text-black w-full md:w-auto"
+            >
+                {showAll ? 'Ver menos' : 'Ver más clientes'}
+            </button>
         </div>
     )
 }
 
-export default CasosPorGrupo
+export default VentasPorCliente

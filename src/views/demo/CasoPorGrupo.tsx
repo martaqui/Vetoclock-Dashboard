@@ -14,7 +14,7 @@ interface ChartData {
     options: ApexOptions
 }
 
-const CasoPorGrupo = () => {
+const CasosPorGrupo = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null)
     const [startDate, setStartDate] = useState<Date | null>(null)
     const [endDate, setEndDate] = useState<Date | null>(null)
@@ -53,7 +53,7 @@ const CasoPorGrupo = () => {
 
                 const displayedCasos = showAll
                     ? sortedCasos
-                    : sortedCasos.slice(0, 4)
+                    : sortedCasos.slice(0, 10)
 
                 setChartData({
                     options: {
@@ -71,7 +71,10 @@ const CasoPorGrupo = () => {
                             '#FFE4B5',
                             '#FFFACD',
                         ],
-                        legend: { position: 'right' },
+                        legend: {
+                            position: 'right',
+                            floating: false,
+                        },
                         title: {
                             text: '',
                             align: 'left',
@@ -90,6 +93,14 @@ const CasoPorGrupo = () => {
                                     value.toLocaleString('es-ES'),
                             },
                         },
+                        responsive: [
+                            {
+                                breakpoint: 768,
+                                options: {
+                                    legend: { position: 'bottom' },
+                                },
+                            },
+                        ],
                     },
                     series: displayedCasos.map((item) => item.y),
                 })
@@ -122,7 +133,7 @@ const CasoPorGrupo = () => {
             />
             <button
                 onClick={() => setShowAll(!showAll)}
-                className="mt-4 px-4 py-2 bg-gray-300 rounded-lg text-black"
+                className="mt-4 px-4 py-2 bg-gray-300 rounded-lg text-black w-full md:w-auto"
             >
                 {showAll ? 'Ver menos' : 'Ver más grupos'}
             </button>
@@ -130,4 +141,4 @@ const CasoPorGrupo = () => {
     )
 }
 
-export default CasoPorGrupo
+export default CasosPorGrupo

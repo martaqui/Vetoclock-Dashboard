@@ -91,12 +91,6 @@ const VentasHistoricoAnual = () => {
     const [diferencia, setDiferencia] = useState<number>(0)
     const [variacionPorcentaje, setVariacionPorcentaje] = useState<number>(0)
 
-    const navigate = useNavigate()
-
-    const handleClick = useCallback(() => {
-        navigate('/casos_historico_anual_mes_anio')
-    }, [navigate])
-
     useEffect(() => {
         fetch('/data/casos_dashboard.json')
             .then((response) => response.json())
@@ -370,7 +364,6 @@ const VentasHistoricoAnual = () => {
                 chart: {
                     type: 'line',
                     zoom: { enabled: false },
-                    events: { click: handleClick },
                 },
                 colors: [COLOR_1, '#D3D3D3'],
                 fill: {
@@ -396,7 +389,7 @@ const VentasHistoricoAnual = () => {
         tipoUrgencia,
         grupo,
         items,
-        handleClick,
+
         startDate,
         endDate,
         empresa,
@@ -533,7 +526,7 @@ const VentasHistoricoAnual = () => {
             </div>
 
             {/* Gráfico */}
-            <div className="cursor-pointer" onClick={handleClick}>
+            <div className="cursor-pointer">
                 {' '}
                 <Chart
                     options={chartData.options}
