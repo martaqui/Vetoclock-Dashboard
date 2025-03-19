@@ -28,6 +28,7 @@ const TotalCasosHome = () => {
     const [chartData, setChartData] = useState<ChartData | null>(null) // Cambié a un solo objeto ChartData o null
     const navigate = useNavigate()
     const [isScrolling, setIsScrolling] = useState(false)
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
 
     const fetchData = useCallback(() => {
         fetch('/data/casos_dashboard.json') // Conexión al archivo JSON
@@ -107,7 +108,11 @@ const TotalCasosHome = () => {
                                 enabled: false,
                             },
                             events: {
-                                click: () => navigate('/casos-historico-anual'),
+                                click: () => {
+                                    if (!isMobile || !isScrolling) {
+                                        navigate('/casos-historico-anual')
+                                    }
+                                },
                             },
                         },
                         dataLabels: {
@@ -137,14 +142,22 @@ const TotalCasosHome = () => {
     useEffect(() => {
         fetchData() // Llamar la función cuando se monte el componente
     }, [fetchData])
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768) // Detecta si estamos en responsive (menos de 768px)
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     useEffect(() => {
+        if (!isMobile) return // Solo aplicamos la lógica si estamos en responsive
+
         let scrollTimeout: NodeJS.Timeout
 
         const handleScroll = () => {
             setIsScrolling(true)
-
-            // Si el usuario deja de hacer scroll, esperamos 300ms y desactivamos el estado
             clearTimeout(scrollTimeout)
             scrollTimeout = setTimeout(() => {
                 setIsScrolling(false)
@@ -152,12 +165,11 @@ const TotalCasosHome = () => {
         }
 
         window.addEventListener('scroll', handleScroll)
-
         return () => {
             window.removeEventListener('scroll', handleScroll)
             clearTimeout(scrollTimeout)
         }
-    }, [])
+    }, [isMobile])
 
     return (
         <div className="w-full mt-8">
