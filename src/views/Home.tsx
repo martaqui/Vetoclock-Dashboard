@@ -95,7 +95,7 @@ const Home = () => {
                     <Card bordered={false} className="flex flex-col p-0">
                         <div className="grid grid-rows-3 gap-2">
                             <div className="mb-4">
-                                <h3>Casoos</h3>
+                                <h3>Casos</h3>
                                 <TotalCasosHome />
                             </div>
                             <div className="mb-4">
