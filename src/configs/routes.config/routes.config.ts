@@ -20,6 +20,17 @@ export const protectedRoutes: Routes = [
         authority: [],
     },
     {
+        key: 'singleMenuItem',
+        path: '/casos-por-especialista',
+        component: lazy(
+            () =>
+                import(
+                    '@/views/demo/CasosPorEspecialista/CasosPorEspecialista'
+                ),
+        ),
+        authority: [],
+    },
+    {
         key: 'collapseMenu.item1',
         path: '/ingresos-historico-anual',
         component: lazy(() => import('@/views/demo/VentasHistoricoAnual')),

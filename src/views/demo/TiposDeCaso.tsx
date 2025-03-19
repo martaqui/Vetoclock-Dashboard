@@ -4,9 +4,16 @@ import { ApexOptions } from 'apexcharts'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
 
 interface DataItem {
-    tipo_locale: string
+    nombre_grupo: string
+    empresa: string
     mes_anio: string
     total_casos: string
+    nombre_usuario: string
+    tipo_urgencia: string
+    tipo_locale: string
+    total_coste: string
+    total_precio: string
+    margen: string
 }
 
 interface ChartData {
