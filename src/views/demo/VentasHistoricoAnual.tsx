@@ -33,12 +33,6 @@ interface Cliente {
     porcentaje: number
 }
 
-interface Especialista {
-    x: string
-    y: number
-    porcentaje: number
-}
-
 const obtenerFechaEnEspañol = (fecha: string) => {
     const meses = [
         'Enero',
@@ -80,7 +74,6 @@ const VentasHistoricoAnual = () => {
     const [empresa, setEmpresa] = useState<string>('')
     const [empresas, setEmpresas] = useState<string[]>([])
     const [topClientes, setTopClientes] = useState<Cliente[]>([])
-    const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
     const [tipoCaso, setTipoCaso] = useState<string>('')
     const [tiposCaso, setTiposCaso] = useState<string[]>([])
     const [especialista, setEspecialista] = useState<string>('')

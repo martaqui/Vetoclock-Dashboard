@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Chart from 'react-apexcharts'
 import { COLOR_1 } from '@/constants/chart.constant'
 import { ApexOptions } from 'apexcharts'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
@@ -29,12 +28,6 @@ interface ChartData {
 }
 
 interface Cliente {
-    x: string
-    y: number
-    porcentaje: number
-}
-
-interface Especialista {
     x: string
     y: number
     porcentaje: number
@@ -81,7 +74,6 @@ const Margen = () => {
     const [empresa, setEmpresa] = useState<string>('')
     const [empresas, setEmpresas] = useState<string[]>([])
     const [topClientes, setTopClientes] = useState<Cliente[]>([])
-    const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
     const [tipoCaso, setTipoCaso] = useState<string>('')
     const [tiposCaso, setTiposCaso] = useState<string[]>([])
     const [especialista, setEspecialista] = useState<string>('')

@@ -19,11 +19,6 @@ interface DataItem {
     margen: string
 }
 
-interface Especialista {
-    x: string
-    y: number
-    porcentaje: number
-}
 interface ChartData {
     series: {
         name: string
@@ -76,7 +71,6 @@ const CasosHistoricoAnual = () => {
         { x: string; y: number; porcentaje: number }[]
     >([])
 
-    const [topEspecialistas, setTopEspecialistas] = useState<Especialista[]>([])
     const [tipoCaso, setTipoCaso] = useState<string>('')
     const [tiposCaso, setTiposCaso] = useState<string[]>([])
     const [especialista, setEspecialista] = useState<string>('')
