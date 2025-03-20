@@ -1,10 +1,10 @@
-import { useEffect, useState, useCallback } from 'react'
-import Chart from 'react-apexcharts'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { COLOR_1 } from '@/constants/chart.constant'
 import { ApexOptions } from 'apexcharts'
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent'
 import TopList from './TopList/TopList'
+import Filtros from './Filtros'
+import ChartComponent from './ChartComponent'
 
 interface DataItem {
     nombre_grupo: string
@@ -73,10 +73,10 @@ const VentasHistoricoAnual = () => {
     const [grupo, setGrupo] = useState<string>('')
     const [grupos, setGrupos] = useState<string[]>([])
     const [items, setItems] = useState<DataItem[]>([])
-    const [startDate, setStartDate] = useState(
-        () => new Date(new Date().setMonth(new Date().getMonth() - 3)),
+    const [startDate, setStartDate] = useState<Date | null>(
+        new Date(new Date().setMonth(new Date().getMonth() - 3)), // 3 meses atrás
     )
-    const [endDate, setEndDate] = useState(new Date())
+    const [endDate, setEndDate] = useState<Date | null>(new Date()) // Fecha actual
     const [empresa, setEmpresa] = useState<string>('')
     const [empresas, setEmpresas] = useState<string[]>([])
     const [topClientes, setTopClientes] = useState<Cliente[]>([])
@@ -102,26 +102,69 @@ const VentasHistoricoAnual = () => {
                     console.error('No hay datos disponibles')
                     return
                 }
+
+                const casosPorCliente: { [key: string]: number } = {}
+
+                parsedData.forEach((item) => {
+                    const cliente = item.empresa // O usa item.nombre_grupo si es más adecuado
+                    const casos = parseInt(item.total_casos, 10) || 0
+
+                    if (casosPorCliente[cliente]) {
+                        casosPorCliente[cliente] += casos
+                    } else {
+                        casosPorCliente[cliente] = casos
+                    }
+                })
+
+                // Crear un arreglo con los resultados
+                const clientesFiltrados = Object.entries(casosPorCliente).map(
+                    ([x, y]) => ({
+                        x: x || 'Cliente Desconocido', // El nombre de la empresa o grupo
+                        y: y, // Total de casos
+                        porcentaje: 0, // Inicializamos el porcentaje en 0
+                    }),
+                )
+
+                // Ordenar de mayor a menor por número de casos
+                const sortedClientes = clientesFiltrados.sort(
+                    (a, b) => b.y - a.y,
+                )
+
+                // Calcular el total de casos
+                const totalCasos = sortedClientes.reduce(
+                    (sum, item) => sum + item.y,
+                    0,
+                )
+
+                // Asignar los porcentajes
+                const clientesConPorcentaje = sortedClientes.map((cliente) => ({
+                    ...cliente,
+                    porcentaje:
+                        totalCasos > 0 ? (cliente.y / totalCasos) * 100 : 0,
+                }))
+
+                // Tomamos solo los 3 primeros clientes con mayor porcentaje
+                setTopClientes(clientesConPorcentaje.slice(0, 3))
+
                 setItems(parsedData)
 
+                // Establecer los grupos, urgencias, casos y especialistas
                 setGrupos(
                     Array.from(
                         new Set(parsedData.map((item) => item.nombre_grupo)),
-                    ).sort(), // Ordenar grupos alfabéticamente
+                    ).sort(),
                 )
-
-                // Ordenar empresas alfabéticamente
 
                 setTiposUrgencia(
                     Array.from(
                         new Set(parsedData.map((item) => item.tipo_urgencia)),
-                    ).sort(), // Ordenar tipos de urgencia alfabéticamente
+                    ).sort(),
                 )
 
                 setTiposCaso(
                     Array.from(
                         new Set(parsedData.map((item) => item.tipo_locale)),
-                    ).sort(), // Ordenar tipos de caso alfabéticamente
+                    ).sort(),
                 )
                 setEspecialistas(
                     Array.from(
@@ -129,13 +172,11 @@ const VentasHistoricoAnual = () => {
                     ).sort(),
                 )
             })
-            .catch((error) =>
-                console.error('Error al cargar los datos JSON:', error),
-            )
     }, [])
+
+    // Filtrar empresas cuando se selecciona un grupo
     useEffect(() => {
         if (grupo) {
-            // Filtrar las empresas del grupo seleccionado
             const empresasFiltradas = [
                 ...new Set(
                     items
@@ -145,113 +186,35 @@ const VentasHistoricoAnual = () => {
             ].sort()
             setEmpresas(empresasFiltradas)
 
-            // Si la empresa seleccionada ya no está disponible, la reseteamos
             if (!empresasFiltradas.includes(empresa)) {
                 setEmpresa('')
             }
         } else {
-            // Si no hay grupo seleccionado, mostrar todas las empresas
             setEmpresas([...new Set(items.map((item) => item.empresa))])
         }
-    }, [grupo, items])
-    // Se agregan 'empresa' y 'todasLasEmpresas'
+    }, [grupo, items, empresa])
 
-    useEffect(() => {
-        fetch('/data/ventasxcliente.json')
-            .then((response) => response.json())
-            .then((data: { data: Cliente[] }) => {
-                const clientesFiltrados: Cliente[] = data.data
-                    .filter((item) => item.x !== null)
-                    .map((item) => ({
-                        x: item.x || 'Cliente Desconocido',
-                        y: item.y,
-                        porcentaje: 0, // Inicializamos con 0
-                    }))
-
-                // Ordenamos de mayor a menor
-                const sortedClientes = clientesFiltrados.sort(
-                    (a, b) => b.y - a.y,
-                )
-
-                // Calculamos el total de ventas
-                const totalVentas = sortedClientes.reduce(
-                    (sum, item) => sum + item.y,
-                    0,
-                )
-
-                // Asignamos los porcentajes correctos
-                const clientesConPorcentaje = sortedClientes.map((cliente) => ({
-                    ...cliente,
-                    porcentaje:
-                        totalVentas > 0 ? (cliente.y / totalVentas) * 100 : 0,
-                }))
-
-                // Tomamos solo los 3 clientes con mayor porcentaje
-                setTopClientes(clientesConPorcentaje.slice(0, 3))
-            })
-            .catch((error) => console.error('Error loading JSON data:', error))
-
-        fetch('/data/costesxespecialista.json')
-            .then((response) => response.json())
-            .then((data: { data: Especialista[] }) => {
-                const especialistasFiltrados: Especialista[] = data.data.map(
-                    (item) => ({
-                        x: item.x,
-                        y: item.y,
-                        porcentaje: 0, // Inicializamos en 0
-                    }),
-                )
-
-                // Obtener la suma total de costos de todos los especialistas
-                const totalCostes = especialistasFiltrados.reduce(
-                    (sum, item) => sum + item.y,
-                    0,
-                )
-
-                // Calcular el porcentaje correctamente
-                const especialistasConPorcentaje = especialistasFiltrados.map(
-                    (especialista) => ({
-                        ...especialista,
-                        porcentaje:
-                            totalCostes > 0
-                                ? (especialista.y / totalCostes) * 100
-                                : 0,
-                    }),
-                )
-
-                // Ordenar de mayor a menor y seleccionar los 3 primeros
-                setTopEspecialistas(
-                    especialistasConPorcentaje
-                        .sort((a, b) => b.y - a.y)
-                        .slice(0, 3),
-                )
-            })
-            .catch((error) =>
-                console.error('Error cargando especialistas:', error),
-            )
-    }, [])
-
+    // Filtrar tipos de casos cuando se selecciona un especialista
     useEffect(() => {
         if (especialista) {
-            // Filtrar tipos de caso del especialista seleccionado
             const tiposDeCasoFiltrados = [
                 ...new Set(
                     items
-                        .filter((item) => item.nombre_usuario === especialista) // Filtra por especialista
-                        .map((item) => item.tipo_locale), // Extrae los tipos de casos
+                        .filter((item) => item.nombre_usuario === especialista)
+                        .map((item) => item.tipo_locale),
                 ),
-            ].sort() // Ordenar alfabéticamente
+            ].sort()
             setTiposCaso(tiposDeCasoFiltrados)
         } else {
-            // Si no hay especialista seleccionado, mostrar todos los tipos de caso
             setTiposCaso(
                 [...new Set(items.map((item) => item.tipo_locale))].sort(),
             )
         }
-    }, [especialista, items]) // Dependencias: especialista y items
+    }, [especialista, items])
 
+    // Filtrar los datos según la fecha, grupo, empresa, urgencia, etc.
     useEffect(() => {
-        if (items.length === 0) return
+        if (items.length === 0 || !startDate || !endDate) return
 
         const fechaInicial = convertirFechaAFormato(startDate)
         const fechaFinal = convertirFechaAFormato(endDate)
@@ -274,7 +237,7 @@ const VentasHistoricoAnual = () => {
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
             const key = item.mes_anio
-            const casos = parseInt(item.total_precio, 10) || 0
+            const casos = parseInt(item.total_casos, 10) || 0
 
             if (key >= fechaInicial && key <= fechaFinal) {
                 acc[key] = acc[key] || { total: 0, filtro: 0 }
@@ -286,12 +249,12 @@ const VentasHistoricoAnual = () => {
 
             return acc
         }, {})
+
         const totalCasosCalculado = Object.values(grouped).reduce(
             (sum, item) => sum + item.filtro,
             0,
         )
 
-        // 🔥 Agrupar los casos del año anterior
         const groupedAnioAnterior = items.reduce<{
             [key: string]: { total: number; filtro: number }
         }>((acc, item) => {
@@ -302,7 +265,7 @@ const VentasHistoricoAnual = () => {
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
             const key = item.mes_anio
-            const casos = parseInt(item.total_precio, 10) || 0
+            const casos = parseInt(item.total_casos, 10) || 0
 
             if (key >= fechaInicialAnterior && key <= fechaFinalAnterior) {
                 acc[key] = acc[key] || { total: 0, filtro: 0 }
@@ -321,16 +284,15 @@ const VentasHistoricoAnual = () => {
 
         setTotalCasos(totalCasosCalculado)
         setTotalCasosAnioAnterior(totalCasosAnioAnteriorCalculado)
+
         const diferencia = totalCasosCalculado - totalCasosAnioAnteriorCalculado
-        // 🔥 Calcular la variación en porcentaje
         const variacionPorcentaje =
             totalCasosAnioAnteriorCalculado > 0
                 ? ((totalCasosCalculado - totalCasosAnioAnteriorCalculado) /
                       totalCasosAnioAnteriorCalculado) *
                   100
-                : 0 // Evitar división por 0
+                : 0
 
-        // 🔥 Guardar la diferencia en el estado
         setDiferencia(diferencia)
         setVariacionPorcentaje(variacionPorcentaje)
 
@@ -341,22 +303,21 @@ const VentasHistoricoAnual = () => {
             return item >= fechaInicial && item <= fechaFinal
         })
 
-        // 📊 Obtener el valor máximo dinámico
         const maxTotal = Math.max(...data.map((date) => grouped[date].total), 0)
         const maxFiltrado = Math.max(
             ...data.map((date) => grouped[date].filtro),
             0,
         )
-        const maxY = Math.max(maxTotal, maxFiltrado) || 10 // Evita 0 como máximo
+        const maxY = Math.max(maxTotal, maxFiltrado) || 10
 
         setChartData({
             series: [
                 {
-                    name: 'Ingresos filtrados',
+                    name: 'Casos Filtrados',
                     data: data.map((date) => grouped[date].filtro),
                 },
                 {
-                    name: 'Total ingresos',
+                    name: 'Total Casos',
                     data: data.map((date) => grouped[date].total),
                 },
             ],
@@ -381,7 +342,7 @@ const VentasHistoricoAnual = () => {
                     categories: data.map(obtenerFechaEnEspañol),
                     type: 'category',
                 },
-                yaxis: { opposite: true, max: maxY }, // 🔥 Se ajusta dinámicamente
+                yaxis: { opposite: true, max: maxY },
                 legend: { horizontalAlign: 'left' },
             },
         })
@@ -389,12 +350,11 @@ const VentasHistoricoAnual = () => {
         tipoUrgencia,
         grupo,
         items,
-
         startDate,
         endDate,
         empresa,
         tipoCaso,
-        especialista, // Asegúrate de que esto también esté como dependencia
+        especialista,
     ])
 
     if (!chartData) return <div>Loading...</div>
@@ -422,99 +382,23 @@ const VentasHistoricoAnual = () => {
                 Ingresos
             </h2>
 
-            {/* Contenedor de filtros */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                {/* Filtro por Grupo */}
-                <div className="flex flex-col">
-                    <label className="text-sm font-medium text-gray-600 mb-1">
-                        Filtrar por grupo:
-                    </label>
-                    <select
-                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                        value={grupo}
-                        onChange={(e) => setGrupo(e.target.value)}
-                    >
-                        <option value="">Todos</option>
-                        {grupos.map((grp) => (
-                            <option key={grp} value={grp}>
-                                {grp}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-
-                {/* Filtro por Empresa */}
-                <div className="flex flex-col">
-                    <label className="text-sm font-medium text-gray-600 mb-1">
-                        Filtrar por empresa:
-                    </label>
-                    <select
-                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                        value={empresa}
-                        onChange={(e) => setEmpresa(e.target.value)}
-                    >
-                        <option value="">Todas</option>
-                        {empresas.map((empr) => (
-                            <option key={empr} value={empr}>
-                                {empr}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="flex flex-col">
-                    <label className="text-sm font-medium text-gray-600 mb-1">
-                        Filtrar por tipo de caso:
-                    </label>
-                    <select
-                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                        value={tipoCaso}
-                        onChange={(e) => setTipoCaso(e.target.value)}
-                    >
-                        <option value="">Todos</option>
-                        {tiposCaso.map((caso) => (
-                            <option key={caso} value={caso}>
-                                {caso}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                {/* Filtro por Tipo de Urgencia */}
-                <div className="flex flex-col">
-                    <label className="text-sm font-medium text-gray-600 mb-1">
-                        Filtrar por tipo de urgencia:
-                    </label>
-                    <select
-                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                        value={tipoUrgencia}
-                        onChange={(e) => setTipoUrgencia(e.target.value)}
-                    >
-                        <option value="">Todos</option>
-                        {tiposUrgencia.map((urgencia) => (
-                            <option key={urgencia} value={urgencia}>
-                                {urgencia}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="flex flex-col">
-                    <label className="text-sm font-medium text-gray-600 mb-1">
-                        Filtrar por especialista:
-                    </label>
-                    <select
-                        className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                        value={especialista}
-                        onChange={(e) => setEspecialista(e.target.value)}
-                    >
-                        <option value="">Todos</option>
-                        {especialistas.map((esp) => (
-                            <option key={esp} value={esp}>
-                                {esp}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </div>
-
+            <Filtros
+                tipoUrgencia={tipoUrgencia}
+                setTipoUrgencia={setTipoUrgencia}
+                grupo={grupo}
+                setGrupo={setGrupo}
+                empresa={empresa}
+                setEmpresa={setEmpresa}
+                tipoCaso={tipoCaso}
+                setTipoCaso={setTipoCaso}
+                especialista={especialista}
+                setEspecialista={setEspecialista}
+                tiposUrgencia={tiposUrgencia}
+                grupos={grupos}
+                empresas={empresas}
+                tiposCaso={tiposCaso}
+                especialistas={especialistas}
+            />
             {/* Selector de Fechas */}
             <div className="flex w-full lg:w-[40%] justify-start items-center p-3 bg-gray-100 rounded-lg shadow-sm mb-6">
                 <DatePickerComponent
@@ -526,15 +410,11 @@ const VentasHistoricoAnual = () => {
             </div>
 
             {/* Gráfico */}
-            <div className="cursor-pointer">
-                {' '}
-                <Chart
-                    options={chartData.options}
-                    series={chartData.series}
-                    type="area"
-                    height={390}
-                />
-            </div>
+            {chartData ? (
+                <ChartComponent chartData={chartData} />
+            ) : (
+                <div>Cargando gráfico...</div>
+            )}
 
             <hr />
 
@@ -554,7 +434,7 @@ const VentasHistoricoAnual = () => {
                         y: diferencia, // 🔥 En lugar del total del año anterior, mostramos la diferencia
                     },
                     {
-                        x: 'Variación %',
+                        x: 'Variación ',
                         porcentaje: Math.min(
                             Math.abs(variacionPorcentaje),
                             100,
