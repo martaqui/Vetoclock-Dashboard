@@ -100,7 +100,7 @@ const Margen = () => {
 
                 parsedData.forEach((item) => {
                     const cliente = item.empresa // O usa item.nombre_grupo si es más adecuado
-                    const casos = parseInt(item.total_casos, 10) || 0
+                    const casos = parseInt(item.margen, 10) || 0
 
                     if (casosPorCliente[cliente]) {
                         casosPorCliente[cliente] += casos
@@ -230,7 +230,7 @@ const Margen = () => {
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
             const key = item.mes_anio
-            const casos = parseInt(item.total_casos, 10) || 0
+            const casos = parseInt(item.margen, 10) || 0
 
             if (key >= fechaInicial && key <= fechaFinal) {
                 acc[key] = acc[key] || { total: 0, filtro: 0 }
@@ -258,7 +258,7 @@ const Margen = () => {
             if (tipoCaso && item.tipo_locale !== tipoCaso) return acc
 
             const key = item.mes_anio
-            const casos = parseInt(item.total_casos, 10) || 0
+            const casos = parseInt(item.margen, 10) || 0
 
             if (key >= fechaInicialAnterior && key <= fechaFinalAnterior) {
                 acc[key] = acc[key] || { total: 0, filtro: 0 }
