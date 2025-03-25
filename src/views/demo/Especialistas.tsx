@@ -19,7 +19,7 @@ const Especialistas = () => {
     const [endDate, setEndDate] = useState<Date | null>(null)
 
     useEffect(() => {
-        fetch('/data/casos_dashboard.json')
+        fetch('/data/casos_dashboard_ficticio.json')
             .then((response) => response.json())
             .then((data: DataItem[]) => {
                 if (!data || data.length === 0) return

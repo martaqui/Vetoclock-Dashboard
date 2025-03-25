@@ -82,7 +82,7 @@ const CasosHistoricoAnual = () => {
     const [variacionPorcentaje, setVariacionPorcentaje] = useState<number>(0)
 
     useEffect(() => {
-        fetch('/data/casos_dashboard.json')
+        fetch('/data/casos_dashboard_ficticio.json')
             .then((response) => response.json())
             .then((data: DataItem[] | { data: DataItem[] }) => {
                 const parsedData: DataItem[] = Array.isArray(data)

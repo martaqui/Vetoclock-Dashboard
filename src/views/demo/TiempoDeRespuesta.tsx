@@ -14,7 +14,7 @@ const TiempoDeRespuesta = () => {
             try {
                 // Fetch de los datos de tiempo medio de respuesta
                 const response = await fetch(
-                    '/data/tiempo_medio_respuesta.json',
+                    '/data/tiempo_medio_respuesta_ficticio.json',
                 )
                 const data: AsignadoItem[] = await response.json()
                 setTopAsignados(data)

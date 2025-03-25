@@ -39,7 +39,7 @@ const TotalVentasHome = () => {
     }, [])
 
     const fetchData = useCallback(() => {
-        fetch('/data/casos_dashboard.json')
+        fetch('/data/casos_dashboard_ficticio.json')
             .then((response) => response.json())
             .then((json) => {
                 if (!Array.isArray(json)) {

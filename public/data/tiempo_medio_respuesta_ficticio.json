@@ -1,0 +1,122 @@
+[
+    {
+        "asignado_nombre": "Usuario 1",
+        "total_casos": 91,
+        "tiempo_medio_horas": "77.01"
+    },
+    {
+        "asignado_nombre": "Usuario 2",
+        "total_casos": 84,
+        "tiempo_medio_horas": "51.33"
+    },
+    {
+        "asignado_nombre": "Usuario 3",
+        "total_casos": 6,
+        "tiempo_medio_horas": "47.12"
+    },
+    {
+        "asignado_nombre": "Usuario 4",
+        "total_casos": 55,
+        "tiempo_medio_horas": "60.91"
+    },
+    {
+        "asignado_nombre": "Usuario 5",
+        "total_casos": 16,
+        "tiempo_medio_horas": "72.75"
+    },
+    {
+        "asignado_nombre": "Usuario 6",
+        "total_casos": 59,
+        "tiempo_medio_horas": "39.84"
+    },
+    {
+        "asignado_nombre": "Usuario 7",
+        "total_casos": 95,
+        "tiempo_medio_horas": "43.07"
+    },
+    {
+        "asignado_nombre": "Usuario 8",
+        "total_casos": 78,
+        "tiempo_medio_horas": "67.91"
+    },
+    {
+        "asignado_nombre": "Usuario 9",
+        "total_casos": 21,
+        "tiempo_medio_horas": "45.94"
+    },
+    {
+        "asignado_nombre": "Usuario 10",
+        "total_casos": 12,
+        "tiempo_medio_horas": "49.45"
+    },
+    {
+        "asignado_nombre": "Usuario 11",
+        "total_casos": 84,
+        "tiempo_medio_horas": "45.52"
+    },
+    {
+        "asignado_nombre": "Usuario 12",
+        "total_casos": 60,
+        "tiempo_medio_horas": "204.00"
+    },
+    {
+        "asignado_nombre": "Usuario 13",
+        "total_casos": 20,
+        "tiempo_medio_horas": "37.71"
+    },
+    {
+        "asignado_nombre": "Usuario 14",
+        "total_casos": 86,
+        "tiempo_medio_horas": "180.00"
+    },
+    {
+        "asignado_nombre": "Usuario 15",
+        "total_casos": 45,
+        "tiempo_medio_horas": "34.29"
+    },
+    {
+        "asignado_nombre": "Usuario 16",
+        "total_casos": 11,
+        "tiempo_medio_horas": "331.20"
+    },
+    {
+        "asignado_nombre": "Usuario 17",
+        "total_casos": 44,
+        "tiempo_medio_horas": "180.00"
+    },
+    {
+        "asignado_nombre": "Usuario 18",
+        "total_casos": 82,
+        "tiempo_medio_horas": "306.00"
+    },
+    {
+        "asignado_nombre": "Usuario 19",
+        "total_casos": 5,
+        "tiempo_medio_horas": "276.00"
+    },
+    {
+        "asignado_nombre": "Usuario 20",
+        "total_casos": 75,
+        "tiempo_medio_horas": "180.00"
+    },
+    {
+        "asignado_nombre": "Usuario 21",
+        "total_casos": 46,
+        "tiempo_medio_horas": "96.00"
+    },
+    {
+        "asignado_nombre": "Usuario 22",
+        "total_casos": 25,
+        "tiempo_medio_horas": "96.00"
+    },
+    {
+        "asignado_nombre": "Usuario 23",
+        "total_casos": 31,
+        "tiempo_medio_horas": "60.00"
+    },
+    {
+        "asignado_nombre": "Usuario 24",
+        "total_casos": 39,
+        "tiempo_medio_horas": "192.00"
+    }
+]

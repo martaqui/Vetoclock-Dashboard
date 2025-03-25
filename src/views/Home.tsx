@@ -31,7 +31,7 @@ const Home = () => {
             try {
                 // Fetch de asignados
                 const asignadosResponse = await fetch(
-                    '/data/tiempo_medio_respuesta.json',
+                    '/data/tiempo_medio_respuesta_ficticio.json',
                 )
                 const asignadosData: AsignadoItem[] =
                     await asignadosResponse.json()
@@ -42,7 +42,9 @@ const Home = () => {
                 setTopAsignados(sortedAsignados)
 
                 // Fetch de casos
-                const casosResponse = await fetch('/data/casos_dashboard.json')
+                const casosResponse = await fetch(
+                    '/data/casos_dashboard_ficticio.json',
+                )
                 const casosData: DataItem[] = await casosResponse.json()
                 console.log('Casos:', casosData) // Verifica los datos
 
