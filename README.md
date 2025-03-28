@@ -1,26 +1,42 @@
-# Ecme - The Ultimate React, Vite & TypeScript Web Template
+# 🐾 Vetoclock - Veterinary Data Dashboard
 
-Ecme is a modern and responsive admin dashboard template built with React and TypeScript. Designed to provide a highly customizable and easy-to-use platform for building admin interfaces, it includes a variety of reusable components, pre-designed pages, and dynamic features.
+Vetoclock is a full-featured, data-driven dashboard built with **React**, **TypeScript**, and **Tailwind CSS**, focused on helping veterinary clinics visualize and analyze performance over time.
 
-This template is perfect for developing dashboards, web applications, CRM systems, e-commerce backends, and more. Whether you're building a small-scale admin panel or a large-scale enterprise application, Ecme is designed to be flexible and scalable.
-
-Key Features:
-
--   **Responsive Layout**: Optimized for all screen sizes and devices.
--   **Dark/Light Mode**: Easily switch between light and dark themes.
--   **Configurable Themes**: Personalize colors, layouts, and more to fit your needs.
--   **Built with React + TypeScript**: Ensures robust type-checking and fast development.
--   **Multi-Locale Support**: Easily add and manage multiple languages.
--   **RTL Support**: Full Right-to-Left support for languages like Arabic or Hebrew.
--   **Tailwind Component-Based Architecture**: Reusable components to streamline your development process.
--   **API Ready**: Simple integration with any RESTful API.
+It allows filtering and comparison of cases by group, clinic, urgency, specialist, case type, and time period. Built with scalability and maintainability in mind, it's ideal for operational insight and performance tracking.
 
 ---
 
-### Demo
+## 🚀 Features
 
-Check out the [Live Demo](https://ecme-react.themenate.net/) to explore the template in action.
+-   📈 **Interactive Line Charts** – Track total vs filtered cases over time.
+-   📅 **Date Range Filter** – Compare data month-to-month or year-to-year.
+-   🏥 **Filters by Group, Clinic, Specialist, Case Type, and Urgency**
+-   🏆 **Top Clients & Specialists** – Highlight performance with dynamic bars.
+-   🔁 **Year-over-Year Comparison** – See growth or drop in cases over the same period.
+-   📊 **Reusable Components** – Charts, Filters, Lists, and DatePickers.
+-   🔗 **Serverless Integration** – Pulls data from remote JSON APIs via Netlify Functions.
+-   ⚙️ **Fully Scalable & Maintainable Architecture**
 
-### Guide
+---
 
-Please visit our [Online documentation](https://ecme-react.themenate.net/guide/documentation/introduction) for detailed guides, setup instructions, and customization options.
+## 📦 Tech Stack
+
+-   🧠 **React** + **TypeScript**
+-   💨 **Tailwind CSS**
+-   📊 **ApexCharts**
+-   🌐 **Netlify Functions** (Serverless backend proxy)
+-   📁 Static JSON APIs
+
+## 🖼️ Screenshots
+
+### 📊 Dashboard Overview
+
+![Dashboard Overview](./public/screenshots/public/screenshots/Captura de pantalla 2025-03-28 a las 12.44.45.png)
+
+---
+
+### 🎛️ Filters in Action
+
+![Filters Demo](./public/screenshots/public/screenshots/Captura de pantalla 2025-03-28 a las 12.50.43.png)
+
+---

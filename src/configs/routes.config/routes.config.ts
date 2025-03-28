@@ -68,28 +68,7 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/demo/VentasHistoricasMesAnio')), // Importa tu componente
         authority: [],
     },
-    {
-        key: 'collapseMenu.item6', // Puedes poner cualquier clave única
-        path: '/casos_historico_anual_mes_anio', // Esta es la URL a la que navegarás
-        component: lazy(
-            () => import('@/views/demo/CasosHistoricoAnualMesAnio'),
-        ), // Importa tu componente
-        authority: [],
-    },
-    {
-        key: 'collapseMenu.item7',
-        path: '/ventas_por_cliente_en_concreto/:client/:cif',
-        component: lazy(() => import('@/views/demo/GraficoPorCliente')),
-        authority: [],
-    },
-    {
-        key: 'collapseMenu.item8',
-        path: '/ingresos-por-cliente-desglosado',
-        component: lazy(
-            () => import('@/views/demo/VentasPorClienteDesglosado'),
-        ),
-        authority: [],
-    },
+
     {
         key: 'collapseMenu.item8',
         path: '/costes',
