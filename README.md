@@ -31,12 +31,12 @@ It allows filtering and comparison of cases by group, clinic, urgency, specialis
 
 ### 📊 Dashboard Overview
 
-![Dashboard Overview](./public/screenshots/public/screenshots/Captura de pantalla 2025-03-28 a las 12.44.45.png)
+![Dashboard Overview](./screenshots/dashboard-overview.png)
 
 ---
 
 ### 🎛️ Filters in Action
 
-![Filters Demo](./public/screenshots/public/screenshots/Captura de pantalla 2025-03-28 a las 12.50.43.png)
+![Filters Demo](./screenshots/filters-demo.png)
 
 ---
